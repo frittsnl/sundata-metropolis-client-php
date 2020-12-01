@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="635dfdb0-63ee-48c8-a148-a5d5f917ef74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Api/PlantsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Api/PlantsApi.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Configuration.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +63,9 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="1674" y="848" width="586" height="490" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606841265130" />
-    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup" timestamp="1606841266969">
+    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup" timestamp="1606849767818">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606841266969" />
+    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606849767818" />
   </component>
 </project>

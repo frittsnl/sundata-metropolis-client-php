@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="635dfdb0-63ee-48c8-a148-a5d5f917ef74" name="Default Changelist" comment="" />
+    <list default="true" id="635dfdb0-63ee-48c8-a148-a5d5f917ef74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git_push.sh" beforeDir="false" afterPath="$PROJECT_DIR$/git_push.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +13,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/SwaggerClient-php/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ksR3oDgg3i2cbBIpoqExilJ40l" />
   <component name="ProjectViewState">
@@ -46,6 +52,7 @@
       <updated>1606487116287</updated>
       <workItem from="1606487117419" duration="659000" />
       <workItem from="1606489392525" duration="354000" />
+      <workItem from="1606838947719" duration="590000" />
     </task>
     <servers />
   </component>
@@ -53,6 +60,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1674" y="848" width="586" height="490" key="find.popup" timestamp="1606839534788">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state x="1674" y="848" width="586" height="490" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606839534788" />
     <state x="2026" y="863" key="search.everywhere.popup" timestamp="1606489443739">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>

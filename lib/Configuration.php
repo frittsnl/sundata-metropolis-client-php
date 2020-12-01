@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://localhost';
+    protected $host = 'https://metropolis.staging.sddns.nl/api/v0';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -436,8 +436,8 @@ class Configuration
     {
         return array(
           array(
-            "url" => "/",
-            "description" => "No description provided",
+            "url" => "https://metropolis.staging.sddns.nl/api/v0",
+            "description" => "SunData staging api",
           )
         );
     }

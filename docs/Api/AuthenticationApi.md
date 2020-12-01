@@ -1,18 +1,18 @@
-# OpenAPI\Client\PlantsApi
+# OpenAPI\Client\AuthenticationApi
 
 All URIs are relative to *https://metropolis.staging.sddns.nl/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPlantById**](PlantsApi.md#getPlantById) | **GET** /api/v0/companies/{company_id}/plants/{plant_id} | Returns the plant
+[**signIn**](AuthenticationApi.md#signIn) | **POST** /api/v0/sign-in | Sign in to the back-end of SunData
 
 
 
-## getPlantById
+## signIn
 
-> getPlantById($company_id, $plant_id)
+> \OpenAPI\Client\Model\InlineResponse200 signIn($email, $password)
 
-Returns the plant
+Sign in to the back-end of SunData
 
 ### Example
 
@@ -21,18 +21,19 @@ Returns the plant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-$apiInstance = new OpenAPI\Client\Api\PlantsApi(
+$apiInstance = new OpenAPI\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 56; // int | Company ID
-$plant_id = 56; // int | Plant ID
+$email = 'email_example'; // string | email
+$password = 'password_example'; // string | password
 
 try {
-    $apiInstance->getPlantById($company_id, $plant_id);
+    $result = $apiInstance->signIn($email, $password);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PlantsApi->getPlantById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->signIn: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -42,12 +43,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **int**| Company ID |
- **plant_id** | **int**| Plant ID |
+ **email** | **string**| email |
+ **password** | **string**| password |
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -56,7 +57,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

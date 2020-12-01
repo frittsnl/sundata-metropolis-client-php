@@ -60,18 +60,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\PlantsApi(
+$apiInstance = new OpenAPI\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 56; // int | Company ID
-$plant_id = 56; // int | Plant ID
+$email = 'email_example'; // string | email
+$password = 'password_example'; // string | password
 
 try {
-    $apiInstance->getPlantById($company_id, $plant_id);
+    $result = $apiInstance->signIn($email, $password);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PlantsApi->getPlantById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuthenticationApi->signIn: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -79,15 +80,19 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://metropolis.staging.sddns.nl/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuthenticationApi* | [**signIn**](docs/Api/AuthenticationApi.md#signin) | **POST** /api/v0/sign-in | Sign in to the back-end of SunData
+*MetersApi* | [**validateMeterExistence**](docs/Api/MetersApi.md#validatemeterexistence) | **GET** /api/v0/utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
 *PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /api/v0/companies/{company_id}/plants/{plant_id} | Returns the plant
 
 
 ## Documentation For Models
 
+ - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
 
 
 ## Documentation For Authorization

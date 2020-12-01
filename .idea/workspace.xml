@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="635dfdb0-63ee-48c8-a148-a5d5f917ef74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Api/PlantsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Api/PlantsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Configuration.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

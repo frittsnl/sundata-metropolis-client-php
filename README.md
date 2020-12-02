@@ -80,7 +80,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://metropolis.staging.sddns.nl/api/v0*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

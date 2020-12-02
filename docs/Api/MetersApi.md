@@ -1,6 +1,6 @@
 # OpenAPI\Client\MetersApi
 
-All URIs are relative to *https://metropolis.staging.sddns.nl/api/v0*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

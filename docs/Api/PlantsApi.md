@@ -21,10 +21,17 @@ Returns the plant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: access_token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+
+
 $apiInstance = new OpenAPI\Client\Api\PlantsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $company_id = 56; // int | Company ID
 $plant_id = 56; // int | Plant ID
@@ -51,7 +58,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[access_token](../../README.md#access_token)
 
 ### HTTP request headers
 

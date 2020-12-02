@@ -338,6 +338,11 @@ class PlantsApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Access-Token');
+        if ($apiKey !== null) {
+            $headers['Access-Token'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

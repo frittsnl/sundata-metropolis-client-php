@@ -21,10 +21,17 @@ Validate whether a reference_identifier is valid.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: access_token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+
+
 $apiInstance = new OpenAPI\Client\Api\MetersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $reference_identifier = 10cv143-ffavw12-s8nD4t4; // string | The reference identifier a.k.a. EAN.
 $inbound_driver = solarweb; // string | The name of the inbound_driver. For example; 'solaredge' or 'cast4all'.
@@ -52,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[access_token](../../README.md#access_token)
 
 ### HTTP request headers
 

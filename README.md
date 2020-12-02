@@ -99,7 +99,7 @@ Class | Method | HTTP request | Description
 
 
 
-## AccessToken
+## access_token
 
 
 - **Type**: API key

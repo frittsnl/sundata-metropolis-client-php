@@ -21,7 +21,7 @@ Validate whether a reference_identifier is valid.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
+// Configure API key authorization: access_token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[access_token](../../README.md#access_token)
 
 ### HTTP request headers
 

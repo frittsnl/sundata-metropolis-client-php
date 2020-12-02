@@ -21,7 +21,7 @@ Returns the plant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: access_token
+// Configure API key authorization: AccessToken
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
@@ -58,7 +58,7 @@ void (empty response body)
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+[AccessToken](../../README.md#AccessToken)
 
 ### HTTP request headers
 

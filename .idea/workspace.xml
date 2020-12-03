@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="635dfdb0-63ee-48c8-a148-a5d5f917ef74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/auto-versioning.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/auto-versioning.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
       <workItem from="1606906378088" duration="766000" />
       <workItem from="1606922529439" duration="784000" />
       <workItem from="1606985698045" duration="440000" />
-      <workItem from="1606989021587" duration="1350000" />
+      <workItem from="1606989021587" duration="2252000" />
     </task>
     <servers />
   </component>

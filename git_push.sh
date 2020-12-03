@@ -1,7 +1,7 @@
 #!/bin/sh
 # ref: https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
 #
-# Usage example: /bin/sh ./git_push.sh wing328 openapi-pestore-perl "minor update" "gitlab.com"
+# Usage example: ./git_push.sh frittsnl sundata-metropolis-client-php "Minor update"
 
 git_user_id=$1
 git_repo_id=$2

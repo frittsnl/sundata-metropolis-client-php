@@ -33,6 +33,7 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -53,6 +54,9 @@
       <workItem from="1606489392525" duration="354000" />
       <workItem from="1606838947719" duration="1755000" />
       <workItem from="1606906378088" duration="766000" />
+      <workItem from="1606922529439" duration="784000" />
+      <workItem from="1606985698045" duration="440000" />
+      <workItem from="1606989021587" duration="548000" />
     </task>
     <servers />
   </component>
@@ -64,9 +68,9 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="1674" y="848" width="586" height="490" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606841265130" />
-    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup" timestamp="1606849767818">
+    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup" timestamp="1606989025102">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606849767818" />
+    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606989025102" />
   </component>
 </project>

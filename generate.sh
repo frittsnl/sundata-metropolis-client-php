@@ -1,0 +1,1 @@
+openapi-generator generate -i ../sundata-metropolis-api/spec/openapi.yaml -g php --git-user-id frittsnl --git-repo-id sundata-metropolis-client-php

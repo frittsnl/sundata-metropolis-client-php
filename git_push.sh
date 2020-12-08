@@ -3,10 +3,14 @@
 #
 # Usage example: /bin/sh ./git_push.sh wing328 openapi-pestore-perl "minor update" "gitlab.com"
 
-git_user_id=$1
-git_repo_id=$2
-release_note=$3
-git_host=$4
+read -p "Enter commit message or use default 'minor update'. Add #minor, #major, #minor, or #patch: " commitMessage
+commitMessage=${commitMessage:-'minor update'}
+echo $commitMessage
+
+git_user_id=frittsnl
+git_repo_id=sundata-metropolis-client-php
+release_note=$commitMessage
+#git_host=$4
 
 if [ "$git_host" = "" ]; then
     git_host="github.com"

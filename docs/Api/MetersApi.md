@@ -35,8 +35,8 @@ $apiInstance = new OpenAPI\Client\Api\MetersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$inbound_driver = solarweb; // string | The name of the inboundDriver. For example; 'solaredge' or 'cast4all'.
-$reference_identifier = 10cv143-ffavw12-s8nD4t4; // string | The reference identifier a.k.a. EAN.
+$inbound_driver = solarweb; // string | The name of the inbound_driver. For example; 'solaredge' or 'cast4all'.
+$reference_identifier = 10cv143-ffavw12-s8nD4t4; // string | The reference_identifier a.k.a. EAN.
 
 try {
     $result = $apiInstance->validateMeterExistence($inbound_driver, $reference_identifier);
@@ -52,8 +52,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inbound_driver** | **string**| The name of the inboundDriver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. |
- **reference_identifier** | **string**| The reference identifier a.k.a. EAN. |
+ **inbound_driver** | **string**| The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. |
+ **reference_identifier** | **string**| The reference_identifier a.k.a. EAN. |
 
 ### Return type
 

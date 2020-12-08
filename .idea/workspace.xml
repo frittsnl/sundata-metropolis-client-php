@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="635dfdb0-63ee-48c8-a148-a5d5f917ef74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Api/MetersApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Api/MetersApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/git_push.sh" beforeDir="false" afterPath="$PROJECT_DIR$/git_push.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Api/MetersApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Api/MetersApi.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +27,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -57,20 +62,11 @@
       <workItem from="1606922529439" duration="784000" />
       <workItem from="1606985698045" duration="440000" />
       <workItem from="1606989021587" duration="2252000" />
+      <workItem from="1607433049159" duration="1134000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1674" y="848" width="586" height="490" key="find.popup" timestamp="1606841265130">
-      <screen x="0" y="23" width="3840" height="2137" />
-    </state>
-    <state x="1674" y="848" width="586" height="490" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1606841265130" />
-    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup" timestamp="1607001320774">
-      <screen x="0" y="23" width="3840" height="2137" />
-    </state>
-    <state x="2026" y="863" width="670" height="676" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1607001320774" />
   </component>
 </project>

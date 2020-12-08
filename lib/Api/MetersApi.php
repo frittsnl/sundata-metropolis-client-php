@@ -120,8 +120,8 @@ class MetersApi
      *
      * Validate whether a reference_identifier is valid.
      *
-     * @param  string $inbound_driver The name of the inboundDriver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference identifier a.k.a. EAN. (required)
+     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
+     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -138,8 +138,8 @@ class MetersApi
      *
      * Validate whether a reference_identifier is valid.
      *
-     * @param  string $inbound_driver The name of the inboundDriver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference identifier a.k.a. EAN. (required)
+     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
+     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -227,8 +227,8 @@ class MetersApi
      *
      * Validate whether a reference_identifier is valid.
      *
-     * @param  string $inbound_driver The name of the inboundDriver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference identifier a.k.a. EAN. (required)
+     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
+     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -248,8 +248,8 @@ class MetersApi
      *
      * Validate whether a reference_identifier is valid.
      *
-     * @param  string $inbound_driver The name of the inboundDriver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference identifier a.k.a. EAN. (required)
+     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
+     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -296,8 +296,8 @@ class MetersApi
     /**
      * Create request for operation 'validateMeterExistence'
      *
-     * @param  string $inbound_driver The name of the inboundDriver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference identifier a.k.a. EAN. (required)
+     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
+     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -329,14 +329,14 @@ class MetersApi
             $inbound_driver = ObjectSerializer::serializeCollection($inbound_driver, '', true);
         }
         if ($inbound_driver !== null) {
-            $queryParams['inboundDriver'] = $inbound_driver;
+            $queryParams['inbound_driver'] = $inbound_driver;
         }
         // query params
         if (is_array($reference_identifier)) {
             $reference_identifier = ObjectSerializer::serializeCollection($reference_identifier, '', true);
         }
         if ($reference_identifier !== null) {
-            $queryParams['referenceIdentifier'] = $reference_identifier;
+            $queryParams['reference_identifier'] = $reference_identifier;
         }
 
 

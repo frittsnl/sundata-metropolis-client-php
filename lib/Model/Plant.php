@@ -1,6 +1,6 @@
 <?php
 /**
- * MeterExistenceResponse
+ * Plant
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * MeterExistenceResponse Class Doc Comment
+ * Plant Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MeterExistenceResponse implements ModelInterface, ArrayAccess
+class Plant implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'meterExistenceResponse';
+    protected static $openAPIModelName = 'Plant';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,13 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exists' => 'bool',
-        'validated' => 'bool'
+        'id' => 'int',
+        'status' => 'string',
+        'name' => 'string',
+        'owning_company_id' => 'int',
+        'weather_station_id' => 'int',
+        'monitored_since' => 'string',
+        'address' => '\OpenAPI\Client\Model\Address'
     ];
 
     /**
@@ -67,8 +72,13 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exists' => null,
-        'validated' => null
+        'id' => null,
+        'status' => null,
+        'name' => null,
+        'owning_company_id' => null,
+        'weather_station_id' => null,
+        'monitored_since' => 'datetime',
+        'address' => null
     ];
 
     /**
@@ -98,8 +108,13 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exists' => 'exists',
-        'validated' => 'validated'
+        'id' => 'id',
+        'status' => 'status',
+        'name' => 'name',
+        'owning_company_id' => 'owning_company_id',
+        'weather_station_id' => 'weather_station_id',
+        'monitored_since' => 'monitored_since',
+        'address' => 'address'
     ];
 
     /**
@@ -108,8 +123,13 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exists' => 'setExists',
-        'validated' => 'setValidated'
+        'id' => 'setId',
+        'status' => 'setStatus',
+        'name' => 'setName',
+        'owning_company_id' => 'setOwningCompanyId',
+        'weather_station_id' => 'setWeatherStationId',
+        'monitored_since' => 'setMonitoredSince',
+        'address' => 'setAddress'
     ];
 
     /**
@@ -118,8 +138,13 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exists' => 'getExists',
-        'validated' => 'getValidated'
+        'id' => 'getId',
+        'status' => 'getStatus',
+        'name' => 'getName',
+        'owning_company_id' => 'getOwningCompanyId',
+        'weather_station_id' => 'getWeatherStationId',
+        'monitored_since' => 'getMonitoredSince',
+        'address' => 'getAddress'
     ];
 
     /**
@@ -182,8 +207,13 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exists'] = isset($data['exists']) ? $data['exists'] : null;
-        $this->container['validated'] = isset($data['validated']) ? $data['validated'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['owning_company_id'] = isset($data['owning_company_id']) ? $data['owning_company_id'] : null;
+        $this->container['weather_station_id'] = isset($data['weather_station_id']) ? $data['weather_station_id'] : null;
+        $this->container['monitored_since'] = isset($data['monitored_since']) ? $data['monitored_since'] : '2017-02-02 18:31:45';
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
     }
 
     /**
@@ -195,6 +225,12 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -211,49 +247,169 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exists
+     * Gets id
      *
-     * @return bool|null
+     * @return int
      */
-    public function getExists()
+    public function getId()
     {
-        return $this->container['exists'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets exists
+     * Sets id
      *
-     * @param bool|null $exists Is this reference identifier already registered with SunData?
+     * @param int $id The plant unique ID
      *
      * @return $this
      */
-    public function setExists($exists)
+    public function setId($id)
     {
-        $this->container['exists'] = $exists;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets validated
+     * Gets status
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getValidated()
+    public function getStatus()
     {
-        return $this->container['validated'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets validated
+     * Sets status
      *
-     * @param bool|null $validated Is this reference identifier valid according to the 3rd parties API?
+     * @param string|null $status The plant status as a string
      *
      * @return $this
      */
-    public function setValidated($validated)
+    public function setStatus($status)
     {
-        $this->container['validated'] = $validated;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets owning_company_id
+     *
+     * @return int|null
+     */
+    public function getOwningCompanyId()
+    {
+        return $this->container['owning_company_id'];
+    }
+
+    /**
+     * Sets owning_company_id
+     *
+     * @param int|null $owning_company_id owning_company_id
+     *
+     * @return $this
+     */
+    public function setOwningCompanyId($owning_company_id)
+    {
+        $this->container['owning_company_id'] = $owning_company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets weather_station_id
+     *
+     * @return int|null
+     */
+    public function getWeatherStationId()
+    {
+        return $this->container['weather_station_id'];
+    }
+
+    /**
+     * Sets weather_station_id
+     *
+     * @param int|null $weather_station_id The ID of the nearest weather station
+     *
+     * @return $this
+     */
+    public function setWeatherStationId($weather_station_id)
+    {
+        $this->container['weather_station_id'] = $weather_station_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets monitored_since
+     *
+     * @return string|null
+     */
+    public function getMonitoredSince()
+    {
+        return $this->container['monitored_since'];
+    }
+
+    /**
+     * Sets monitored_since
+     *
+     * @param string|null $monitored_since Date since Plant is in monitoring
+     *
+     * @return $this
+     */
+    public function setMonitoredSince($monitored_since)
+    {
+        $this->container['monitored_since'] = $monitored_since;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return \OpenAPI\Client\Model\Address|null
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param \OpenAPI\Client\Model\Address|null $address address
+     *
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
 
         return $this;
     }

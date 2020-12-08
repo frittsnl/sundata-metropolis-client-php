@@ -1,6 +1,6 @@
 <?php
 /**
- * MeterExistenceResponse
+ * Address
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * MeterExistenceResponse Class Doc Comment
+ * Address Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MeterExistenceResponse implements ModelInterface, ArrayAccess
+class Address implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'meterExistenceResponse';
+    protected static $openAPIModelName = 'Address';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,14 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exists' => 'bool',
-        'validated' => 'bool'
+        'street' => 'string',
+        'street_number' => 'string',
+        'city' => 'string',
+        'postal_code' => 'string',
+        'latitude' => 'float',
+        'longitude' => 'float',
+        'created_at' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -67,8 +73,14 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exists' => null,
-        'validated' => null
+        'street' => null,
+        'street_number' => null,
+        'city' => null,
+        'postal_code' => null,
+        'latitude' => 'float',
+        'longitude' => 'float',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**
@@ -98,8 +110,14 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exists' => 'exists',
-        'validated' => 'validated'
+        'street' => 'street',
+        'street_number' => 'street_number',
+        'city' => 'city',
+        'postal_code' => 'postal_code',
+        'latitude' => 'latitude',
+        'longitude' => 'longitude',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -108,8 +126,14 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exists' => 'setExists',
-        'validated' => 'setValidated'
+        'street' => 'setStreet',
+        'street_number' => 'setStreetNumber',
+        'city' => 'setCity',
+        'postal_code' => 'setPostalCode',
+        'latitude' => 'setLatitude',
+        'longitude' => 'setLongitude',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -118,8 +142,14 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exists' => 'getExists',
-        'validated' => 'getValidated'
+        'street' => 'getStreet',
+        'street_number' => 'getStreetNumber',
+        'city' => 'getCity',
+        'postal_code' => 'getPostalCode',
+        'latitude' => 'getLatitude',
+        'longitude' => 'getLongitude',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -182,8 +212,14 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exists'] = isset($data['exists']) ? $data['exists'] : null;
-        $this->container['validated'] = isset($data['validated']) ? $data['validated'] : null;
+        $this->container['street'] = isset($data['street']) ? $data['street'] : null;
+        $this->container['street_number'] = isset($data['street_number']) ? $data['street_number'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
+        $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
+        $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -211,49 +247,193 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exists
+     * Gets street
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getExists()
+    public function getStreet()
     {
-        return $this->container['exists'];
+        return $this->container['street'];
     }
 
     /**
-     * Sets exists
+     * Sets street
      *
-     * @param bool|null $exists Is this reference identifier already registered with SunData?
+     * @param string|null $street street
      *
      * @return $this
      */
-    public function setExists($exists)
+    public function setStreet($street)
     {
-        $this->container['exists'] = $exists;
+        $this->container['street'] = $street;
 
         return $this;
     }
 
     /**
-     * Gets validated
+     * Gets street_number
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getValidated()
+    public function getStreetNumber()
     {
-        return $this->container['validated'];
+        return $this->container['street_number'];
     }
 
     /**
-     * Sets validated
+     * Sets street_number
      *
-     * @param bool|null $validated Is this reference identifier valid according to the 3rd parties API?
+     * @param string|null $street_number street_number
      *
      * @return $this
      */
-    public function setValidated($validated)
+    public function setStreetNumber($street_number)
     {
-        $this->container['validated'] = $validated;
+        $this->container['street_number'] = $street_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string|null
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string|null $city city
+     *
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code postal_code
+     *
+     * @return $this
+     */
+    public function setPostalCode($postal_code)
+    {
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets latitude
+     *
+     * @return float|null
+     */
+    public function getLatitude()
+    {
+        return $this->container['latitude'];
+    }
+
+    /**
+     * Sets latitude
+     *
+     * @param float|null $latitude latitude
+     *
+     * @return $this
+     */
+    public function setLatitude($latitude)
+    {
+        $this->container['latitude'] = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets longitude
+     *
+     * @return float|null
+     */
+    public function getLongitude()
+    {
+        return $this->container['longitude'];
+    }
+
+    /**
+     * Sets longitude
+     *
+     * @param float|null $longitude longitude
+     *
+     * @return $this
+     */
+    public function setLongitude($longitude)
+    {
+        $this->container['longitude'] = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string|null $created_at created_at
+     *
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string|null $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

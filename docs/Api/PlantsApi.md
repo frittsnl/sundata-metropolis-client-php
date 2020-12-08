@@ -1,18 +1,20 @@
 # OpenAPI\Client\PlantsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://api.sundata.nl/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPlantById**](PlantsApi.md#getPlantById) | **GET** /api/v0/companies/{company_id}/plants/{plant_id} | Returns the plant
+[**showPlantById**](PlantsApi.md#showPlantById) | **GET** /companies/{companyId}/plants/{plantId} | Plant details
 
 
 
-## getPlantById
+## showPlantById
 
-> getPlantById($company_id, $plant_id)
+> \OpenAPI\Client\Model\Plant showPlantById($company_id, $plant_id)
 
-Returns the plant
+Plant details
+
+Gets the details of a plant
 
 ### Example
 
@@ -21,7 +23,7 @@ Returns the plant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: access_token
+// Configure API key authorization: AccessToken
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
@@ -33,13 +35,14 @@ $apiInstance = new OpenAPI\Client\Api\PlantsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company_id = 56; // int | Company ID
-$plant_id = 56; // int | Plant ID
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
 
 try {
-    $apiInstance->getPlantById($company_id, $plant_id);
+    $result = $apiInstance->showPlantById($company_id, $plant_id);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PlantsApi->getPlantById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PlantsApi->showPlantById: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -49,21 +52,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **int**| Company ID |
- **plant_id** | **int**| Plant ID |
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\Plant**](../Model/Plant.md)
 
 ### Authorization
 
-[access_token](../../README.md#access_token)
+[AccessToken](../../README.md#AccessToken)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

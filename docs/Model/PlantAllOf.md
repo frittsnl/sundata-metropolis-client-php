@@ -1,13 +1,9 @@
-# # Plant
+# # PlantAllOf
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | 
-**owning_company_id** | **int** |  | [optional] 
-**address** | [**\OpenAPI\Client\Model\AddressBasic**](AddressBasic.md) |  | [optional] 
-**tag_ids** | **int[]** |  | [optional] 
 **id** | **int** |  | 
 **status** | **string** | The plant status as a string | [optional] 
 **weather_station_id** | **int** | The ID of the nearest weather station | [optional] 

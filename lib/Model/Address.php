@@ -63,8 +63,9 @@ class Address implements ModelInterface, ArrayAccess
         'postal_code' => 'string',
         'latitude' => 'float',
         'longitude' => 'float',
-        'created_at' => 'string',
-        'updated_at' => 'string'
+        'id' => 'int',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -79,8 +80,9 @@ class Address implements ModelInterface, ArrayAccess
         'postal_code' => null,
         'latitude' => 'float',
         'longitude' => 'float',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'id' => 'int64',
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -116,6 +118,7 @@ class Address implements ModelInterface, ArrayAccess
         'postal_code' => 'postal_code',
         'latitude' => 'latitude',
         'longitude' => 'longitude',
+        'id' => 'id',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -132,6 +135,7 @@ class Address implements ModelInterface, ArrayAccess
         'postal_code' => 'setPostalCode',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
+        'id' => 'setId',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -148,6 +152,7 @@ class Address implements ModelInterface, ArrayAccess
         'postal_code' => 'getPostalCode',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
+        'id' => 'getId',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -218,6 +223,7 @@ class Address implements ModelInterface, ArrayAccess
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
         $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -231,6 +237,33 @@ class Address implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['street'] === null) {
+            $invalidProperties[] = "'street' can't be null";
+        }
+        if ($this->container['street_number'] === null) {
+            $invalidProperties[] = "'street_number' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['postal_code'] === null) {
+            $invalidProperties[] = "'postal_code' can't be null";
+        }
+        if ($this->container['latitude'] === null) {
+            $invalidProperties[] = "'latitude' can't be null";
+        }
+        if ($this->container['longitude'] === null) {
+            $invalidProperties[] = "'longitude' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -249,7 +282,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets street
      *
-     * @return string|null
+     * @return string
      */
     public function getStreet()
     {
@@ -259,7 +292,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets street
      *
-     * @param string|null $street street
+     * @param string $street street
      *
      * @return $this
      */
@@ -273,7 +306,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets street_number
      *
-     * @return string|null
+     * @return string
      */
     public function getStreetNumber()
     {
@@ -283,7 +316,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets street_number
      *
-     * @param string|null $street_number street_number
+     * @param string $street_number street_number
      *
      * @return $this
      */
@@ -297,7 +330,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -307,7 +340,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city city
      *
      * @return $this
      */
@@ -321,7 +354,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets postal_code
      *
-     * @return string|null
+     * @return string
      */
     public function getPostalCode()
     {
@@ -331,7 +364,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets postal_code
      *
-     * @param string|null $postal_code postal_code
+     * @param string $postal_code postal_code
      *
      * @return $this
      */
@@ -345,7 +378,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets latitude
      *
-     * @return float|null
+     * @return float
      */
     public function getLatitude()
     {
@@ -355,7 +388,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets latitude
      *
-     * @param float|null $latitude latitude
+     * @param float $latitude latitude
      *
      * @return $this
      */
@@ -369,7 +402,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets longitude
      *
-     * @return float|null
+     * @return float
      */
     public function getLongitude()
     {
@@ -379,7 +412,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets longitude
      *
-     * @param float|null $longitude longitude
+     * @param float $longitude longitude
      *
      * @return $this
      */
@@ -391,9 +424,33 @@ class Address implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
-     * @return string|null
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -403,7 +460,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets created_at
      *
-     * @param string|null $created_at created_at
+     * @param \DateTime $created_at created_at
      *
      * @return $this
      */
@@ -417,7 +474,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets updated_at
      *
-     * @return string|null
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -427,7 +484,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param string|null $updated_at updated_at
+     * @param \DateTime $updated_at updated_at
      *
      * @return $this
      */

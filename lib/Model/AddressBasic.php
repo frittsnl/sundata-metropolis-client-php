@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundDriver
+ * AddressBasic
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * InboundDriver Class Doc Comment
+ * AddressBasic Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InboundDriver implements ModelInterface, ArrayAccess
+class AddressBasic implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InboundDriver';
+    protected static $openAPIModelName = 'AddressBasic';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,12 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'street' => 'string',
+        'street_number' => 'string',
+        'city' => 'string',
+        'postal_code' => 'string',
+        'latitude' => 'float',
+        'longitude' => 'float'
     ];
 
     /**
@@ -69,10 +71,12 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'street' => null,
+        'street_number' => null,
+        'city' => null,
+        'postal_code' => null,
+        'latitude' => 'float',
+        'longitude' => 'float'
     ];
 
     /**
@@ -102,10 +106,12 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'street' => 'street',
+        'street_number' => 'street_number',
+        'city' => 'city',
+        'postal_code' => 'postal_code',
+        'latitude' => 'latitude',
+        'longitude' => 'longitude'
     ];
 
     /**
@@ -114,10 +120,12 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'street' => 'setStreet',
+        'street_number' => 'setStreetNumber',
+        'city' => 'setCity',
+        'postal_code' => 'setPostalCode',
+        'latitude' => 'setLatitude',
+        'longitude' => 'setLongitude'
     ];
 
     /**
@@ -126,10 +134,12 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'street' => 'getStreet',
+        'street_number' => 'getStreetNumber',
+        'city' => 'getCity',
+        'postal_code' => 'getPostalCode',
+        'latitude' => 'getLatitude',
+        'longitude' => 'getLongitude'
     ];
 
     /**
@@ -192,10 +202,12 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['street'] = isset($data['street']) ? $data['street'] : null;
+        $this->container['street_number'] = isset($data['street_number']) ? $data['street_number'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
+        $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
+        $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
     }
 
     /**
@@ -207,18 +219,23 @@ class InboundDriver implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['street'] === null) {
+            $invalidProperties[] = "'street' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['street_number'] === null) {
+            $invalidProperties[] = "'street_number' can't be null";
         }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
         }
-
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
+        if ($this->container['postal_code'] === null) {
+            $invalidProperties[] = "'postal_code' can't be null";
+        }
+        if ($this->container['latitude'] === null) {
+            $invalidProperties[] = "'latitude' can't be null";
+        }
+        if ($this->container['longitude'] === null) {
+            $invalidProperties[] = "'longitude' can't be null";
         }
         return $invalidProperties;
     }
@@ -236,102 +253,145 @@ class InboundDriver implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets street
      *
      * @return string
      */
-    public function getName()
+    public function getStreet()
     {
-        return $this->container['name'];
+        return $this->container['street'];
     }
 
     /**
-     * Sets name
+     * Sets street
      *
-     * @param string $name name
+     * @param string $street street
      *
      * @return $this
      */
-    public function setName($name)
+    public function setStreet($street)
     {
-
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling InboundDriver., must be bigger than or equal to 1.');
-        }
-
-        $this->container['name'] = $name;
+        $this->container['street'] = $street;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets street_number
      *
-     * @return \DateTime|null
+     * @return string
      */
-    public function getUpdatedAt()
+    public function getStreetNumber()
     {
-        return $this->container['updated_at'];
+        return $this->container['street_number'];
     }
 
     /**
-     * Sets updated_at
+     * Sets street_number
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param string $street_number street_number
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setStreetNumber($street_number)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['street_number'] = $street_number;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets city
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt()
+    public function getCity()
     {
-        return $this->container['created_at'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets created_at
+     * Sets city
      *
-     * @param \DateTime $created_at created_at
+     * @param string $city city
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setCity($city)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string $postal_code postal_code
+     *
+     * @return $this
+     */
+    public function setPostalCode($postal_code)
+    {
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets latitude
+     *
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->container['latitude'];
+    }
+
+    /**
+     * Sets latitude
+     *
+     * @param float $latitude latitude
+     *
+     * @return $this
+     */
+    public function setLatitude($latitude)
+    {
+        $this->container['latitude'] = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets longitude
+     *
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->container['longitude'];
+    }
+
+    /**
+     * Sets longitude
+     *
+     * @param float $longitude longitude
+     *
+     * @return $this
+     */
+    public function setLongitude($longitude)
+    {
+        $this->container['longitude'] = $longitude;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundDriver
+ * PlantBasic
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * InboundDriver Class Doc Comment
+ * PlantBasic Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InboundDriver implements ModelInterface, ArrayAccess
+class PlantBasic implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InboundDriver';
+    protected static $openAPIModelName = 'PlantBasic';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
         'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'owning_company_id' => 'int',
+        'address' => '\OpenAPI\Client\Model\AddressBasic',
+        'tag_ids' => 'int[]'
     ];
 
     /**
@@ -69,10 +69,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
         'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'owning_company_id' => null,
+        'address' => null,
+        'tag_ids' => 'int64'
     ];
 
     /**
@@ -102,10 +102,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'owning_company_id' => 'owning_company_id',
+        'address' => 'address',
+        'tag_ids' => 'tag_ids'
     ];
 
     /**
@@ -114,10 +114,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'owning_company_id' => 'setOwningCompanyId',
+        'address' => 'setAddress',
+        'tag_ids' => 'setTagIds'
     ];
 
     /**
@@ -126,10 +126,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'owning_company_id' => 'getOwningCompanyId',
+        'address' => 'getAddress',
+        'tag_ids' => 'getTagIds'
     ];
 
     /**
@@ -192,10 +192,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['owning_company_id'] = isset($data['owning_company_id']) ? $data['owning_company_id'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['tag_ids'] = isset($data['tag_ids']) ? $data['tag_ids'] : null;
     }
 
     /**
@@ -207,18 +207,8 @@ class InboundDriver implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
         }
         return $invalidProperties;
     }
@@ -234,30 +224,6 @@ class InboundDriver implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -278,60 +244,79 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling InboundDriver., must be bigger than or equal to 1.');
-        }
-
         $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets owning_company_id
      *
-     * @return \DateTime|null
+     * @return int|null
      */
-    public function getUpdatedAt()
+    public function getOwningCompanyId()
     {
-        return $this->container['updated_at'];
+        return $this->container['owning_company_id'];
     }
 
     /**
-     * Sets updated_at
+     * Sets owning_company_id
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param int|null $owning_company_id owning_company_id
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setOwningCompanyId($owning_company_id)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['owning_company_id'] = $owning_company_id;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets address
      *
-     * @return \DateTime
+     * @return \OpenAPI\Client\Model\AddressBasic|null
      */
-    public function getCreatedAt()
+    public function getAddress()
     {
-        return $this->container['created_at'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets created_at
+     * Sets address
      *
-     * @param \DateTime $created_at created_at
+     * @param \OpenAPI\Client\Model\AddressBasic|null $address address
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setAddress($address)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_ids
+     *
+     * @return int[]|null
+     */
+    public function getTagIds()
+    {
+        return $this->container['tag_ids'];
+    }
+
+    /**
+     * Sets tag_ids
+     *
+     * @param int[]|null $tag_ids tag_ids
+     *
+     * @return $this
+     */
+    public function setTagIds($tag_ids)
+    {
+        $this->container['tag_ids'] = $tag_ids;
 
         return $this;
     }

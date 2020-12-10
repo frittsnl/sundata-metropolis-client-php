@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundDriver
+ * PlantAllOf
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * InboundDriver Class Doc Comment
+ * PlantAllOf Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InboundDriver implements ModelInterface, ArrayAccess
+class PlantAllOf implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InboundDriver';
+    protected static $openAPIModelName = 'Plant_allOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'status' => 'string',
+        'weather_station_id' => 'int',
+        'monitored_since' => '\DateTime'
     ];
 
     /**
@@ -70,9 +70,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
-        'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'status' => null,
+        'weather_station_id' => null,
+        'monitored_since' => 'date-time'
     ];
 
     /**
@@ -103,9 +103,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'status' => 'status',
+        'weather_station_id' => 'weather_station_id',
+        'monitored_since' => 'monitored_since'
     ];
 
     /**
@@ -115,9 +115,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'status' => 'setStatus',
+        'weather_station_id' => 'setWeatherStationId',
+        'monitored_since' => 'setMonitoredSince'
     ];
 
     /**
@@ -127,9 +127,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'status' => 'getStatus',
+        'weather_station_id' => 'getWeatherStationId',
+        'monitored_since' => 'getMonitoredSince'
     ];
 
     /**
@@ -173,8 +173,27 @@ class InboundDriver implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_OK = 'OK';
+    const STATUS_MEDIUM = 'MEDIUM';
+    const STATUS_NONE = 'NONE';
+    const STATUS_NOK = 'NOK';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_OK,
+            self::STATUS_MEDIUM,
+            self::STATUS_NONE,
+            self::STATUS_NOK,
+        ];
+    }
     
 
     /**
@@ -193,9 +212,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['weather_station_id'] = isset($data['weather_station_id']) ? $data['weather_station_id'] : null;
+        $this->container['monitored_since'] = isset($data['monitored_since']) ? $data['monitored_since'] : null;
     }
 
     /**
@@ -210,16 +229,14 @@ class InboundDriver implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -260,78 +277,82 @@ class InboundDriver implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets status
      *
-     * @return string
+     * @return string|null
      */
-    public function getName()
+    public function getStatus()
     {
-        return $this->container['name'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets name
+     * Sets status
      *
-     * @param string $name name
+     * @param string|null $status The plant status as a string
      *
      * @return $this
      */
-    public function setName($name)
+    public function setStatus($status)
     {
-
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling InboundDriver., must be bigger than or equal to 1.');
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-
-        $this->container['name'] = $name;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets weather_station_id
+     *
+     * @return int|null
+     */
+    public function getWeatherStationId()
+    {
+        return $this->container['weather_station_id'];
+    }
+
+    /**
+     * Sets weather_station_id
+     *
+     * @param int|null $weather_station_id The ID of the nearest weather station
+     *
+     * @return $this
+     */
+    public function setWeatherStationId($weather_station_id)
+    {
+        $this->container['weather_station_id'] = $weather_station_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets monitored_since
      *
      * @return \DateTime|null
      */
-    public function getUpdatedAt()
+    public function getMonitoredSince()
     {
-        return $this->container['updated_at'];
+        return $this->container['monitored_since'];
     }
 
     /**
-     * Sets updated_at
+     * Sets monitored_since
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param \DateTime|null $monitored_since monitored_since
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setMonitoredSince($monitored_since)
     {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
+        $this->container['monitored_since'] = $monitored_since;
 
         return $this;
     }

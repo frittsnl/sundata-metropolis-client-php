@@ -1,15 +1,9 @@
-# # Address
+# # AddressAllOf
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**street** | **string** |  | 
-**street_number** | **string** |  | 
-**city** | **string** |  | 
-**postal_code** | **string** |  | 
-**latitude** | **float** |  | 
-**longitude** | **float** |  | 
 **id** | **int** |  | 
 **created_at** | [**\DateTime**](\DateTime.md) |  | 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | 

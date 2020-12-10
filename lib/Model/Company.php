@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundDriver
+ * Company
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * InboundDriver Class Doc Comment
+ * Company Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InboundDriver implements ModelInterface, ArrayAccess
+class Company implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InboundDriver';
+    protected static $openAPIModelName = 'Company';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
+        'id' => 'float',
         'name' => 'string',
+        'non_mon_accessible' => 'bool',
+        'is_owner' => 'float',
         'updated_at' => '\DateTime',
         'created_at' => '\DateTime'
     ];
@@ -69,8 +71,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
+        'id' => null,
         'name' => null,
+        'non_mon_accessible' => null,
+        'is_owner' => null,
         'updated_at' => 'date-time',
         'created_at' => 'date-time'
     ];
@@ -104,6 +108,8 @@ class InboundDriver implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'non_mon_accessible' => 'non_mon_accessible',
+        'is_owner' => 'is_owner',
         'updated_at' => 'updated_at',
         'created_at' => 'created_at'
     ];
@@ -116,6 +122,8 @@ class InboundDriver implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'non_mon_accessible' => 'setNonMonAccessible',
+        'is_owner' => 'setIsOwner',
         'updated_at' => 'setUpdatedAt',
         'created_at' => 'setCreatedAt'
     ];
@@ -128,6 +136,8 @@ class InboundDriver implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'non_mon_accessible' => 'getNonMonAccessible',
+        'is_owner' => 'getIsOwner',
         'updated_at' => 'getUpdatedAt',
         'created_at' => 'getCreatedAt'
     ];
@@ -194,6 +204,8 @@ class InboundDriver implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['non_mon_accessible'] = isset($data['non_mon_accessible']) ? $data['non_mon_accessible'] : null;
+        $this->container['is_owner'] = isset($data['is_owner']) ? $data['is_owner'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
     }
@@ -217,6 +229,15 @@ class InboundDriver implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
+        if ($this->container['non_mon_accessible'] === null) {
+            $invalidProperties[] = "'non_mon_accessible' can't be null";
+        }
+        if ($this->container['is_owner'] === null) {
+            $invalidProperties[] = "'is_owner' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
@@ -238,7 +259,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return int
+     * @return float
      */
     public function getId()
     {
@@ -248,7 +269,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param float $id id
      *
      * @return $this
      */
@@ -280,7 +301,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     {
 
         if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling InboundDriver., must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid length for $name when calling Company., must be bigger than or equal to 1.');
         }
 
         $this->container['name'] = $name;
@@ -289,9 +310,57 @@ class InboundDriver implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets non_mon_accessible
+     *
+     * @return bool
+     */
+    public function getNonMonAccessible()
+    {
+        return $this->container['non_mon_accessible'];
+    }
+
+    /**
+     * Sets non_mon_accessible
+     *
+     * @param bool $non_mon_accessible non_mon_accessible
+     *
+     * @return $this
+     */
+    public function setNonMonAccessible($non_mon_accessible)
+    {
+        $this->container['non_mon_accessible'] = $non_mon_accessible;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_owner
+     *
+     * @return float
+     */
+    public function getIsOwner()
+    {
+        return $this->container['is_owner'];
+    }
+
+    /**
+     * Sets is_owner
+     *
+     * @param float $is_owner is_owner
+     *
+     * @return $this
+     */
+    public function setIsOwner($is_owner)
+    {
+        $this->container['is_owner'] = $is_owner;
+
+        return $this;
+    }
+
+    /**
      * Gets updated_at
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -301,7 +370,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param \DateTime $updated_at updated_at
      *
      * @return $this
      */

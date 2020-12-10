@@ -87,21 +87,29 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://api.sundata.nl/api/v0*
+All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *InboundDriverApi* | [**getCompanyInboundDriversByCompanyId**](docs/Api/InboundDriverApi.md#getcompanyinbounddriversbycompanyid) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
 *MetersApi* | [**getValidateMeterExistence**](docs/Api/MetersApi.md#getvalidatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
 *PlantsApi* | [**getShowPlantById**](docs/Api/PlantsApi.md#getshowplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
+*PlantsApi* | [**postCompaniesCompanyIdPlants**](docs/Api/PlantsApi.md#postcompaniescompanyidplants) | **POST** /companies/{company_id}/plants | 
 
 
 ## Documentation For Models
 
  - [Address](docs/Model/Address.md)
+ - [AddressAllOf](docs/Model/AddressAllOf.md)
+ - [AddressBasic](docs/Model/AddressBasic.md)
+ - [Company](docs/Model/Company.md)
  - [InboundDriver](docs/Model/InboundDriver.md)
+ - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
  - [Plant](docs/Model/Plant.md)
+ - [PlantAllOf](docs/Model/PlantAllOf.md)
+ - [PlantBasic](docs/Model/PlantBasic.md)
+ - [Tag](docs/Model/Tag.md)
 
 
 ## Documentation For Authorization

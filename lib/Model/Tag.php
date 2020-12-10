@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundDriver
+ * Tag
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * InboundDriver Class Doc Comment
+ * Tag Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InboundDriver implements ModelInterface, ArrayAccess
+class Tag implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InboundDriver';
+    protected static $openAPIModelName = 'Tag';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
+        'id' => 'float',
+        'company_id' => 'float',
         'name' => 'string',
         'updated_at' => '\DateTime',
         'created_at' => '\DateTime'
@@ -69,7 +70,8 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
+        'id' => null,
+        'company_id' => null,
         'name' => null,
         'updated_at' => 'date-time',
         'created_at' => 'date-time'
@@ -103,6 +105,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'company_id' => 'company_id',
         'name' => 'name',
         'updated_at' => 'updated_at',
         'created_at' => 'created_at'
@@ -115,6 +118,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'company_id' => 'setCompanyId',
         'name' => 'setName',
         'updated_at' => 'setUpdatedAt',
         'created_at' => 'setCreatedAt'
@@ -127,6 +131,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'company_id' => 'getCompanyId',
         'name' => 'getName',
         'updated_at' => 'getUpdatedAt',
         'created_at' => 'getCreatedAt'
@@ -193,6 +198,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -210,6 +216,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if ($this->container['company_id'] === null) {
+            $invalidProperties[] = "'company_id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -217,6 +226,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
@@ -238,7 +250,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return int
+     * @return float
      */
     public function getId()
     {
@@ -248,13 +260,37 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param float $id id
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_id
+     *
+     * @return float
+     */
+    public function getCompanyId()
+    {
+        return $this->container['company_id'];
+    }
+
+    /**
+     * Sets company_id
+     *
+     * @param float $company_id company_id
+     *
+     * @return $this
+     */
+    public function setCompanyId($company_id)
+    {
+        $this->container['company_id'] = $company_id;
 
         return $this;
     }
@@ -280,7 +316,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     {
 
         if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling InboundDriver., must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid length for $name when calling Tag., must be bigger than or equal to 1.');
         }
 
         $this->container['name'] = $name;
@@ -291,7 +327,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Gets updated_at
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -301,7 +337,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param \DateTime $updated_at updated_at
      *
      * @return $this
      */

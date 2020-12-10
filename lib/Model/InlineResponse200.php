@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  SunData
+ * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace SunData\Model;
+namespace SunDataMetropolisClient\Model;
 
 use \ArrayAccess;
-use \SunData\ObjectSerializer;
+use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
  * InlineResponse200 Class Doc Comment
  *
  * @category Class
- * @package  SunData
+ * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -64,9 +64,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'owning_company_id' => 'float',
         'weather_station_id' => 'AnyType',
         'monitored_since' => '\DateTime',
-        'address' => '\SunData\Model\Address',
-        'companies' => '\SunData\Model\Company[]',
-        'tags' => '\SunData\Model\Tag[]',
+        'address' => '\SunDataMetropolisClient\Model\Address',
+        'companies' => '\SunDataMetropolisClient\Model\Company[]',
+        'tags' => '\SunDataMetropolisClient\Model\Tag[]',
         'custom_fields' => 'AnyType[]'
     ];
 
@@ -483,7 +483,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \SunData\Model\Address
+     * @return \SunDataMetropolisClient\Model\Address
      */
     public function getAddress()
     {
@@ -493,7 +493,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \SunData\Model\Address $address address
+     * @param \SunDataMetropolisClient\Model\Address $address address
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets companies
      *
-     * @return \SunData\Model\Company[]
+     * @return \SunDataMetropolisClient\Model\Company[]
      */
     public function getCompanies()
     {
@@ -517,7 +517,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets companies
      *
-     * @param \SunData\Model\Company[] $companies companies
+     * @param \SunDataMetropolisClient\Model\Company[] $companies companies
      *
      * @return $this
      */
@@ -531,7 +531,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \SunData\Model\Tag[]
+     * @return \SunDataMetropolisClient\Model\Tag[]
      */
     public function getTags()
     {
@@ -541,7 +541,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \SunData\Model\Tag[] $tags tags
+     * @param \SunDataMetropolisClient\Model\Tag[] $tags tags
      *
      * @return $this
      */

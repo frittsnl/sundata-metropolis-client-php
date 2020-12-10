@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** |  | 
 **owning_company_id** | **int** |  | [optional] 
-**address** | [**\SunData\Model\AddressBasic**](AddressBasic.md) |  | [optional] 
+**address** | [**\SunDataMetropolisClient\Model\AddressBasic**](AddressBasic.md) |  | [optional] 
 **tag_ids** | **int[]** |  | [optional] 
 **id** | **int** |  | 
 **status** | **string** | The plant status as a string | [optional] 

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  SunData\Model
+ * @package  SunDataMetropolisClient\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace SunData\Model;
+namespace SunDataMetropolisClient\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package SunData\Model
+ * @package SunDataMetropolisClient\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

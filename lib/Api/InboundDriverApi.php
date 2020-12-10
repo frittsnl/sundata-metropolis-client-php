@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  SunData
+ * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace SunData\Api;
+namespace SunDataMetropolisClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use SunData\ApiException;
-use SunData\Configuration;
-use SunData\HeaderSelector;
-use SunData\ObjectSerializer;
+use SunDataMetropolisClient\ApiException;
+use SunDataMetropolisClient\Configuration;
+use SunDataMetropolisClient\HeaderSelector;
+use SunDataMetropolisClient\ObjectSerializer;
 
 /**
  * InboundDriverApi Class Doc Comment
  *
  * @category Class
- * @package  SunData
+ * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -122,9 +122,9 @@ class InboundDriverApi
      *
      * @param  int $company_id The id of the company (required)
      *
-     * @throws \SunData\ApiException on non-2xx response
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SunData\Model\InboundDriver[]
+     * @return \SunDataMetropolisClient\Model\InboundDriver[]
      */
     public function getCompanyInboundDriversByCompanyId($company_id)
     {
@@ -139,9 +139,9 @@ class InboundDriverApi
      *
      * @param  int $company_id The id of the company (required)
      *
-     * @throws \SunData\ApiException on non-2xx response
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SunData\Model\InboundDriver[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunDataMetropolisClient\Model\InboundDriver[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getCompanyInboundDriversByCompanyIdWithHttpInfo($company_id)
     {
@@ -178,20 +178,20 @@ class InboundDriverApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\SunData\Model\InboundDriver[]' === '\SplFileObject') {
+                    if ('\SunDataMetropolisClient\Model\InboundDriver[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SunData\Model\InboundDriver[]', []),
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\InboundDriver[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SunData\Model\InboundDriver[]';
+            $returnType = '\SunDataMetropolisClient\Model\InboundDriver[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -210,7 +210,7 @@ class InboundDriverApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SunData\Model\InboundDriver[]',
+                        '\SunDataMetropolisClient\Model\InboundDriver[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -252,7 +252,7 @@ class InboundDriverApi
      */
     public function getCompanyInboundDriversByCompanyIdAsyncWithHttpInfo($company_id)
     {
-        $returnType = '\SunData\Model\InboundDriver[]';
+        $returnType = '\SunDataMetropolisClient\Model\InboundDriver[]';
         $request = $this->getCompanyInboundDriversByCompanyIdRequest($company_id);
 
         return $this->client

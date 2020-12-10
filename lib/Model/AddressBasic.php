@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  SunData
+ * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace SunData\Model;
+namespace SunDataMetropolisClient\Model;
 
 use \ArrayAccess;
-use \SunData\ObjectSerializer;
+use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
  * AddressBasic Class Doc Comment
  *
  * @category Class
- * @package  SunData
+ * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

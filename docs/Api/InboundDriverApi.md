@@ -1,4 +1,4 @@
-# SunData\InboundDriverApi
+# SunDataMetropolisClient\InboundDriverApi
 
 All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getCompanyInboundDriversByCompanyId
 
-> \SunData\Model\InboundDriver[] getCompanyInboundDriversByCompanyId($company_id)
+> \SunDataMetropolisClient\Model\InboundDriver[] getCompanyInboundDriversByCompanyId($company_id)
 
 Get Company Inbound Drivers
 
@@ -24,12 +24,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: AccessToken
-$config = SunData\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunData\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
 
 
-$apiInstance = new SunData\Api\InboundDriverApi(
+$apiInstance = new SunDataMetropolisClient\Api\InboundDriverApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\SunData\Model\InboundDriver[]**](../Model/InboundDriver.md)
+[**\SunDataMetropolisClient\Model\InboundDriver[]**](../Model/InboundDriver.md)
 
 ### Authorization
 

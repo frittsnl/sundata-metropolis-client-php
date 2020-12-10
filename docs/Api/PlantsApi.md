@@ -1,4 +1,4 @@
-# SunData\PlantsApi
+# SunDataMetropolisClient\PlantsApi
 
 All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getShowPlantById
 
-> \SunData\Model\Plant getShowPlantById($company_id, $plant_id)
+> \SunDataMetropolisClient\Model\Plant getShowPlantById($company_id, $plant_id)
 
 Plant details
 
@@ -25,12 +25,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: AccessToken
-$config = SunData\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunData\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
 
 
-$apiInstance = new SunData\Api\PlantsApi(
+$apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\SunData\Model\Plant**](../Model/Plant.md)
+[**\SunDataMetropolisClient\Model\Plant**](../Model/Plant.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ## postCompaniesCompanyIdPlants
 
-> \SunData\Model\InlineResponse200 postCompaniesCompanyIdPlants($company_id, $plant_basic)
+> \SunDataMetropolisClient\Model\InlineResponse200 postCompaniesCompanyIdPlants($company_id, $plant_basic)
 
 
 
@@ -90,19 +90,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: AccessToken
-$config = SunData\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunData\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
 
 
-$apiInstance = new SunData\Api\PlantsApi(
+$apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
-$plant_basic = new \SunData\Model\PlantBasic(); // \SunData\Model\PlantBasic | 
+$plant_basic = new \SunDataMetropolisClient\Model\PlantBasic(); // \SunDataMetropolisClient\Model\PlantBasic | 
 
 try {
     $result = $apiInstance->postCompaniesCompanyIdPlants($company_id, $plant_basic);
@@ -119,11 +119,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
- **plant_basic** | [**\SunData\Model\PlantBasic**](../Model/PlantBasic.md)|  | [optional]
+ **plant_basic** | [**\SunDataMetropolisClient\Model\PlantBasic**](../Model/PlantBasic.md)|  | [optional]
 
 ### Return type
 
-[**\SunData\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\SunDataMetropolisClient\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 

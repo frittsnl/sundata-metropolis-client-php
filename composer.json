@@ -31,9 +31,9 @@
         "friendsofphp/php-cs-fixer": "~2.12"
     },
     "autoload": {
-        "psr-4": { "SunData\\" : "lib/" }
+        "psr-4": { "SunDataMetropolisClient\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "SunData\\" : "test/" }
+        "psr-4": { "SunDataMetropolisClient\\" : "test/" }
     }
 }

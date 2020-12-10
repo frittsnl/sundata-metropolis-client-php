@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace SunData\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use SunData\ApiException;
+use SunData\Configuration;
+use SunData\HeaderSelector;
+use SunData\ObjectSerializer;
 
 /**
  * PlantsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -123,9 +123,9 @@ class PlantsApi
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Plant
+     * @return \SunData\Model\Plant
      */
     public function getShowPlantById($company_id, $plant_id)
     {
@@ -141,9 +141,9 @@ class PlantsApi
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Plant, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunData\Model\Plant, HTTP status code, HTTP response headers (array of strings)
      */
     public function getShowPlantByIdWithHttpInfo($company_id, $plant_id)
     {
@@ -180,20 +180,20 @@ class PlantsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Plant' === '\SplFileObject') {
+                    if ('\SunData\Model\Plant' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Plant', []),
+                        ObjectSerializer::deserialize($content, '\SunData\Model\Plant', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Plant';
+            $returnType = '\SunData\Model\Plant';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -212,7 +212,7 @@ class PlantsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Plant',
+                        '\SunData\Model\Plant',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -256,7 +256,7 @@ class PlantsApi
      */
     public function getShowPlantByIdAsyncWithHttpInfo($company_id, $plant_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Plant';
+        $returnType = '\SunData\Model\Plant';
         $request = $this->getShowPlantByIdRequest($company_id, $plant_id);
 
         return $this->client
@@ -416,11 +416,11 @@ class PlantsApi
      * Operation postCompaniesCompanyIdPlants
      *
      * @param  int $company_id The id of the company (required)
-     * @param  \OpenAPI\Client\Model\PlantBasic $plant_basic plant_basic (optional)
+     * @param  \SunData\Model\PlantBasic $plant_basic plant_basic (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse200
+     * @return \SunData\Model\InlineResponse200
      */
     public function postCompaniesCompanyIdPlants($company_id, $plant_basic = null)
     {
@@ -432,11 +432,11 @@ class PlantsApi
      * Operation postCompaniesCompanyIdPlantsWithHttpInfo
      *
      * @param  int $company_id The id of the company (required)
-     * @param  \OpenAPI\Client\Model\PlantBasic $plant_basic (optional)
+     * @param  \SunData\Model\PlantBasic $plant_basic (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunData\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function postCompaniesCompanyIdPlantsWithHttpInfo($company_id, $plant_basic = null)
     {
@@ -473,20 +473,20 @@ class PlantsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\SunData\Model\InlineResponse200' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\SunData\Model\InlineResponse200', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse200';
+            $returnType = '\SunData\Model\InlineResponse200';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -505,7 +505,7 @@ class PlantsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse200',
+                        '\SunData\Model\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -521,7 +521,7 @@ class PlantsApi
      * 
      *
      * @param  int $company_id The id of the company (required)
-     * @param  \OpenAPI\Client\Model\PlantBasic $plant_basic (optional)
+     * @param  \SunData\Model\PlantBasic $plant_basic (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -542,14 +542,14 @@ class PlantsApi
      * 
      *
      * @param  int $company_id The id of the company (required)
-     * @param  \OpenAPI\Client\Model\PlantBasic $plant_basic (optional)
+     * @param  \SunData\Model\PlantBasic $plant_basic (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function postCompaniesCompanyIdPlantsAsyncWithHttpInfo($company_id, $plant_basic = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse200';
+        $returnType = '\SunData\Model\InlineResponse200';
         $request = $this->postCompaniesCompanyIdPlantsRequest($company_id, $plant_basic);
 
         return $this->client
@@ -590,7 +590,7 @@ class PlantsApi
      * Create request for operation 'postCompaniesCompanyIdPlants'
      *
      * @param  int $company_id The id of the company (required)
-     * @param  \OpenAPI\Client\Model\PlantBasic $plant_basic (optional)
+     * @param  \SunData\Model\PlantBasic $plant_basic (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

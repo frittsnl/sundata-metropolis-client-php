@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SunData\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SunData\ObjectSerializer;
 
 /**
  * InlineResponse200 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -64,9 +64,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         'owning_company_id' => 'float',
         'weather_station_id' => 'AnyType',
         'monitored_since' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\Address',
-        'companies' => '\OpenAPI\Client\Model\Company[]',
-        'tags' => '\OpenAPI\Client\Model\Tag[]',
+        'address' => '\SunData\Model\Address',
+        'companies' => '\SunData\Model\Company[]',
+        'tags' => '\SunData\Model\Tag[]',
         'custom_fields' => 'AnyType[]'
     ];
 
@@ -483,7 +483,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\Address
+     * @return \SunData\Model\Address
      */
     public function getAddress()
     {
@@ -493,7 +493,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\Address $address address
+     * @param \SunData\Model\Address $address address
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets companies
      *
-     * @return \OpenAPI\Client\Model\Company[]
+     * @return \SunData\Model\Company[]
      */
     public function getCompanies()
     {
@@ -517,7 +517,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets companies
      *
-     * @param \OpenAPI\Client\Model\Company[] $companies companies
+     * @param \SunData\Model\Company[] $companies companies
      *
      * @return $this
      */
@@ -531,7 +531,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \OpenAPI\Client\Model\Tag[]
+     * @return \SunData\Model\Tag[]
      */
     public function getTags()
     {
@@ -541,7 +541,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \OpenAPI\Client\Model\Tag[] $tags tags
+     * @param \SunData\Model\Tag[] $tags tags
      *
      * @return $this
      */

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace SunData\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use SunData\ApiException;
+use SunData\Configuration;
+use SunData\HeaderSelector;
+use SunData\ObjectSerializer;
 
 /**
  * MetersApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -123,9 +123,9 @@ class MetersApi
      * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
      * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\MeterExistenceResponse
+     * @return \SunData\Model\MeterExistenceResponse
      */
     public function getValidateMeterExistence($inbound_driver, $reference_identifier)
     {
@@ -141,9 +141,9 @@ class MetersApi
      * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
      * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\MeterExistenceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunData\Model\MeterExistenceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getValidateMeterExistenceWithHttpInfo($inbound_driver, $reference_identifier)
     {
@@ -180,20 +180,20 @@ class MetersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\MeterExistenceResponse' === '\SplFileObject') {
+                    if ('\SunData\Model\MeterExistenceResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MeterExistenceResponse', []),
+                        ObjectSerializer::deserialize($content, '\SunData\Model\MeterExistenceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\MeterExistenceResponse';
+            $returnType = '\SunData\Model\MeterExistenceResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -212,7 +212,7 @@ class MetersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MeterExistenceResponse',
+                        '\SunData\Model\MeterExistenceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -256,7 +256,7 @@ class MetersApi
      */
     public function getValidateMeterExistenceAsyncWithHttpInfo($inbound_driver, $reference_identifier)
     {
-        $returnType = '\OpenAPI\Client\Model\MeterExistenceResponse';
+        $returnType = '\SunData\Model\MeterExistenceResponse';
         $request = $this->getValidateMeterExistenceRequest($inbound_driver, $reference_identifier);
 
         return $this->client

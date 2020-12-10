@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SunData\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SunData\ObjectSerializer;
 
 /**
  * Plant Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class Plant implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'owning_company_id' => 'int',
-        'address' => '\OpenAPI\Client\Model\AddressBasic',
+        'address' => '\SunData\Model\AddressBasic',
         'tag_ids' => 'int[]',
         'id' => 'int',
         'status' => 'string',
@@ -330,7 +330,7 @@ class Plant implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\AddressBasic|null
+     * @return \SunData\Model\AddressBasic|null
      */
     public function getAddress()
     {
@@ -340,7 +340,7 @@ class Plant implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\AddressBasic|null $address address
+     * @param \SunData\Model\AddressBasic|null $address address
      *
      * @return $this
      */

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace SunData\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use SunData\ApiException;
+use SunData\Configuration;
+use SunData\HeaderSelector;
+use SunData\ObjectSerializer;
 
 /**
  * InboundDriverApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SunData
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -122,9 +122,9 @@ class InboundDriverApi
      *
      * @param  int $company_id The id of the company (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InboundDriver[]
+     * @return \SunData\Model\InboundDriver[]
      */
     public function getCompanyInboundDriversByCompanyId($company_id)
     {
@@ -139,9 +139,9 @@ class InboundDriverApi
      *
      * @param  int $company_id The id of the company (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SunData\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InboundDriver[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunData\Model\InboundDriver[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getCompanyInboundDriversByCompanyIdWithHttpInfo($company_id)
     {
@@ -178,20 +178,20 @@ class InboundDriverApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InboundDriver[]' === '\SplFileObject') {
+                    if ('\SunData\Model\InboundDriver[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InboundDriver[]', []),
+                        ObjectSerializer::deserialize($content, '\SunData\Model\InboundDriver[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InboundDriver[]';
+            $returnType = '\SunData\Model\InboundDriver[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -210,7 +210,7 @@ class InboundDriverApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InboundDriver[]',
+                        '\SunData\Model\InboundDriver[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -252,7 +252,7 @@ class InboundDriverApi
      */
     public function getCompanyInboundDriversByCompanyIdAsyncWithHttpInfo($company_id)
     {
-        $returnType = '\OpenAPI\Client\Model\InboundDriver[]';
+        $returnType = '\SunData\Model\InboundDriver[]';
         $request = $this->getCompanyInboundDriversByCompanyIdRequest($company_id);
 
         return $this->client

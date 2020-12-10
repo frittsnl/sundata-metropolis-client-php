@@ -116,7 +116,7 @@ class PlantsApi
     }
 
     /**
-     * Operation showPlantById
+     * Operation getShowPlantById
      *
      * Plant details
      *
@@ -127,14 +127,14 @@ class PlantsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Plant
      */
-    public function showPlantById($company_id, $plant_id)
+    public function getShowPlantById($company_id, $plant_id)
     {
-        list($response) = $this->showPlantByIdWithHttpInfo($company_id, $plant_id);
+        list($response) = $this->getShowPlantByIdWithHttpInfo($company_id, $plant_id);
         return $response;
     }
 
     /**
-     * Operation showPlantByIdWithHttpInfo
+     * Operation getShowPlantByIdWithHttpInfo
      *
      * Plant details
      *
@@ -145,9 +145,9 @@ class PlantsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Plant, HTTP status code, HTTP response headers (array of strings)
      */
-    public function showPlantByIdWithHttpInfo($company_id, $plant_id)
+    public function getShowPlantByIdWithHttpInfo($company_id, $plant_id)
     {
-        $request = $this->showPlantByIdRequest($company_id, $plant_id);
+        $request = $this->getShowPlantByIdRequest($company_id, $plant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -223,7 +223,7 @@ class PlantsApi
     }
 
     /**
-     * Operation showPlantByIdAsync
+     * Operation getShowPlantByIdAsync
      *
      * Plant details
      *
@@ -233,9 +233,9 @@ class PlantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function showPlantByIdAsync($company_id, $plant_id)
+    public function getShowPlantByIdAsync($company_id, $plant_id)
     {
-        return $this->showPlantByIdAsyncWithHttpInfo($company_id, $plant_id)
+        return $this->getShowPlantByIdAsyncWithHttpInfo($company_id, $plant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -244,7 +244,7 @@ class PlantsApi
     }
 
     /**
-     * Operation showPlantByIdAsyncWithHttpInfo
+     * Operation getShowPlantByIdAsyncWithHttpInfo
      *
      * Plant details
      *
@@ -254,10 +254,10 @@ class PlantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function showPlantByIdAsyncWithHttpInfo($company_id, $plant_id)
+    public function getShowPlantByIdAsyncWithHttpInfo($company_id, $plant_id)
     {
         $returnType = '\OpenAPI\Client\Model\Plant';
-        $request = $this->showPlantByIdRequest($company_id, $plant_id);
+        $request = $this->getShowPlantByIdRequest($company_id, $plant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -294,7 +294,7 @@ class PlantsApi
     }
 
     /**
-     * Create request for operation 'showPlantById'
+     * Create request for operation 'getShowPlantById'
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -302,22 +302,22 @@ class PlantsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function showPlantByIdRequest($company_id, $plant_id)
+    protected function getShowPlantByIdRequest($company_id, $plant_id)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling showPlantById'
+                'Missing the required parameter $company_id when calling getShowPlantById'
             );
         }
         // verify the required parameter 'plant_id' is set
         if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $plant_id when calling showPlantById'
+                'Missing the required parameter $plant_id when calling getShowPlantById'
             );
         }
 
-        $resourcePath = '/companies/{companyId}/plants/{plantId}';
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -329,7 +329,7 @@ class PlantsApi
         // path params
         if ($company_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'companyId' . '}',
+                '{' . 'company_id' . '}',
                 ObjectSerializer::toPathValue($company_id),
                 $resourcePath
             );
@@ -337,7 +337,7 @@ class PlantsApi
         // path params
         if ($plant_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'plantId' . '}',
+                '{' . 'plant_id' . '}',
                 ObjectSerializer::toPathValue($plant_id),
                 $resourcePath
             );

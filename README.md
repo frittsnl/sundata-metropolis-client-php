@@ -67,20 +67,19 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Ac
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MetersApi(
+$apiInstance = new OpenAPI\Client\Api\InboundDriverApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$inbound_driver = solarweb; // string | The name of the inbound_driver. For example; 'solaredge' or 'cast4all'.
-$reference_identifier = 10cv143-ffavw12-s8nD4t4; // string | The reference_identifier a.k.a. EAN.
+$company_id = 56; // int | The id of the company
 
 try {
-    $result = $apiInstance->validateMeterExistence($inbound_driver, $reference_identifier);
+    $result = $apiInstance->getCompanyInboundDriversByCompanyId($company_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MetersApi->validateMeterExistence: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InboundDriverApi->getCompanyInboundDriversByCompanyId: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -92,13 +91,15 @@ All URIs are relative to *http://api.sundata.nl/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*MetersApi* | [**validateMeterExistence**](docs/Api/MetersApi.md#validatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
-*PlantsApi* | [**showPlantById**](docs/Api/PlantsApi.md#showplantbyid) | **GET** /companies/{companyId}/plants/{plantId} | Plant details
+*InboundDriverApi* | [**getCompanyInboundDriversByCompanyId**](docs/Api/InboundDriverApi.md#getcompanyinbounddriversbycompanyid) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
+*MetersApi* | [**getValidateMeterExistence**](docs/Api/MetersApi.md#getvalidatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
+*PlantsApi* | [**getShowPlantById**](docs/Api/PlantsApi.md#getshowplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
 
 
 ## Documentation For Models
 
  - [Address](docs/Model/Address.md)
+ - [InboundDriver](docs/Model/InboundDriver.md)
  - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
  - [Plant](docs/Model/Plant.md)
 

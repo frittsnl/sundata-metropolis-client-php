@@ -1,6 +1,6 @@
 <?php
 /**
- * MetersApi
+ * InboundDriverApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
 
 /**
- * MetersApi Class Doc Comment
+ * InboundDriverApi Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MetersApi
+class InboundDriverApi
 {
     /**
      * @var ClientInterface
@@ -116,38 +116,36 @@ class MetersApi
     }
 
     /**
-     * Operation getValidateMeterExistence
+     * Operation getCompanyInboundDriversByCompanyId
      *
-     * Validate whether a reference_identifier is valid.
+     * Get Company Inbound Drivers
      *
-     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
+     * @param  int $company_id The id of the company (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\MeterExistenceResponse
+     * @return \OpenAPI\Client\Model\InboundDriver[]
      */
-    public function getValidateMeterExistence($inbound_driver, $reference_identifier)
+    public function getCompanyInboundDriversByCompanyId($company_id)
     {
-        list($response) = $this->getValidateMeterExistenceWithHttpInfo($inbound_driver, $reference_identifier);
+        list($response) = $this->getCompanyInboundDriversByCompanyIdWithHttpInfo($company_id);
         return $response;
     }
 
     /**
-     * Operation getValidateMeterExistenceWithHttpInfo
+     * Operation getCompanyInboundDriversByCompanyIdWithHttpInfo
      *
-     * Validate whether a reference_identifier is valid.
+     * Get Company Inbound Drivers
      *
-     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
+     * @param  int $company_id The id of the company (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\MeterExistenceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\InboundDriver[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getValidateMeterExistenceWithHttpInfo($inbound_driver, $reference_identifier)
+    public function getCompanyInboundDriversByCompanyIdWithHttpInfo($company_id)
     {
-        $request = $this->getValidateMeterExistenceRequest($inbound_driver, $reference_identifier);
+        $request = $this->getCompanyInboundDriversByCompanyIdRequest($company_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,20 +178,20 @@ class MetersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\MeterExistenceResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\InboundDriver[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MeterExistenceResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InboundDriver[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\MeterExistenceResponse';
+            $returnType = '\OpenAPI\Client\Model\InboundDriver[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -212,7 +210,7 @@ class MetersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MeterExistenceResponse',
+                        '\OpenAPI\Client\Model\InboundDriver[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,19 +221,18 @@ class MetersApi
     }
 
     /**
-     * Operation getValidateMeterExistenceAsync
+     * Operation getCompanyInboundDriversByCompanyIdAsync
      *
-     * Validate whether a reference_identifier is valid.
+     * Get Company Inbound Drivers
      *
-     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
+     * @param  int $company_id The id of the company (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getValidateMeterExistenceAsync($inbound_driver, $reference_identifier)
+    public function getCompanyInboundDriversByCompanyIdAsync($company_id)
     {
-        return $this->getValidateMeterExistenceAsyncWithHttpInfo($inbound_driver, $reference_identifier)
+        return $this->getCompanyInboundDriversByCompanyIdAsyncWithHttpInfo($company_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -244,20 +241,19 @@ class MetersApi
     }
 
     /**
-     * Operation getValidateMeterExistenceAsyncWithHttpInfo
+     * Operation getCompanyInboundDriversByCompanyIdAsyncWithHttpInfo
      *
-     * Validate whether a reference_identifier is valid.
+     * Get Company Inbound Drivers
      *
-     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
+     * @param  int $company_id The id of the company (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getValidateMeterExistenceAsyncWithHttpInfo($inbound_driver, $reference_identifier)
+    public function getCompanyInboundDriversByCompanyIdAsyncWithHttpInfo($company_id)
     {
-        $returnType = '\OpenAPI\Client\Model\MeterExistenceResponse';
-        $request = $this->getValidateMeterExistenceRequest($inbound_driver, $reference_identifier);
+        $returnType = '\OpenAPI\Client\Model\InboundDriver[]';
+        $request = $this->getCompanyInboundDriversByCompanyIdRequest($company_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -294,60 +290,39 @@ class MetersApi
     }
 
     /**
-     * Create request for operation 'getValidateMeterExistence'
+     * Create request for operation 'getCompanyInboundDriversByCompanyId'
      *
-     * @param  string $inbound_driver The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. (required)
-     * @param  string $reference_identifier The reference_identifier a.k.a. EAN. (required)
+     * @param  int $company_id The id of the company (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getValidateMeterExistenceRequest($inbound_driver, $reference_identifier)
+    protected function getCompanyInboundDriversByCompanyIdRequest($company_id)
     {
-        // verify the required parameter 'inbound_driver' is set
-        if ($inbound_driver === null || (is_array($inbound_driver) && count($inbound_driver) === 0)) {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inbound_driver when calling getValidateMeterExistence'
-            );
-        }
-        // verify the required parameter 'reference_identifier' is set
-        if ($reference_identifier === null || (is_array($reference_identifier) && count($reference_identifier) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $reference_identifier when calling getValidateMeterExistence'
+                'Missing the required parameter $company_id when calling getCompanyInboundDriversByCompanyId'
             );
         }
 
-        $resourcePath = '/utilities/validate/meter-existence';
+        $resourcePath = '/companies/{company_id}/inbound-drivers';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($inbound_driver !== null) {
-            if('form' === 'form' && is_array($inbound_driver)) {
-                foreach($inbound_driver as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['inbound_driver'] = $inbound_driver;
-            }
-        }
-        // query params
-        if ($reference_identifier !== null) {
-            if('form' === 'form' && is_array($reference_identifier)) {
-                foreach($reference_identifier as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['reference_identifier'] = $reference_identifier;
-            }
-        }
 
 
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;

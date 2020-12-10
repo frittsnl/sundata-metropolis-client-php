@@ -1,20 +1,20 @@
-# OpenAPI\Client\MetersApi
+# OpenAPI\Client\InboundDriverApi
 
 All URIs are relative to *http://api.sundata.nl/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getValidateMeterExistence**](MetersApi.md#getValidateMeterExistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
+[**getCompanyInboundDriversByCompanyId**](InboundDriverApi.md#getCompanyInboundDriversByCompanyId) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
 
 
 
-## getValidateMeterExistence
+## getCompanyInboundDriversByCompanyId
 
-> \OpenAPI\Client\Model\MeterExistenceResponse getValidateMeterExistence($inbound_driver, $reference_identifier)
+> \OpenAPI\Client\Model\InboundDriver[] getCompanyInboundDriversByCompanyId($company_id)
 
-Validate whether a reference_identifier is valid.
+Get Company Inbound Drivers
 
-Validate the existence of a meter
+Get the inbound drivers available to the Company
 
 ### Example
 
@@ -29,20 +29,19 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Ac
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MetersApi(
+$apiInstance = new OpenAPI\Client\Api\InboundDriverApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$inbound_driver = solarweb; // string | The name of the inbound_driver. For example; 'solaredge' or 'cast4all'.
-$reference_identifier = 10cv143-ffavw12-s8nD4t4; // string | The reference_identifier a.k.a. EAN.
+$company_id = 56; // int | The id of the company
 
 try {
-    $result = $apiInstance->getValidateMeterExistence($inbound_driver, $reference_identifier);
+    $result = $apiInstance->getCompanyInboundDriversByCompanyId($company_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MetersApi->getValidateMeterExistence: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InboundDriverApi->getCompanyInboundDriversByCompanyId: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -52,12 +51,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inbound_driver** | **string**| The name of the inbound_driver. For example; &#39;solaredge&#39; or &#39;cast4all&#39;. |
- **reference_identifier** | **string**| The reference_identifier a.k.a. EAN. |
+ **company_id** | **int**| The id of the company |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MeterExistenceResponse**](../Model/MeterExistenceResponse.md)
+[**\OpenAPI\Client\Model\InboundDriver[]**](../Model/InboundDriver.md)
 
 ### Authorization
 

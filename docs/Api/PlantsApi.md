@@ -4,13 +4,13 @@ All URIs are relative to *http://api.sundata.nl/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**showPlantById**](PlantsApi.md#showPlantById) | **GET** /companies/{companyId}/plants/{plantId} | Plant details
+[**getShowPlantById**](PlantsApi.md#getShowPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
 
 
 
-## showPlantById
+## getShowPlantById
 
-> \OpenAPI\Client\Model\Plant showPlantById($company_id, $plant_id)
+> \OpenAPI\Client\Model\Plant getShowPlantById($company_id, $plant_id)
 
 Plant details
 
@@ -39,10 +39,10 @@ $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
 
 try {
-    $result = $apiInstance->showPlantById($company_id, $plant_id);
+    $result = $apiInstance->getShowPlantById($company_id, $plant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PlantsApi->showPlantById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PlantsApi->getShowPlantById: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

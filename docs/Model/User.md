@@ -1,12 +1,15 @@
-# # Tag
+# # User
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
-**company_id** | **int** |  | 
-**name** | **string** |  | 
+**first_name** | **string** |  | 
+**last_name** | **string** |  | 
+**email** | **string** |  | 
+**admin** | **bool** |  | 
+**subscribed_to_status_emails** | **bool** |  | 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | 
 **created_at** | [**\DateTime**](\DateTime.md) |  | 
 

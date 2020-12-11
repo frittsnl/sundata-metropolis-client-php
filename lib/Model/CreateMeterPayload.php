@@ -57,15 +57,13 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'plant_id' => 'int',
         'inbound_driver' => 'string',
         'reference_identifier' => 'string',
         'amount_in_cents_per_kwh' => 'float',
         'peak_in_watt' => 'float',
         'p90_in_kwh' => 'float',
         'orientation_in_degrees' => 'float',
-        'angle_in_degrees' => 'float',
-        'operation_since' => '\DateTime'
+        'angle_in_degrees' => 'float'
     ];
 
     /**
@@ -74,15 +72,13 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'plant_id' => 'int64',
         'inbound_driver' => null,
         'reference_identifier' => null,
         'amount_in_cents_per_kwh' => null,
         'peak_in_watt' => null,
         'p90_in_kwh' => null,
         'orientation_in_degrees' => null,
-        'angle_in_degrees' => null,
-        'operation_since' => 'date-time'
+        'angle_in_degrees' => null
     ];
 
     /**
@@ -112,15 +108,13 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'plant_id' => 'plant_id',
         'inbound_driver' => 'inbound_driver',
         'reference_identifier' => 'reference_identifier',
         'amount_in_cents_per_kwh' => 'amount_in_cents_per_kwh',
         'peak_in_watt' => 'peak_in_watt',
         'p90_in_kwh' => 'p90_in_kwh',
         'orientation_in_degrees' => 'orientation_in_degrees',
-        'angle_in_degrees' => 'angle_in_degrees',
-        'operation_since' => 'operation-since'
+        'angle_in_degrees' => 'angle_in_degrees'
     ];
 
     /**
@@ -129,15 +123,13 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'plant_id' => 'setPlantId',
         'inbound_driver' => 'setInboundDriver',
         'reference_identifier' => 'setReferenceIdentifier',
         'amount_in_cents_per_kwh' => 'setAmountInCentsPerKwh',
         'peak_in_watt' => 'setPeakInWatt',
         'p90_in_kwh' => 'setP90InKwh',
         'orientation_in_degrees' => 'setOrientationInDegrees',
-        'angle_in_degrees' => 'setAngleInDegrees',
-        'operation_since' => 'setOperationSince'
+        'angle_in_degrees' => 'setAngleInDegrees'
     ];
 
     /**
@@ -146,15 +138,13 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'plant_id' => 'getPlantId',
         'inbound_driver' => 'getInboundDriver',
         'reference_identifier' => 'getReferenceIdentifier',
         'amount_in_cents_per_kwh' => 'getAmountInCentsPerKwh',
         'peak_in_watt' => 'getPeakInWatt',
         'p90_in_kwh' => 'getP90InKwh',
         'orientation_in_degrees' => 'getOrientationInDegrees',
-        'angle_in_degrees' => 'getAngleInDegrees',
-        'operation_since' => 'getOperationSince'
+        'angle_in_degrees' => 'getAngleInDegrees'
     ];
 
     /**
@@ -217,7 +207,6 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['plant_id'] = isset($data['plant_id']) ? $data['plant_id'] : null;
         $this->container['inbound_driver'] = isset($data['inbound_driver']) ? $data['inbound_driver'] : null;
         $this->container['reference_identifier'] = isset($data['reference_identifier']) ? $data['reference_identifier'] : null;
         $this->container['amount_in_cents_per_kwh'] = isset($data['amount_in_cents_per_kwh']) ? $data['amount_in_cents_per_kwh'] : null;
@@ -225,7 +214,6 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
         $this->container['p90_in_kwh'] = isset($data['p90_in_kwh']) ? $data['p90_in_kwh'] : null;
         $this->container['orientation_in_degrees'] = isset($data['orientation_in_degrees']) ? $data['orientation_in_degrees'] : null;
         $this->container['angle_in_degrees'] = isset($data['angle_in_degrees']) ? $data['angle_in_degrees'] : null;
-        $this->container['operation_since'] = isset($data['operation_since']) ? $data['operation_since'] : null;
     }
 
     /**
@@ -237,9 +225,6 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['plant_id'] === null) {
-            $invalidProperties[] = "'plant_id' can't be null";
-        }
         if ($this->container['inbound_driver'] === null) {
             $invalidProperties[] = "'inbound_driver' can't be null";
         }
@@ -276,30 +261,6 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets plant_id
-     *
-     * @return int
-     */
-    public function getPlantId()
-    {
-        return $this->container['plant_id'];
-    }
-
-    /**
-     * Sets plant_id
-     *
-     * @param int $plant_id plant_id
-     *
-     * @return $this
-     */
-    public function setPlantId($plant_id)
-    {
-        $this->container['plant_id'] = $plant_id;
-
-        return $this;
-    }
 
     /**
      * Gets inbound_driver
@@ -481,30 +442,6 @@ class CreateMeterPayload implements ModelInterface, ArrayAccess
         }
 
         $this->container['angle_in_degrees'] = $angle_in_degrees;
-
-        return $this;
-    }
-
-    /**
-     * Gets operation_since
-     *
-     * @return \DateTime|null
-     */
-    public function getOperationSince()
-    {
-        return $this->container['operation_since'];
-    }
-
-    /**
-     * Sets operation_since
-     *
-     * @param \DateTime|null $operation_since operation_since
-     *
-     * @return $this
-     */
-    public function setOperationSince($operation_since)
-    {
-        $this->container['operation_since'] = $operation_since;
 
         return $this;
     }

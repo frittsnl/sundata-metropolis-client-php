@@ -76,10 +76,10 @@ $apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
 $company_id = 56; // int | The id of the company
 
 try {
-    $result = $apiInstance->getCompanyChildCompanies($company_id);
+    $result = $apiInstance->getChildCompaniesTags($company_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyChildCompanies: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompaniesApi->getChildCompaniesTags: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -91,11 +91,17 @@ All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CompaniesApi* | [**getChildCompaniesTags**](docs/Api/CompaniesApi.md#getchildcompaniestags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags
 *CompaniesApi* | [**getCompanyChildCompanies**](docs/Api/CompaniesApi.md#getcompanychildcompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
+*CompaniesApi* | [**getCompanyTags**](docs/Api/CompaniesApi.md#getcompanytags) | **GET** /companies/{company_id}/tags | Get Company Tags
+*CompaniesApi* | [**getCustomFieldTypes**](docs/Api/CompaniesApi.md#getcustomfieldtypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
 *InboundDriversApi* | [**getCompanyInboundDrivers**](docs/Api/InboundDriversApi.md#getcompanyinbounddrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
 *MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create a Company Plant Meter
+*MetersApi* | [**getMeterById**](docs/Api/MetersApi.md#getmeterbyid) | **GET** /companies/{company_id}/plant/{plant_id}/meters/{meter_id} | Get Meter by ID
+*MetersApi* | [**updateMeter**](docs/Api/MetersApi.md#updatemeter) | **PUT** /companies/{company_id}/meters/{meter_id} | Update Meter
 *MetersApi* | [**validateMeterExistence**](docs/Api/MetersApi.md#validatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
 *PlantsApi* | [**createPlant**](docs/Api/PlantsApi.md#createplant) | **POST** /companies/{company_id}/plants | Create a Company Plant
+*PlantsApi* | [**createPlantCustomFields**](docs/Api/PlantsApi.md#createplantcustomfields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
 *PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
 *PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Modify Company Plant details
 
@@ -107,15 +113,23 @@ Class | Method | HTTP request | Description
  - [AddressBasic](docs/Model/AddressBasic.md)
  - [Company](docs/Model/Company.md)
  - [CreateMeterPayload](docs/Model/CreateMeterPayload.md)
+ - [CustomField](docs/Model/CustomField.md)
+ - [CustomFieldType](docs/Model/CustomFieldType.md)
+ - [GetPlantResponse](docs/Model/GetPlantResponse.md)
  - [InboundDriver](docs/Model/InboundDriver.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [Meter](docs/Model/Meter.md)
  - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
- - [ModifyPlantResponse](docs/Model/ModifyPlantResponse.md)
+ - [MeterUpdatePayload](docs/Model/MeterUpdatePayload.md)
+ - [Note](docs/Model/Note.md)
  - [Plant](docs/Model/Plant.md)
  - [PlantAllOf](docs/Model/PlantAllOf.md)
  - [PlantBasic](docs/Model/PlantBasic.md)
+ - [PlantUpdateResponse](docs/Model/PlantUpdateResponse.md)
  - [Tag](docs/Model/Tag.md)
+ - [Type](docs/Model/Type.md)
+ - [User](docs/Model/User.md)
 
 
 ## Documentation For Authorization

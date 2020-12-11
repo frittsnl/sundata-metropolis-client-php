@@ -59,7 +59,7 @@ class Plant implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'owning_company_id' => 'int',
-        'address' => '\SunDataMetropolisClient\Model\AddressBasic',
+        'address' => '\SunDataMetropolisClient\Model\Address',
         'tag_ids' => 'int[]',
         'id' => 'int',
         'status' => 'string',
@@ -330,7 +330,7 @@ class Plant implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \SunDataMetropolisClient\Model\AddressBasic|null
+     * @return \SunDataMetropolisClient\Model\Address|null
      */
     public function getAddress()
     {
@@ -340,7 +340,7 @@ class Plant implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \SunDataMetropolisClient\Model\AddressBasic|null $address address
+     * @param \SunDataMetropolisClient\Model\Address|null $address address
      *
      * @return $this
      */

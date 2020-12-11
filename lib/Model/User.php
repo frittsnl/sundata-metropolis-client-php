@@ -1,6 +1,6 @@
 <?php
 /**
- * Tag
+ * User
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * Tag Class Doc Comment
+ * User Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Tag implements ModelInterface, ArrayAccess
+class User implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Tag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Tag';
+    protected static $openAPIModelName = 'User';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,11 @@ class Tag implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'company_id' => 'int',
-        'name' => 'string',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'email' => 'string',
+        'admin' => 'bool',
+        'subscribed_to_status_emails' => 'bool',
         'updated_at' => '\DateTime',
         'created_at' => '\DateTime'
     ];
@@ -71,8 +74,11 @@ class Tag implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
-        'company_id' => 'int64',
-        'name' => null,
+        'first_name' => null,
+        'last_name' => null,
+        'email' => null,
+        'admin' => null,
+        'subscribed_to_status_emails' => null,
         'updated_at' => 'date-time',
         'created_at' => 'date-time'
     ];
@@ -105,8 +111,11 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'company_id' => 'company_id',
-        'name' => 'name',
+        'first_name' => 'first_name',
+        'last_name' => 'last_name',
+        'email' => 'email',
+        'admin' => 'admin',
+        'subscribed_to_status_emails' => 'subscribed_to_status_emails',
         'updated_at' => 'updated_at',
         'created_at' => 'created_at'
     ];
@@ -118,8 +127,11 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'company_id' => 'setCompanyId',
-        'name' => 'setName',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName',
+        'email' => 'setEmail',
+        'admin' => 'setAdmin',
+        'subscribed_to_status_emails' => 'setSubscribedToStatusEmails',
         'updated_at' => 'setUpdatedAt',
         'created_at' => 'setCreatedAt'
     ];
@@ -131,8 +143,11 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'company_id' => 'getCompanyId',
-        'name' => 'getName',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName',
+        'email' => 'getEmail',
+        'admin' => 'getAdmin',
+        'subscribed_to_status_emails' => 'getSubscribedToStatusEmails',
         'updated_at' => 'getUpdatedAt',
         'created_at' => 'getCreatedAt'
     ];
@@ -198,8 +213,11 @@ class Tag implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
+        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['admin'] = isset($data['admin']) ? $data['admin'] : null;
+        $this->container['subscribed_to_status_emails'] = isset($data['subscribed_to_status_emails']) ? $data['subscribed_to_status_emails'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
     }
@@ -216,11 +234,20 @@ class Tag implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
+        if ($this->container['first_name'] === null) {
+            $invalidProperties[] = "'first_name' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['last_name'] === null) {
+            $invalidProperties[] = "'last_name' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['admin'] === null) {
+            $invalidProperties[] = "'admin' can't be null";
+        }
+        if ($this->container['subscribed_to_status_emails'] === null) {
+            $invalidProperties[] = "'subscribed_to_status_emails' can't be null";
         }
         if ($this->container['updated_at'] === null) {
             $invalidProperties[] = "'updated_at' can't be null";
@@ -268,49 +295,121 @@ class Tag implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_id
+     * Gets first_name
      *
-     * @return int
+     * @return string
      */
-    public function getCompanyId()
+    public function getFirstName()
     {
-        return $this->container['company_id'];
+        return $this->container['first_name'];
     }
 
     /**
-     * Sets company_id
+     * Sets first_name
      *
-     * @param int $company_id company_id
+     * @param string $first_name first_name
      *
      * @return $this
      */
-    public function setCompanyId($company_id)
+    public function setFirstName($first_name)
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['first_name'] = $first_name;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets last_name
      *
      * @return string
      */
-    public function getName()
+    public function getLastName()
     {
-        return $this->container['name'];
+        return $this->container['last_name'];
     }
 
     /**
-     * Sets name
+     * Sets last_name
      *
-     * @param string $name name
+     * @param string $last_name last_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setLastName($last_name)
     {
-        $this->container['name'] = $name;
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets admin
+     *
+     * @return bool
+     */
+    public function getAdmin()
+    {
+        return $this->container['admin'];
+    }
+
+    /**
+     * Sets admin
+     *
+     * @param bool $admin admin
+     *
+     * @return $this
+     */
+    public function setAdmin($admin)
+    {
+        $this->container['admin'] = $admin;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscribed_to_status_emails
+     *
+     * @return bool
+     */
+    public function getSubscribedToStatusEmails()
+    {
+        return $this->container['subscribed_to_status_emails'];
+    }
+
+    /**
+     * Sets subscribed_to_status_emails
+     *
+     * @param bool $subscribed_to_status_emails subscribed_to_status_emails
+     *
+     * @return $this
+     */
+    public function setSubscribedToStatusEmails($subscribed_to_status_emails)
+    {
+        $this->container['subscribed_to_status_emails'] = $subscribed_to_status_emails;
 
         return $this;
     }

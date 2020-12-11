@@ -1,6 +1,6 @@
 <?php
 /**
- * Tag
+ * InlineResponse2001
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * Tag Class Doc Comment
+ * InlineResponse2001 Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Tag implements ModelInterface, ArrayAccess
+class InlineResponse2001 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Tag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Tag';
+    protected static $openAPIModelName = 'inline_response_200_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,7 @@ class Tag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'company_id' => 'int',
-        'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'company_id' => '\SunDataMetropolisClient\Model\Tag[]'
     ];
 
     /**
@@ -70,11 +66,7 @@ class Tag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'company_id' => 'int64',
-        'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'company_id' => null
     ];
 
     /**
@@ -104,11 +96,7 @@ class Tag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'company_id' => 'company_id',
-        'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'company_id' => 'company_id'
     ];
 
     /**
@@ -117,11 +105,7 @@ class Tag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'company_id' => 'setCompanyId',
-        'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'company_id' => 'setCompanyId'
     ];
 
     /**
@@ -130,11 +114,7 @@ class Tag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'company_id' => 'getCompanyId',
-        'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'company_id' => 'getCompanyId'
     ];
 
     /**
@@ -197,11 +177,7 @@ class Tag implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
     }
 
     /**
@@ -213,21 +189,6 @@ class Tag implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -244,33 +205,9 @@ class Tag implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets company_id
      *
-     * @return int
+     * @return \SunDataMetropolisClient\Model\Tag[]|null
      */
     public function getCompanyId()
     {
@@ -280,85 +217,13 @@ class Tag implements ModelInterface, ArrayAccess
     /**
      * Sets company_id
      *
-     * @param int $company_id company_id
+     * @param \SunDataMetropolisClient\Model\Tag[]|null $company_id company_id
      *
      * @return $this
      */
     public function setCompanyId($company_id)
     {
         $this->container['company_id'] = $company_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime $updated_at updated_at
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
 
         return $this;
     }

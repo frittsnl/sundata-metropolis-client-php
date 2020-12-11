@@ -1,13 +1,13 @@
-# # PlantBasic
+# # CustomField
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | 
-**owning_company_id** | **int** |  | [optional] 
-**address** | [**\SunDataMetropolisClient\Model\Address**](Address.md) |  | [optional] 
-**tag_ids** | **int[]** |  | [optional] 
+**id** | **int** |  | [optional] 
+**type_id** | **int** |  | [optional] 
+**type** | [**\SunDataMetropolisClient\Model\Type**](Type.md) |  | [optional] 
+**value** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Tag
+ * CustomFieldType
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * Tag Class Doc Comment
+ * CustomFieldType Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Tag implements ModelInterface, ArrayAccess
+class CustomFieldType implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Tag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Tag';
+    protected static $openAPIModelName = 'CustomFieldType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,13 @@ class Tag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'company_id' => 'int',
         'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'company_id' => 'int',
+        'id' => 'int',
+        'type' => 'string',
+        'nullable' => 'bool',
+        'regex' => 'string',
+        'unique' => 'bool'
     ];
 
     /**
@@ -70,11 +72,13 @@ class Tag implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'company_id' => 'int64',
         'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'company_id' => 'int64',
+        'id' => 'int64',
+        'type' => null,
+        'nullable' => null,
+        'regex' => null,
+        'unique' => null
     ];
 
     /**
@@ -104,11 +108,13 @@ class Tag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'company_id' => 'company_id',
         'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'company_id' => 'company_id',
+        'id' => 'id',
+        'type' => 'type',
+        'nullable' => 'nullable',
+        'regex' => 'regex',
+        'unique' => 'unique'
     ];
 
     /**
@@ -117,11 +123,13 @@ class Tag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'company_id' => 'setCompanyId',
         'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'company_id' => 'setCompanyId',
+        'id' => 'setId',
+        'type' => 'setType',
+        'nullable' => 'setNullable',
+        'regex' => 'setRegex',
+        'unique' => 'setUnique'
     ];
 
     /**
@@ -130,11 +138,13 @@ class Tag implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'company_id' => 'getCompanyId',
         'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'company_id' => 'getCompanyId',
+        'id' => 'getId',
+        'type' => 'getType',
+        'nullable' => 'getNullable',
+        'regex' => 'getRegex',
+        'unique' => 'getUnique'
     ];
 
     /**
@@ -197,11 +207,13 @@ class Tag implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['nullable'] = isset($data['nullable']) ? $data['nullable'] : null;
+        $this->container['regex'] = isset($data['regex']) ? $data['regex'] : null;
+        $this->container['unique'] = isset($data['unique']) ? $data['unique'] : null;
     }
 
     /**
@@ -213,20 +225,23 @@ class Tag implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         if ($this->container['company_id'] === null) {
             $invalidProperties[] = "'company_id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
+        if ($this->container['nullable'] === null) {
+            $invalidProperties[] = "'nullable' can't be null";
+        }
+        if ($this->container['unique'] === null) {
+            $invalidProperties[] = "'unique' can't be null";
         }
         return $invalidProperties;
     }
@@ -244,25 +259,25 @@ class Tag implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets name
      *
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getName()
     {
-        return $this->container['id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets id
+     * Sets name
      *
-     * @param int $id id
+     * @param string $name name
      *
      * @return $this
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->container['id'] = $id;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -292,73 +307,121 @@ class Tag implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
      *
      * @return string
      */
-    public function getName()
+    public function getType()
     {
-        return $this->container['name'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets name
+     * Sets type
      *
-     * @param string $name name
+     * @param string $type type
      *
      * @return $this
      */
-    public function setName($name)
+    public function setType($type)
     {
-        $this->container['name'] = $name;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets nullable
      *
-     * @return \DateTime
+     * @return bool
      */
-    public function getUpdatedAt()
+    public function getNullable()
     {
-        return $this->container['updated_at'];
+        return $this->container['nullable'];
     }
 
     /**
-     * Sets updated_at
+     * Sets nullable
      *
-     * @param \DateTime $updated_at updated_at
+     * @param bool $nullable nullable
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setNullable($nullable)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['nullable'] = $nullable;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets regex
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getCreatedAt()
+    public function getRegex()
     {
-        return $this->container['created_at'];
+        return $this->container['regex'];
     }
 
     /**
-     * Sets created_at
+     * Sets regex
      *
-     * @param \DateTime $created_at created_at
+     * @param string|null $regex regex
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setRegex($regex)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['regex'] = $regex;
+
+        return $this;
+    }
+
+    /**
+     * Gets unique
+     *
+     * @return bool
+     */
+    public function getUnique()
+    {
+        return $this->container['unique'];
+    }
+
+    /**
+     * Sets unique
+     *
+     * @param bool $unique unique
+     *
+     * @return $this
+     */
+    public function setUnique($unique)
+    {
+        $this->container['unique'] = $unique;
 
         return $this;
     }

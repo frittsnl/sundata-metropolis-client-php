@@ -421,6 +421,627 @@ class MetersApi
     }
 
     /**
+     * Operation getMeterById
+     *
+     * Get Meter by ID
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $meter_id The id of the meter (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SunDataMetropolisClient\Model\Meter
+     */
+    public function getMeterById($company_id, $plant_id, $meter_id)
+    {
+        list($response) = $this->getMeterByIdWithHttpInfo($company_id, $plant_id, $meter_id);
+        return $response;
+    }
+
+    /**
+     * Operation getMeterByIdWithHttpInfo
+     *
+     * Get Meter by ID
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $meter_id The id of the meter (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SunDataMetropolisClient\Model\Meter, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMeterByIdWithHttpInfo($company_id, $plant_id, $meter_id)
+    {
+        $request = $this->getMeterByIdRequest($company_id, $plant_id, $meter_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\SunDataMetropolisClient\Model\Meter' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Meter', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SunDataMetropolisClient\Model\Meter';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SunDataMetropolisClient\Model\Meter',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMeterByIdAsync
+     *
+     * Get Meter by ID
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $meter_id The id of the meter (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMeterByIdAsync($company_id, $plant_id, $meter_id)
+    {
+        return $this->getMeterByIdAsyncWithHttpInfo($company_id, $plant_id, $meter_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getMeterByIdAsyncWithHttpInfo
+     *
+     * Get Meter by ID
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $meter_id The id of the meter (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getMeterByIdAsyncWithHttpInfo($company_id, $plant_id, $meter_id)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\Meter';
+        $request = $this->getMeterByIdRequest($company_id, $plant_id, $meter_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getMeterById'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $meter_id The id of the meter (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getMeterByIdRequest($company_id, $plant_id, $meter_id)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling getMeterById'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling getMeterById'
+            );
+        }
+        // verify the required parameter 'meter_id' is set
+        if ($meter_id === null || (is_array($meter_id) && count($meter_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $meter_id when calling getMeterById'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plant/{plant_id}/meters/{meter_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meter_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'meter_id' . '}',
+                ObjectSerializer::toPathValue($meter_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Access-Token');
+        if ($apiKey !== null) {
+            $headers['Access-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateMeter
+     *
+     * Update Meter
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $meter_id The id of the meter (required)
+     * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload meter_update_payload (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SunDataMetropolisClient\Model\Meter
+     */
+    public function updateMeter($company_id, $meter_id, $meter_update_payload = null)
+    {
+        list($response) = $this->updateMeterWithHttpInfo($company_id, $meter_id, $meter_update_payload);
+        return $response;
+    }
+
+    /**
+     * Operation updateMeterWithHttpInfo
+     *
+     * Update Meter
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $meter_id The id of the meter (required)
+     * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SunDataMetropolisClient\Model\Meter, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateMeterWithHttpInfo($company_id, $meter_id, $meter_update_payload = null)
+    {
+        $request = $this->updateMeterRequest($company_id, $meter_id, $meter_update_payload);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\SunDataMetropolisClient\Model\Meter' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Meter', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SunDataMetropolisClient\Model\Meter';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SunDataMetropolisClient\Model\Meter',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateMeterAsync
+     *
+     * Update Meter
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $meter_id The id of the meter (required)
+     * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateMeterAsync($company_id, $meter_id, $meter_update_payload = null)
+    {
+        return $this->updateMeterAsyncWithHttpInfo($company_id, $meter_id, $meter_update_payload)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateMeterAsyncWithHttpInfo
+     *
+     * Update Meter
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $meter_id The id of the meter (required)
+     * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateMeterAsyncWithHttpInfo($company_id, $meter_id, $meter_update_payload = null)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\Meter';
+        $request = $this->updateMeterRequest($company_id, $meter_id, $meter_update_payload);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateMeter'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $meter_id The id of the meter (required)
+     * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateMeterRequest($company_id, $meter_id, $meter_update_payload = null)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling updateMeter'
+            );
+        }
+        // verify the required parameter 'meter_id' is set
+        if ($meter_id === null || (is_array($meter_id) && count($meter_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $meter_id when calling updateMeter'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/meters/{meter_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($meter_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'meter_id' . '}',
+                ObjectSerializer::toPathValue($meter_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($meter_update_payload)) {
+            $_tempBody = $meter_update_payload;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Access-Token');
+        if ($apiKey !== null) {
+            $headers['Access-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation validateMeterExistence
      *
      * Validate whether a reference_identifier is valid.

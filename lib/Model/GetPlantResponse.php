@@ -1,6 +1,6 @@
 <?php
 /**
- * Tag
+ * GetPlantResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * Tag Class Doc Comment
+ * GetPlantResponse Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Tag implements ModelInterface, ArrayAccess
+class GetPlantResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Tag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Tag';
+    protected static $openAPIModelName = 'GetPlantResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,13 @@ class Tag implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'company_id' => 'int',
+        'status' => 'string',
+        'address_id' => 'int',
         'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'owning_company_id' => 'int',
+        'weather_station_id' => 'int',
+        'monitored_since' => '\DateTime',
+        'address' => '\SunDataMetropolisClient\Model\Address'
     ];
 
     /**
@@ -71,10 +74,13 @@ class Tag implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
-        'company_id' => 'int64',
+        'status' => null,
+        'address_id' => 'int64',
         'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'owning_company_id' => null,
+        'weather_station_id' => 'int64',
+        'monitored_since' => 'date-time',
+        'address' => null
     ];
 
     /**
@@ -105,10 +111,13 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'company_id' => 'company_id',
+        'status' => 'status',
+        'address_id' => 'address_id',
         'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'owning_company_id' => 'owning_company_id',
+        'weather_station_id' => 'weather_station_id',
+        'monitored_since' => 'monitored_since',
+        'address' => 'address'
     ];
 
     /**
@@ -118,10 +127,13 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'company_id' => 'setCompanyId',
+        'status' => 'setStatus',
+        'address_id' => 'setAddressId',
         'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'owning_company_id' => 'setOwningCompanyId',
+        'weather_station_id' => 'setWeatherStationId',
+        'monitored_since' => 'setMonitoredSince',
+        'address' => 'setAddress'
     ];
 
     /**
@@ -131,10 +143,13 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'company_id' => 'getCompanyId',
+        'status' => 'getStatus',
+        'address_id' => 'getAddressId',
         'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'owning_company_id' => 'getOwningCompanyId',
+        'weather_station_id' => 'getWeatherStationId',
+        'monitored_since' => 'getMonitoredSince',
+        'address' => 'getAddress'
     ];
 
     /**
@@ -178,8 +193,27 @@ class Tag implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_OK = 'OK';
+    const STATUS_MEDIUM = 'MEDIUM';
+    const STATUS_NONE = 'NONE';
+    const STATUS_NOK = 'NOK';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_OK,
+            self::STATUS_MEDIUM,
+            self::STATUS_NONE,
+            self::STATUS_NOK,
+        ];
+    }
     
 
     /**
@@ -198,10 +232,13 @@ class Tag implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['address_id'] = isset($data['address_id']) ? $data['address_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['owning_company_id'] = isset($data['owning_company_id']) ? $data['owning_company_id'] : null;
+        $this->container['weather_station_id'] = isset($data['weather_station_id']) ? $data['weather_station_id'] : null;
+        $this->container['monitored_since'] = isset($data['monitored_since']) ? $data['monitored_since'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
     }
 
     /**
@@ -216,17 +253,16 @@ class Tag implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
         }
         return $invalidProperties;
     }
@@ -268,25 +304,58 @@ class Tag implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_id
+     * Gets status
      *
-     * @return int
+     * @return string|null
      */
-    public function getCompanyId()
+    public function getStatus()
     {
-        return $this->container['company_id'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets company_id
+     * Sets status
      *
-     * @param int $company_id company_id
+     * @param string|null $status The plant status as a string
      *
      * @return $this
      */
-    public function setCompanyId($company_id)
+    public function setStatus($status)
     {
-        $this->container['company_id'] = $company_id;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_id
+     *
+     * @return int|null
+     */
+    public function getAddressId()
+    {
+        return $this->container['address_id'];
+    }
+
+    /**
+     * Sets address_id
+     *
+     * @param int|null $address_id address_id
+     *
+     * @return $this
+     */
+    public function setAddressId($address_id)
+    {
+        $this->container['address_id'] = $address_id;
 
         return $this;
     }
@@ -316,49 +385,97 @@ class Tag implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets updated_at
+     * Gets owning_company_id
      *
-     * @return \DateTime
+     * @return int|null
      */
-    public function getUpdatedAt()
+    public function getOwningCompanyId()
     {
-        return $this->container['updated_at'];
+        return $this->container['owning_company_id'];
     }
 
     /**
-     * Sets updated_at
+     * Sets owning_company_id
      *
-     * @param \DateTime $updated_at updated_at
+     * @param int|null $owning_company_id owning_company_id
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setOwningCompanyId($owning_company_id)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['owning_company_id'] = $owning_company_id;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets weather_station_id
      *
-     * @return \DateTime
+     * @return int|null
      */
-    public function getCreatedAt()
+    public function getWeatherStationId()
     {
-        return $this->container['created_at'];
+        return $this->container['weather_station_id'];
     }
 
     /**
-     * Sets created_at
+     * Sets weather_station_id
      *
-     * @param \DateTime $created_at created_at
+     * @param int|null $weather_station_id weather_station_id
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setWeatherStationId($weather_station_id)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['weather_station_id'] = $weather_station_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets monitored_since
+     *
+     * @return \DateTime|null
+     */
+    public function getMonitoredSince()
+    {
+        return $this->container['monitored_since'];
+    }
+
+    /**
+     * Sets monitored_since
+     *
+     * @param \DateTime|null $monitored_since monitored_since
+     *
+     * @return $this
+     */
+    public function setMonitoredSince($monitored_since)
+    {
+        $this->container['monitored_since'] = $monitored_since;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return \SunDataMetropolisClient\Model\Address|null
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param \SunDataMetropolisClient\Model\Address|null $address address
+     *
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
 
         return $this;
     }

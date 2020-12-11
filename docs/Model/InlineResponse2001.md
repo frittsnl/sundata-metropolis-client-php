@@ -1,13 +1,10 @@
-# # PlantBasic
+# # InlineResponse2001
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | 
-**owning_company_id** | **int** |  | [optional] 
-**address** | [**\SunDataMetropolisClient\Model\Address**](Address.md) |  | [optional] 
-**tag_ids** | **int[]** |  | [optional] 
+**company_id** | [**\SunDataMetropolisClient\Model\Tag[]**](Tag.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

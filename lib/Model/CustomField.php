@@ -1,6 +1,6 @@
 <?php
 /**
- * Tag
+ * CustomField
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * Tag Class Doc Comment
+ * CustomField Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Tag implements ModelInterface, ArrayAccess
+class CustomField implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Tag implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Tag';
+    protected static $openAPIModelName = 'CustomField';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,9 @@ class Tag implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'company_id' => 'int',
-        'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'type_id' => 'int',
+        'type' => '\SunDataMetropolisClient\Model\Type',
+        'value' => 'string'
     ];
 
     /**
@@ -71,10 +70,9 @@ class Tag implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => 'int64',
-        'company_id' => 'int64',
-        'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'type_id' => 'int64',
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -105,10 +103,9 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'company_id' => 'company_id',
-        'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'type_id' => 'type-id',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -118,10 +115,9 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'company_id' => 'setCompanyId',
-        'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'type_id' => 'setTypeId',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -131,10 +127,9 @@ class Tag implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'company_id' => 'getCompanyId',
-        'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'type_id' => 'getTypeId',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -198,10 +193,9 @@ class Tag implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['type_id'] = isset($data['type_id']) ? $data['type_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -213,21 +207,6 @@ class Tag implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -246,7 +225,7 @@ class Tag implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return int
+     * @return int|null
      */
     public function getId()
     {
@@ -256,7 +235,7 @@ class Tag implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int|null $id id
      *
      * @return $this
      */
@@ -268,97 +247,73 @@ class Tag implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_id
+     * Gets type_id
      *
-     * @return int
+     * @return int|null
      */
-    public function getCompanyId()
+    public function getTypeId()
     {
-        return $this->container['company_id'];
+        return $this->container['type_id'];
     }
 
     /**
-     * Sets company_id
+     * Sets type_id
      *
-     * @param int $company_id company_id
+     * @param int|null $type_id type_id
      *
      * @return $this
      */
-    public function setCompanyId($company_id)
+    public function setTypeId($type_id)
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['type_id'] = $type_id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets type
      *
-     * @return string
+     * @return \SunDataMetropolisClient\Model\Type|null
      */
-    public function getName()
+    public function getType()
     {
-        return $this->container['name'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets name
+     * Sets type
      *
-     * @param string $name name
+     * @param \SunDataMetropolisClient\Model\Type|null $type type
      *
      * @return $this
      */
-    public function setName($name)
+    public function setType($type)
     {
-        $this->container['name'] = $name;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets value
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getUpdatedAt()
+    public function getValue()
     {
-        return $this->container['updated_at'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets updated_at
+     * Sets value
      *
-     * @param \DateTime $updated_at updated_at
+     * @param string|null $value value
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setValue($value)
     {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
+        $this->container['value'] = $value;
 
         return $this;
     }

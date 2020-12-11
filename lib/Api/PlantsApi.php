@@ -402,38 +402,40 @@ class PlantsApi
     }
 
     /**
-     * Operation getPlantById
+     * Operation createPlantCustomFields
      *
-     * Plant details
+     * Create Plant Custom Fields
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\CustomField $custom_field custom_field (optional)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SunDataMetropolisClient\Model\Plant
+     * @return \SunDataMetropolisClient\Model\CustomField
      */
-    public function getPlantById($company_id, $plant_id)
+    public function createPlantCustomFields($company_id, $plant_id, $custom_field = null)
     {
-        list($response) = $this->getPlantByIdWithHttpInfo($company_id, $plant_id);
+        list($response) = $this->createPlantCustomFieldsWithHttpInfo($company_id, $plant_id, $custom_field);
         return $response;
     }
 
     /**
-     * Operation getPlantByIdWithHttpInfo
+     * Operation createPlantCustomFieldsWithHttpInfo
      *
-     * Plant details
+     * Create Plant Custom Fields
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\CustomField $custom_field (optional)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SunDataMetropolisClient\Model\Plant, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunDataMetropolisClient\Model\CustomField, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPlantByIdWithHttpInfo($company_id, $plant_id)
+    public function createPlantCustomFieldsWithHttpInfo($company_id, $plant_id, $custom_field = null)
     {
-        $request = $this->getPlantByIdRequest($company_id, $plant_id);
+        $request = $this->createPlantCustomFieldsRequest($company_id, $plant_id, $custom_field);
 
         try {
             $options = $this->createHttpClientOption();
@@ -466,20 +468,20 @@ class PlantsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\SunDataMetropolisClient\Model\Plant' === '\SplFileObject') {
+                    if ('\SunDataMetropolisClient\Model\CustomField' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Plant', []),
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\CustomField', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SunDataMetropolisClient\Model\Plant';
+            $returnType = '\SunDataMetropolisClient\Model\CustomField';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -498,7 +500,312 @@ class PlantsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SunDataMetropolisClient\Model\Plant',
+                        '\SunDataMetropolisClient\Model\CustomField',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createPlantCustomFieldsAsync
+     *
+     * Create Plant Custom Fields
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\CustomField $custom_field (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createPlantCustomFieldsAsync($company_id, $plant_id, $custom_field = null)
+    {
+        return $this->createPlantCustomFieldsAsyncWithHttpInfo($company_id, $plant_id, $custom_field)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createPlantCustomFieldsAsyncWithHttpInfo
+     *
+     * Create Plant Custom Fields
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\CustomField $custom_field (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createPlantCustomFieldsAsyncWithHttpInfo($company_id, $plant_id, $custom_field = null)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\CustomField';
+        $request = $this->createPlantCustomFieldsRequest($company_id, $plant_id, $custom_field);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createPlantCustomFields'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\CustomField $custom_field (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createPlantCustomFieldsRequest($company_id, $plant_id, $custom_field = null)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling createPlantCustomFields'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling createPlantCustomFields'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/custom-fields';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($custom_field)) {
+            $_tempBody = $custom_field;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Access-Token');
+        if ($apiKey !== null) {
+            $headers['Access-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPlantById
+     *
+     * Plant details
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  string $with May containg all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return GetPlantResponse
+     */
+    public function getPlantById($company_id, $plant_id, $with = null)
+    {
+        list($response) = $this->getPlantByIdWithHttpInfo($company_id, $plant_id, $with);
+        return $response;
+    }
+
+    /**
+     * Operation getPlantByIdWithHttpInfo
+     *
+     * Plant details
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  string $with May containg all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of GetPlantResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPlantByIdWithHttpInfo($company_id, $plant_id, $with = null)
+    {
+        $request = $this->getPlantByIdRequest($company_id, $plant_id, $with);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('GetPlantResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'GetPlantResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'GetPlantResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'GetPlantResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -515,13 +822,14 @@ class PlantsApi
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
+     * @param  string $with May containg all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlantByIdAsync($company_id, $plant_id)
+    public function getPlantByIdAsync($company_id, $plant_id, $with = null)
     {
-        return $this->getPlantByIdAsyncWithHttpInfo($company_id, $plant_id)
+        return $this->getPlantByIdAsyncWithHttpInfo($company_id, $plant_id, $with)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -536,14 +844,15 @@ class PlantsApi
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
+     * @param  string $with May containg all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlantByIdAsyncWithHttpInfo($company_id, $plant_id)
+    public function getPlantByIdAsyncWithHttpInfo($company_id, $plant_id, $with = null)
     {
-        $returnType = '\SunDataMetropolisClient\Model\Plant';
-        $request = $this->getPlantByIdRequest($company_id, $plant_id);
+        $returnType = 'GetPlantResponse';
+        $request = $this->getPlantByIdRequest($company_id, $plant_id, $with);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -584,11 +893,12 @@ class PlantsApi
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
+     * @param  string $with May containg all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPlantByIdRequest($company_id, $plant_id)
+    protected function getPlantByIdRequest($company_id, $plant_id, $with = null)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -610,6 +920,17 @@ class PlantsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($with !== null) {
+            if('form' === 'form' && is_array($with)) {
+                foreach($with as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['with'] = $with;
+            }
+        }
 
 
         // path params
@@ -709,7 +1030,7 @@ class PlantsApi
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SunDataMetropolisClient\Model\ModifyPlantResponse
+     * @return \SunDataMetropolisClient\Model\PlantUpdateResponse
      */
     public function updatePlant($company_id, $plant_id, $plant_basic = null)
     {
@@ -728,7 +1049,7 @@ class PlantsApi
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SunDataMetropolisClient\Model\ModifyPlantResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunDataMetropolisClient\Model\PlantUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePlantWithHttpInfo($company_id, $plant_id, $plant_basic = null)
     {
@@ -765,20 +1086,20 @@ class PlantsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\SunDataMetropolisClient\Model\ModifyPlantResponse' === '\SplFileObject') {
+                    if ('\SunDataMetropolisClient\Model\PlantUpdateResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\ModifyPlantResponse', []),
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\PlantUpdateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SunDataMetropolisClient\Model\ModifyPlantResponse';
+            $returnType = '\SunDataMetropolisClient\Model\PlantUpdateResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -797,7 +1118,7 @@ class PlantsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SunDataMetropolisClient\Model\ModifyPlantResponse',
+                        '\SunDataMetropolisClient\Model\PlantUpdateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -843,7 +1164,7 @@ class PlantsApi
      */
     public function updatePlantAsyncWithHttpInfo($company_id, $plant_id, $plant_basic = null)
     {
-        $returnType = '\SunDataMetropolisClient\Model\ModifyPlantResponse';
+        $returnType = '\SunDataMetropolisClient\Model\PlantUpdateResponse';
         $request = $this->updatePlantRequest($company_id, $plant_id, $plant_basic);
 
         return $this->client

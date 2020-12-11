@@ -49,7 +49,7 @@ class MeterExistenceResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'meterExistenceResponse';
+    protected static $openAPIModelName = 'MeterExistenceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

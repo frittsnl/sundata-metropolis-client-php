@@ -67,7 +67,7 @@ $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setA
 // $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\InboundDriverApi(
+$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -76,10 +76,10 @@ $apiInstance = new SunDataMetropolisClient\Api\InboundDriverApi(
 $company_id = 56; // int | The id of the company
 
 try {
-    $result = $apiInstance->getCompanyInboundDriversByCompanyId($company_id);
+    $result = $apiInstance->getCompanyChildCompanies($company_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InboundDriverApi->getCompanyInboundDriversByCompanyId: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompaniesApi->getCompanyChildCompanies: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -91,10 +91,13 @@ All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*InboundDriverApi* | [**getCompanyInboundDriversByCompanyId**](docs/Api/InboundDriverApi.md#getcompanyinbounddriversbycompanyid) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
-*MetersApi* | [**getValidateMeterExistence**](docs/Api/MetersApi.md#getvalidatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
-*PlantsApi* | [**getShowPlantById**](docs/Api/PlantsApi.md#getshowplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
-*PlantsApi* | [**postCompaniesCompanyIdPlants**](docs/Api/PlantsApi.md#postcompaniescompanyidplants) | **POST** /companies/{company_id}/plants | 
+*CompaniesApi* | [**getCompanyChildCompanies**](docs/Api/CompaniesApi.md#getcompanychildcompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
+*InboundDriversApi* | [**getCompanyInboundDrivers**](docs/Api/InboundDriversApi.md#getcompanyinbounddrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
+*MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create a Company Plant Meter
+*MetersApi* | [**validateMeterExistence**](docs/Api/MetersApi.md#validatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
+*PlantsApi* | [**createPlant**](docs/Api/PlantsApi.md#createplant) | **POST** /companies/{company_id}/plants | Create a Company Plant
+*PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
+*PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Modify Company Plant details
 
 
 ## Documentation For Models
@@ -103,9 +106,12 @@ Class | Method | HTTP request | Description
  - [AddressAllOf](docs/Model/AddressAllOf.md)
  - [AddressBasic](docs/Model/AddressBasic.md)
  - [Company](docs/Model/Company.md)
+ - [CreateMeterPayload](docs/Model/CreateMeterPayload.md)
  - [InboundDriver](docs/Model/InboundDriver.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [Meter](docs/Model/Meter.md)
  - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
+ - [ModifyPlantResponse](docs/Model/ModifyPlantResponse.md)
  - [Plant](docs/Model/Plant.md)
  - [PlantAllOf](docs/Model/PlantAllOf.md)
  - [PlantBasic](docs/Model/PlantBasic.md)

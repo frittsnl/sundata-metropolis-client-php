@@ -255,20 +255,12 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        if ((mb_strlen($this->container['status']) < 1)) {
-            $invalidProperties[] = "invalid value for 'status', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['address_id'] === null) {
             $invalidProperties[] = "'address_id' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['owning_company_id'] === null) {
             $invalidProperties[] = "'owning_company_id' can't be null";
         }
@@ -345,11 +337,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function setStatus($status)
     {
-
-        if ((mb_strlen($status) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $status when calling InlineResponse200., must be bigger than or equal to 1.');
-        }
-
         $this->container['status'] = $status;
 
         return $this;
@@ -398,11 +385,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling InlineResponse200., must be bigger than or equal to 1.');
-        }
-
         $this->container['name'] = $name;
 
         return $this;

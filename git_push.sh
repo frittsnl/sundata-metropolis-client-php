@@ -3,12 +3,25 @@
 #
 # Usage example: /bin/sh ./git_push.sh wing328 openapi-pestore-perl "minor update" "gitlab.com"
 
-git_user_id="frittsnl"
-git_repo_id="sundata-metropolis-client-php"
-git_host="github.com"
+git_user_id=$1
+git_repo_id=$2
+release_note=$3
+git_host=$4
 
-read -p "Commit message (empty will result in \"Minor update\"): " release_note
-release_note=${release_note:-"Minor update"}
+if [ "$git_host" = "" ]; then
+    git_host="github.com"
+    echo "[INFO] No command line input provided. Set \$git_host to $git_host"
+fi
+
+if [ "$git_user_id" = "" ]; then
+    git_user_id="frittsnl"
+    echo "[INFO] No command line input provided. Set \$git_user_id to $git_user_id"
+fi
+
+if [ "$git_repo_id" = "" ]; then
+    git_repo_id="sundata-metropolis-client-php"
+    echo "[INFO] No command line input provided. Set \$git_repo_id to $git_repo_id"
+fi
 
 if [ "$release_note" = "" ]; then
     release_note="Minor update"
@@ -42,3 +55,4 @@ git pull origin master
 # Pushes (Forces) the changes in the local repository up to the remote repository
 echo "Git pushing to https://${git_host}/${git_user_id}/${git_repo_id}.git"
 git push origin master 2>&1 | grep -v 'To https'
+

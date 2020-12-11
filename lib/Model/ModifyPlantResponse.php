@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundDriver
+ * ModifyPlantResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * InboundDriver Class Doc Comment
+ * ModifyPlantResponse Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InboundDriver implements ModelInterface, ArrayAccess
+class ModifyPlantResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InboundDriver';
+    protected static $openAPIModelName = 'modifyPlantResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
         'name' => 'string',
-        'updated_at' => '\DateTime',
-        'created_at' => '\DateTime'
+        'tag_ids' => 'int[]',
+        'address' => '\SunDataMetropolisClient\Model\Address',
+        'company_ids' => '\SunDataMetropolisClient\Model\array[]'
     ];
 
     /**
@@ -69,10 +69,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
         'name' => null,
-        'updated_at' => 'date-time',
-        'created_at' => 'date-time'
+        'tag_ids' => 'int64',
+        'address' => null,
+        'company_ids' => null
     ];
 
     /**
@@ -102,10 +102,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'updated_at' => 'updated_at',
-        'created_at' => 'created_at'
+        'tag_ids' => 'tag_ids',
+        'address' => 'address',
+        'company_ids' => 'company_ids'
     ];
 
     /**
@@ -114,10 +114,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt'
+        'tag_ids' => 'setTagIds',
+        'address' => 'setAddress',
+        'company_ids' => 'setCompanyIds'
     ];
 
     /**
@@ -126,10 +126,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt'
+        'tag_ids' => 'getTagIds',
+        'address' => 'getAddress',
+        'company_ids' => 'getCompanyIds'
     ];
 
     /**
@@ -192,10 +192,10 @@ class InboundDriver implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['tag_ids'] = isset($data['tag_ids']) ? $data['tag_ids'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['company_ids'] = isset($data['company_ids']) ? $data['company_ids'] : null;
     }
 
     /**
@@ -207,15 +207,6 @@ class InboundDriver implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -232,33 +223,9 @@ class InboundDriver implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -268,7 +235,7 @@ class InboundDriver implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return $this
      */
@@ -280,49 +247,73 @@ class InboundDriver implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets updated_at
+     * Gets tag_ids
      *
-     * @return \DateTime|null
+     * @return int[]|null
      */
-    public function getUpdatedAt()
+    public function getTagIds()
     {
-        return $this->container['updated_at'];
+        return $this->container['tag_ids'];
     }
 
     /**
-     * Sets updated_at
+     * Sets tag_ids
      *
-     * @param \DateTime|null $updated_at updated_at
+     * @param int[]|null $tag_ids tag_ids
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setTagIds($tag_ids)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['tag_ids'] = $tag_ids;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets address
      *
-     * @return \DateTime
+     * @return \SunDataMetropolisClient\Model\Address|null
      */
-    public function getCreatedAt()
+    public function getAddress()
     {
-        return $this->container['created_at'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets created_at
+     * Sets address
      *
-     * @param \DateTime $created_at created_at
+     * @param \SunDataMetropolisClient\Model\Address|null $address address
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setAddress($address)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_ids
+     *
+     * @return \SunDataMetropolisClient\Model\array[]|null
+     */
+    public function getCompanyIds()
+    {
+        return $this->container['company_ids'];
+    }
+
+    /**
+     * Sets company_ids
+     *
+     * @param \SunDataMetropolisClient\Model\array[]|null $company_ids company_ids
+     *
+     * @return $this
+     */
+    public function setCompanyIds($company_ids)
+    {
+        $this->container['company_ids'] = $company_ids;
 
         return $this;
     }

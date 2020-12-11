@@ -57,7 +57,7 @@ class Company implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string',
         'non_mon_accessible' => 'bool',
         'is_owner' => 'float',
@@ -71,7 +71,7 @@ class Company implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int64',
         'name' => null,
         'non_mon_accessible' => null,
         'is_owner' => null,
@@ -225,15 +225,8 @@ class Company implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['non_mon_accessible'] === null) {
             $invalidProperties[] = "'non_mon_accessible' can't be null";
-        }
-        if ($this->container['is_owner'] === null) {
-            $invalidProperties[] = "'is_owner' can't be null";
         }
         if ($this->container['updated_at'] === null) {
             $invalidProperties[] = "'updated_at' can't be null";
@@ -259,7 +252,7 @@ class Company implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -269,7 +262,7 @@ class Company implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param float $id id
+     * @param int $id id
      *
      * @return $this
      */
@@ -299,11 +292,6 @@ class Company implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling Company., must be bigger than or equal to 1.');
-        }
-
         $this->container['name'] = $name;
 
         return $this;
@@ -336,7 +324,7 @@ class Company implements ModelInterface, ArrayAccess
     /**
      * Gets is_owner
      *
-     * @return float
+     * @return float|null
      */
     public function getIsOwner()
     {
@@ -346,7 +334,7 @@ class Company implements ModelInterface, ArrayAccess
     /**
      * Sets is_owner
      *
-     * @param float $is_owner is_owner
+     * @param float|null $is_owner is_owner
      *
      * @return $this
      */

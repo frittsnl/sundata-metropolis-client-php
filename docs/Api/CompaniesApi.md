@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ## getCompanyChildCompanies
 
-> \SunDataMetropolisClient\Model\Company getCompanyChildCompanies($company_id)
+> \SunDataMetropolisClient\Model\Company[] getCompanyChildCompanies($company_id)
 
 Get Company Child Companies
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\Company**](../Model/Company.md)
+[**\SunDataMetropolisClient\Model\Company[]**](../Model/Company.md)
 
 ### Authorization
 

@@ -118,7 +118,7 @@ class MetersApi
     /**
      * Operation createMeter
      *
-     * Create a Company Plant Meter
+     * Create a Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -137,7 +137,7 @@ class MetersApi
     /**
      * Operation createMeterWithHttpInfo
      *
-     * Create a Company Plant Meter
+     * Create a Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -227,7 +227,7 @@ class MetersApi
     /**
      * Operation createMeterAsync
      *
-     * Create a Company Plant Meter
+     * Create a Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -249,7 +249,7 @@ class MetersApi
     /**
      * Operation createMeterAsyncWithHttpInfo
      *
-     * Create a Company Plant Meter
+     * Create a Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)

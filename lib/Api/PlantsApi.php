@@ -118,7 +118,7 @@ class PlantsApi
     /**
      * Operation createPlant
      *
-     * Create a Company Plant
+     * Create a Plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  \SunDataMetropolisClient\Model\PlantBasic $plant_basic plant_basic (optional)
@@ -136,7 +136,7 @@ class PlantsApi
     /**
      * Operation createPlantWithHttpInfo
      *
-     * Create a Company Plant
+     * Create a Plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  \SunDataMetropolisClient\Model\PlantBasic $plant_basic (optional)
@@ -225,7 +225,7 @@ class PlantsApi
     /**
      * Operation createPlantAsync
      *
-     * Create a Company Plant
+     * Create a Plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  \SunDataMetropolisClient\Model\PlantBasic $plant_basic (optional)
@@ -246,7 +246,7 @@ class PlantsApi
     /**
      * Operation createPlantAsyncWithHttpInfo
      *
-     * Create a Company Plant
+     * Create a Plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  \SunDataMetropolisClient\Model\PlantBasic $plant_basic (optional)
@@ -1022,7 +1022,7 @@ class PlantsApi
     /**
      * Operation updatePlant
      *
-     * Modify Company Plant details
+     * Modify Plant details
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -1041,7 +1041,7 @@ class PlantsApi
     /**
      * Operation updatePlantWithHttpInfo
      *
-     * Modify Company Plant details
+     * Modify Plant details
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -1131,7 +1131,7 @@ class PlantsApi
     /**
      * Operation updatePlantAsync
      *
-     * Modify Company Plant details
+     * Modify Plant details
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -1153,7 +1153,7 @@ class PlantsApi
     /**
      * Operation updatePlantAsyncWithHttpInfo
      *
-     * Modify Company Plant details
+     * Modify Plant details
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)

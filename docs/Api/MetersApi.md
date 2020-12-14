@@ -4,7 +4,7 @@ All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createMeter**](MetersApi.md#createMeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create a Company Plant Meter
+[**createMeter**](MetersApi.md#createMeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create a Plant Meter
 [**getMeterById**](MetersApi.md#getMeterById) | **GET** /companies/{company_id}/plant/{plant_id}/meters/{meter_id} | Get Meter by ID
 [**updateMeter**](MetersApi.md#updateMeter) | **PUT** /companies/{company_id}/meters/{meter_id} | Update Meter
 [**validateMeterExistence**](MetersApi.md#validateMeterExistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 > \SunDataMetropolisClient\Model\Meter createMeter($company_id, $plant_id, $create_meter_payload)
 
-Create a Company Plant Meter
+Create a Plant Meter
 
-Create a new Company Plant Meter
+Create a new Plant Meter
 
 ### Example
 

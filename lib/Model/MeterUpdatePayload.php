@@ -231,9 +231,6 @@ class MeterUpdatePayload implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['plant_id'] === null) {
-            $invalidProperties[] = "'plant_id' can't be null";
-        }
         if (!is_null($this->container['orientation_in_degrees']) && ($this->container['orientation_in_degrees'] > 359)) {
             $invalidProperties[] = "invalid value for 'orientation_in_degrees', must be smaller than or equal to 359.";
         }
@@ -268,7 +265,7 @@ class MeterUpdatePayload implements ModelInterface, ArrayAccess
     /**
      * Gets plant_id
      *
-     * @return int
+     * @return int|null
      */
     public function getPlantId()
     {
@@ -278,7 +275,7 @@ class MeterUpdatePayload implements ModelInterface, ArrayAccess
     /**
      * Sets plant_id
      *
-     * @param int $plant_id plant_id
+     * @param int|null $plant_id Updating the plant_id will move the meter to another plant. Only plants of the same company are allowed.
      *
      * @return $this
      */

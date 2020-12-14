@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plant_id** | **int** |  | [readonly] 
+**plant_id** | **int** | Updating the plant_id will move the meter to another plant. Only plants of the same company are allowed. | [optional] [readonly] 
 **amount_in_cents_per_kwh** | **float** |  | [optional] 
 **peak_in_watt** | **float** |  | [optional] 
 **p90_in_kwh** | **float** |  | [optional] 

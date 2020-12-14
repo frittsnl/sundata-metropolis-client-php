@@ -4,10 +4,10 @@ All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createPlant**](PlantsApi.md#createPlant) | **POST** /companies/{company_id}/plants | Create a Company Plant
+[**createPlant**](PlantsApi.md#createPlant) | **POST** /companies/{company_id}/plants | Create a Plant
 [**createPlantCustomFields**](PlantsApi.md#createPlantCustomFields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
 [**getPlantById**](PlantsApi.md#getPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
-[**updatePlant**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Modify Company Plant details
+[**updatePlant**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Modify Plant details
 
 
 
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 > \SunDataMetropolisClient\Model\InlineResponse200 createPlant($company_id, $plant_basic)
 
-Create a Company Plant
+Create a Plant
 
-Create a new Company Plant
+Create a new Plant
 
 ### Example
 
@@ -214,9 +214,9 @@ Name | Type | Description  | Notes
 
 > \SunDataMetropolisClient\Model\PlantUpdateResponse updatePlant($company_id, $plant_id, $plant_basic)
 
-Modify Company Plant details
+Modify Plant details
 
-Modify the details of a Company Plant
+Modify the details of a Plant
 
 ### Example
 

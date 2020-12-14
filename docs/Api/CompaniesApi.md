@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ## getCompanyTags
 
-> \SunDataMetropolisClient\Model\Tag getCompanyTags($company_id)
+> \SunDataMetropolisClient\Model\Tag[] getCompanyTags($company_id)
 
 Get Company Tags
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\Tag**](../Model/Tag.md)
+[**\SunDataMetropolisClient\Model\Tag[]**](../Model/Tag.md)
 
 ### Authorization
 

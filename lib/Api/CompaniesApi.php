@@ -680,7 +680,7 @@ class CompaniesApi
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SunDataMetropolisClient\Model\Tag
+     * @return \SunDataMetropolisClient\Model\Tag[]
      */
     public function getCompanyTags($company_id)
     {
@@ -697,7 +697,7 @@ class CompaniesApi
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SunDataMetropolisClient\Model\Tag, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunDataMetropolisClient\Model\Tag[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getCompanyTagsWithHttpInfo($company_id)
     {
@@ -734,20 +734,20 @@ class CompaniesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\SunDataMetropolisClient\Model\Tag' === '\SplFileObject') {
+                    if ('\SunDataMetropolisClient\Model\Tag[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Tag', []),
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Tag[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SunDataMetropolisClient\Model\Tag';
+            $returnType = '\SunDataMetropolisClient\Model\Tag[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -766,7 +766,7 @@ class CompaniesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SunDataMetropolisClient\Model\Tag',
+                        '\SunDataMetropolisClient\Model\Tag[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -808,7 +808,7 @@ class CompaniesApi
      */
     public function getCompanyTagsAsyncWithHttpInfo($company_id)
     {
-        $returnType = '\SunDataMetropolisClient\Model\Tag';
+        $returnType = '\SunDataMetropolisClient\Model\Tag[]';
         $request = $this->getCompanyTagsRequest($company_id);
 
         return $this->client

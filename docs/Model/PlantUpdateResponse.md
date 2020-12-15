@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **status** | **string** |  | [optional] 
-**address_id** | **int** |  | [optional] 
 **name** | **string** |  | [optional] 
 **owning_company_id** | **int** |  | [optional] 
 **weather_station_id** | **int** |  | [optional] 

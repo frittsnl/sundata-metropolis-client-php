@@ -59,7 +59,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'int',
         'status' => 'string',
-        'address_id' => 'int',
         'name' => 'string',
         'owning_company_id' => 'int',
         'weather_station_id' => 'int',
@@ -78,7 +77,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => 'int64',
         'status' => null,
-        'address_id' => 'int64',
         'name' => null,
         'owning_company_id' => 'int64',
         'weather_station_id' => 'int64',
@@ -118,7 +116,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'status' => 'status',
-        'address_id' => 'address_id',
         'name' => 'name',
         'owning_company_id' => 'owning_company_id',
         'weather_station_id' => 'weather_station_id',
@@ -137,7 +134,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'status' => 'setStatus',
-        'address_id' => 'setAddressId',
         'name' => 'setName',
         'owning_company_id' => 'setOwningCompanyId',
         'weather_station_id' => 'setWeatherStationId',
@@ -156,7 +152,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'status' => 'getStatus',
-        'address_id' => 'getAddressId',
         'name' => 'getName',
         'owning_company_id' => 'getOwningCompanyId',
         'weather_station_id' => 'getWeatherStationId',
@@ -229,7 +224,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['address_id'] = isset($data['address_id']) ? $data['address_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['owning_company_id'] = isset($data['owning_company_id']) ? $data['owning_company_id'] : null;
         $this->container['weather_station_id'] = isset($data['weather_station_id']) ? $data['weather_station_id'] : null;
@@ -254,9 +248,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['address_id'] === null) {
-            $invalidProperties[] = "'address_id' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -338,30 +329,6 @@ class PlantCreateResponse implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_id
-     *
-     * @return int
-     */
-    public function getAddressId()
-    {
-        return $this->container['address_id'];
-    }
-
-    /**
-     * Sets address_id
-     *
-     * @param int $address_id address_id
-     *
-     * @return $this
-     */
-    public function setAddressId($address_id)
-    {
-        $this->container['address_id'] = $address_id;
 
         return $this;
     }

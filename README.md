@@ -96,14 +96,16 @@ Class | Method | HTTP request | Description
 *CompaniesApi* | [**getCompanyTags**](docs/Api/CompaniesApi.md#getcompanytags) | **GET** /companies/{company_id}/tags | Get Company Tags
 *CompaniesApi* | [**getCustomFieldTypes**](docs/Api/CompaniesApi.md#getcustomfieldtypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
 *InboundDriversApi* | [**getCompanyInboundDrivers**](docs/Api/InboundDriversApi.md#getcompanyinbounddrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
-*MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create a Plant Meter
-*MetersApi* | [**getMeterById**](docs/Api/MetersApi.md#getmeterbyid) | **GET** /companies/{company_id}/plant/{plant_id}/meters/{meter_id} | Get Meter by ID
+*MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
+*MetersApi* | [**getMeterById**](docs/Api/MetersApi.md#getmeterbyid) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
 *MetersApi* | [**updateMeter**](docs/Api/MetersApi.md#updatemeter) | **PUT** /companies/{company_id}/meters/{meter_id} | Update Meter
 *MetersApi* | [**validateMeterExistence**](docs/Api/MetersApi.md#validatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
-*PlantsApi* | [**createPlant**](docs/Api/PlantsApi.md#createplant) | **POST** /companies/{company_id}/plants | Create a Plant
+*PlantsApi* | [**createPlant**](docs/Api/PlantsApi.md#createplant) | **POST** /companies/{company_id}/plants | Create Plant
 *PlantsApi* | [**createPlantCustomFields**](docs/Api/PlantsApi.md#createplantcustomfields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
 *PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
-*PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Modify Plant details
+*PlantsApi* | [**getPlantCustomFields**](docs/Api/PlantsApi.md#getplantcustomfields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
+*PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
+*PlantsApi* | [**updatePlantCustomFields**](docs/Api/PlantsApi.md#updateplantcustomfields) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update Plant Custom Fields
 
 
 ## Documentation For Models
@@ -111,14 +113,17 @@ Class | Method | HTTP request | Description
  - [Address](docs/Model/Address.md)
  - [AddressAllOf](docs/Model/AddressAllOf.md)
  - [AddressBasic](docs/Model/AddressBasic.md)
+ - [ChildCompaniesTagsResponse](docs/Model/ChildCompaniesTagsResponse.md)
  - [Company](docs/Model/Company.md)
  - [CreateMeterPayload](docs/Model/CreateMeterPayload.md)
  - [CustomField](docs/Model/CustomField.md)
+ - [CustomFieldCreatePayload](docs/Model/CustomFieldCreatePayload.md)
+ - [CustomFieldResponse](docs/Model/CustomFieldResponse.md)
  - [CustomFieldType](docs/Model/CustomFieldType.md)
+ - [CustomFieldUpdatePayload](docs/Model/CustomFieldUpdatePayload.md)
  - [GetPlantResponse](docs/Model/GetPlantResponse.md)
  - [InboundDriver](docs/Model/InboundDriver.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
- - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [Meter](docs/Model/Meter.md)
  - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
  - [MeterUpdatePayload](docs/Model/MeterUpdatePayload.md)
@@ -126,6 +131,10 @@ Class | Method | HTTP request | Description
  - [Plant](docs/Model/Plant.md)
  - [PlantAllOf](docs/Model/PlantAllOf.md)
  - [PlantBasic](docs/Model/PlantBasic.md)
+ - [PlantBasicResponse](docs/Model/PlantBasicResponse.md)
+ - [PlantCreateResponse](docs/Model/PlantCreateResponse.md)
+ - [PlantPayload](docs/Model/PlantPayload.md)
+ - [PlantPayloadCompanyIds](docs/Model/PlantPayloadCompanyIds.md)
  - [PlantUpdateResponse](docs/Model/PlantUpdateResponse.md)
  - [Tag](docs/Model/Tag.md)
  - [Type](docs/Model/Type.md)

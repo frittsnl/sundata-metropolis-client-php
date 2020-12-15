@@ -118,7 +118,7 @@ class MetersApi
     /**
      * Operation createMeter
      *
-     * Create a Plant Meter
+     * Create Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -137,7 +137,7 @@ class MetersApi
     /**
      * Operation createMeterWithHttpInfo
      *
-     * Create a Plant Meter
+     * Create Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -227,7 +227,7 @@ class MetersApi
     /**
      * Operation createMeterAsync
      *
-     * Create a Plant Meter
+     * Create Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -249,7 +249,7 @@ class MetersApi
     /**
      * Operation createMeterAsyncWithHttpInfo
      *
-     * Create a Plant Meter
+     * Create Plant Meter
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -633,7 +633,7 @@ class MetersApi
             );
         }
 
-        $resourcePath = '/companies/{company_id}/plant/{plant_id}/meters/{meter_id}';
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/meters/{meter_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

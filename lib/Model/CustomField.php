@@ -57,10 +57,9 @@ class CustomField implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'value' => 'string',
         'id' => 'int',
-        'type_id' => 'int',
-        'type' => '\SunDataMetropolisClient\Model\Type',
-        'value' => 'string'
+        'type_id' => 'int'
     ];
 
     /**
@@ -69,10 +68,9 @@ class CustomField implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'value' => null,
         'id' => 'int64',
-        'type_id' => 'int64',
-        'type' => null,
-        'value' => null
+        'type_id' => 'int64'
     ];
 
     /**
@@ -102,10 +100,9 @@ class CustomField implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'value' => 'value',
         'id' => 'id',
-        'type_id' => 'type-id',
-        'type' => 'type',
-        'value' => 'value'
+        'type_id' => 'type_id'
     ];
 
     /**
@@ -114,10 +111,9 @@ class CustomField implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'value' => 'setValue',
         'id' => 'setId',
-        'type_id' => 'setTypeId',
-        'type' => 'setType',
-        'value' => 'setValue'
+        'type_id' => 'setTypeId'
     ];
 
     /**
@@ -126,10 +122,9 @@ class CustomField implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'value' => 'getValue',
         'id' => 'getId',
-        'type_id' => 'getTypeId',
-        'type' => 'getType',
-        'value' => 'getValue'
+        'type_id' => 'getTypeId'
     ];
 
     /**
@@ -192,10 +187,9 @@ class CustomField implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type_id'] = isset($data['type_id']) ? $data['type_id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -221,6 +215,30 @@ class CustomField implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets value
+     *
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string|null $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -266,54 +284,6 @@ class CustomField implements ModelInterface, ArrayAccess
     public function setTypeId($type_id)
     {
         $this->container['type_id'] = $type_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \SunDataMetropolisClient\Model\Type|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \SunDataMetropolisClient\Model\Type|null $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string|null $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
 
         return $this;
     }

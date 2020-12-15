@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2001
+ * CustomFieldUpdatePayload
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * InlineResponse2001 Class Doc Comment
+ * CustomFieldUpdatePayload Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse2001 implements ModelInterface, ArrayAccess
+class CustomFieldUpdatePayload implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_1';
+    protected static $openAPIModelName = 'CustomFieldUpdatePayload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_id' => '\SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]'
+        'value' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'company_id' => null
+        'value' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_id' => 'company_id'
+        'value' => 'value'
     ];
 
     /**
@@ -105,7 +105,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company_id' => 'setCompanyId'
+        'value' => 'setValue'
     ];
 
     /**
@@ -114,7 +114,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company_id' => 'getCompanyId'
+        'value' => 'getValue'
     ];
 
     /**
@@ -177,7 +177,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company_id
+     * Gets value
      *
-     * @return \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null
+     * @return string|null
      */
-    public function getCompanyId()
+    public function getValue()
     {
-        return $this->container['company_id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets company_id
+     * Sets value
      *
-     * @param \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null $company_id company_id
+     * @param string|null $value value
      *
      * @return $this
      */
-    public function setCompanyId($company_id)
+    public function setValue($value)
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['value'] = $value;
 
         return $this;
     }

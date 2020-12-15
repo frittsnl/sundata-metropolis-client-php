@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2001
+ * InlineResponse2002
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * InlineResponse2001 Class Doc Comment
+ * InlineResponse2002 Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse2001 implements ModelInterface, ArrayAccess
+class InlineResponse2002 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_1';
+    protected static $openAPIModelName = 'inline_response_200_2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

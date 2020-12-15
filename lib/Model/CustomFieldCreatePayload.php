@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2001
+ * CustomFieldCreatePayload
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * InlineResponse2001 Class Doc Comment
+ * CustomFieldCreatePayload Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse2001 implements ModelInterface, ArrayAccess
+class CustomFieldCreatePayload implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_1';
+    protected static $openAPIModelName = 'CustomFieldCreatePayload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_id' => '\SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]'
+        'type_id' => 'int',
+        'value' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'company_id' => null
+        'type_id' => 'int64',
+        'value' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_id' => 'company_id'
+        'type_id' => 'type_id',
+        'value' => 'value'
     ];
 
     /**
@@ -105,7 +108,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company_id' => 'setCompanyId'
+        'type_id' => 'setTypeId',
+        'value' => 'setValue'
     ];
 
     /**
@@ -114,7 +118,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company_id' => 'getCompanyId'
+        'type_id' => 'getTypeId',
+        'value' => 'getValue'
     ];
 
     /**
@@ -177,7 +182,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
+        $this->container['type_id'] = isset($data['type_id']) ? $data['type_id'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -205,25 +211,49 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company_id
+     * Gets type_id
      *
-     * @return \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null
+     * @return int|null
      */
-    public function getCompanyId()
+    public function getTypeId()
     {
-        return $this->container['company_id'];
+        return $this->container['type_id'];
     }
 
     /**
-     * Sets company_id
+     * Sets type_id
      *
-     * @param \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null $company_id company_id
+     * @param int|null $type_id type_id
      *
      * @return $this
      */
-    public function setCompanyId($company_id)
+    public function setTypeId($type_id)
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['type_id'] = $type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string|null $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

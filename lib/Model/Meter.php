@@ -68,7 +68,7 @@ class Meter implements ModelInterface, ArrayAccess
         'angle_in_degrees' => 'float',
         'has_mixed_panel_orientations' => 'bool',
         'status' => 'string',
-        'updated_at' => 'string',
+        'updated_at' => '\DateTime',
         'created_at' => '\DateTime',
         'retired_on' => '\DateTime',
         'operational_since' => '\DateTime'
@@ -91,7 +91,7 @@ class Meter implements ModelInterface, ArrayAccess
         'angle_in_degrees' => null,
         'has_mixed_panel_orientations' => null,
         'status' => null,
-        'updated_at' => null,
+        'updated_at' => 'date-time',
         'created_at' => 'date-time',
         'retired_on' => 'date-time',
         'operational_since' => 'date-time'
@@ -605,7 +605,7 @@ class Meter implements ModelInterface, ArrayAccess
     /**
      * Gets updated_at
      *
-     * @return string
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -615,7 +615,7 @@ class Meter implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param string $updated_at updated_at
+     * @param \DateTime $updated_at updated_at
      *
      * @return $this
      */

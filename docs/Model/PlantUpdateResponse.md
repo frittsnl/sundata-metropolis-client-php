@@ -4,10 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
+**status** | **string** |  | [optional] 
+**address_id** | **int** |  | [optional] 
 **name** | **string** |  | [optional] 
-**tag_ids** | **int[]** |  | [optional] 
+**owning_company_id** | **int** |  | [optional] 
+**weather_station_id** | **int** |  | [optional] 
+**monitored_since** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **address** | [**\SunDataMetropolisClient\Model\Address**](Address.md) |  | [optional] 
-**company_ids** | [**\SunDataMetropolisClient\Model\array[]**](array.md) |  | [optional] 
+**companies** | [**\SunDataMetropolisClient\Model\Company[]**](Company.md) |  | [optional] 
+**tags** | [**\SunDataMetropolisClient\Model\Tag[]**](Tag.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

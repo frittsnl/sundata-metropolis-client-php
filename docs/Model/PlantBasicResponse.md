@@ -1,10 +1,14 @@
-# # InlineResponse200
+# # PlantBasicResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**company_id** | [**\SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]**](ChildCompaniesTagsResponse.md) |  | [optional] 
+**name** | **string** |  | 
+**owning_company_id** | **int** |  | [optional] 
+**address** | [**\SunDataMetropolisClient\Model\Address**](Address.md) |  | [optional] 
+**tag_ids** | **int[]** |  | [optional] 
+**company_ids** | **object[]** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

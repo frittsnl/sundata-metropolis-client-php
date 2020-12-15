@@ -1,6 +1,6 @@
 <?php
 /**
- * PlantUpdateResponse
+ * PlantCreateResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * PlantUpdateResponse Class Doc Comment
+ * PlantCreateResponse Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PlantUpdateResponse implements ModelInterface, ArrayAccess
+class PlantCreateResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PlantUpdateResponse';
+    protected static $openAPIModelName = 'PlantCreateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,7 +66,8 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
         'monitored_since' => '\DateTime',
         'address' => '\SunDataMetropolisClient\Model\Address',
         'companies' => '\SunDataMetropolisClient\Model\Company[]',
-        'tags' => '\SunDataMetropolisClient\Model\Tag[]'
+        'tags' => '\SunDataMetropolisClient\Model\Tag[]',
+        'custom_fields' => '\SunDataMetropolisClient\Model\CustomField[]'
     ];
 
     /**
@@ -84,7 +85,8 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
         'monitored_since' => 'date-time',
         'address' => null,
         'companies' => null,
-        'tags' => null
+        'tags' => null,
+        'custom_fields' => null
     ];
 
     /**
@@ -123,7 +125,8 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
         'monitored_since' => 'monitored_since',
         'address' => 'address',
         'companies' => 'companies',
-        'tags' => 'tags'
+        'tags' => 'tags',
+        'custom_fields' => 'custom_fields'
     ];
 
     /**
@@ -141,7 +144,8 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
         'monitored_since' => 'setMonitoredSince',
         'address' => 'setAddress',
         'companies' => 'setCompanies',
-        'tags' => 'setTags'
+        'tags' => 'setTags',
+        'custom_fields' => 'setCustomFields'
     ];
 
     /**
@@ -159,7 +163,8 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
         'monitored_since' => 'getMonitoredSince',
         'address' => 'getAddress',
         'companies' => 'getCompanies',
-        'tags' => 'getTags'
+        'tags' => 'getTags',
+        'custom_fields' => 'getCustomFields'
     ];
 
     /**
@@ -232,6 +237,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['companies'] = isset($data['companies']) ? $data['companies'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
     /**
@@ -243,6 +249,36 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['address_id'] === null) {
+            $invalidProperties[] = "'address_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['owning_company_id'] === null) {
+            $invalidProperties[] = "'owning_company_id' can't be null";
+        }
+        if ($this->container['monitored_since'] === null) {
+            $invalidProperties[] = "'monitored_since' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['companies'] === null) {
+            $invalidProperties[] = "'companies' can't be null";
+        }
+        if ($this->container['tags'] === null) {
+            $invalidProperties[] = "'tags' can't be null";
+        }
+        if ($this->container['custom_fields'] === null) {
+            $invalidProperties[] = "'custom_fields' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -261,7 +297,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return int|null
+     * @return int
      */
     public function getId()
     {
@@ -271,7 +307,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id id
+     * @param int $id id
      *
      * @return $this
      */
@@ -285,7 +321,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return string|null
+     * @return string
      */
     public function getStatus()
     {
@@ -295,7 +331,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param string $status status
      *
      * @return $this
      */
@@ -309,7 +345,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets address_id
      *
-     * @return int|null
+     * @return int
      */
     public function getAddressId()
     {
@@ -319,7 +355,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets address_id
      *
-     * @param int|null $address_id address_id
+     * @param int $address_id address_id
      *
      * @return $this
      */
@@ -333,7 +369,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -343,7 +379,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string $name name
      *
      * @return $this
      */
@@ -357,7 +393,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets owning_company_id
      *
-     * @return int|null
+     * @return int
      */
     public function getOwningCompanyId()
     {
@@ -367,7 +403,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets owning_company_id
      *
-     * @param int|null $owning_company_id owning_company_id
+     * @param int $owning_company_id owning_company_id
      *
      * @return $this
      */
@@ -405,7 +441,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets monitored_since
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getMonitoredSince()
     {
@@ -415,7 +451,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets monitored_since
      *
-     * @param \DateTime|null $monitored_since monitored_since
+     * @param \DateTime $monitored_since monitored_since
      *
      * @return $this
      */
@@ -429,7 +465,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \SunDataMetropolisClient\Model\Address|null
+     * @return \SunDataMetropolisClient\Model\Address
      */
     public function getAddress()
     {
@@ -439,7 +475,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \SunDataMetropolisClient\Model\Address|null $address address
+     * @param \SunDataMetropolisClient\Model\Address $address address
      *
      * @return $this
      */
@@ -453,7 +489,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets companies
      *
-     * @return \SunDataMetropolisClient\Model\Company[]|null
+     * @return \SunDataMetropolisClient\Model\Company[]
      */
     public function getCompanies()
     {
@@ -463,7 +499,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets companies
      *
-     * @param \SunDataMetropolisClient\Model\Company[]|null $companies companies
+     * @param \SunDataMetropolisClient\Model\Company[] $companies companies
      *
      * @return $this
      */
@@ -477,7 +513,7 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \SunDataMetropolisClient\Model\Tag[]|null
+     * @return \SunDataMetropolisClient\Model\Tag[]
      */
     public function getTags()
     {
@@ -487,13 +523,37 @@ class PlantUpdateResponse implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \SunDataMetropolisClient\Model\Tag[]|null $tags tags
+     * @param \SunDataMetropolisClient\Model\Tag[] $tags tags
      *
      * @return $this
      */
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_fields
+     *
+     * @return \SunDataMetropolisClient\Model\CustomField[]
+     */
+    public function getCustomFields()
+    {
+        return $this->container['custom_fields'];
+    }
+
+    /**
+     * Sets custom_fields
+     *
+     * @param \SunDataMetropolisClient\Model\CustomField[] $custom_fields custom_fields
+     *
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        $this->container['custom_fields'] = $custom_fields;
 
         return $this;
     }

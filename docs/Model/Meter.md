@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **angle_in_degrees** | **float** |  | [optional] 
 **has_mixed_panel_orientations** | **bool** |  | [optional] 
 **status** | **string** |  | [optional] 
-**updated_at** | **string** |  | 
+**updated_at** | [**\DateTime**](\DateTime.md) |  | 
 **created_at** | [**\DateTime**](\DateTime.md) |  | 
 **retired_on** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **operational_since** | [**\DateTime**](\DateTime.md) |  | [optional] 

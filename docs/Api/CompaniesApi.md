@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getChildCompaniesTags
 
-> \SunDataMetropolisClient\Model\InlineResponse2001 getChildCompaniesTags($company_id)
+> \SunDataMetropolisClient\Model\InlineResponse200 getChildCompaniesTags($company_id)
 
 Get Child Companies Tags
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\SunDataMetropolisClient\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 Get Company Child Companies
 
-Gets the Child Companies of a Company by Company ID
+Get the Child Companies of a Company by Company ID
 
 ### Example
 

@@ -57,17 +57,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
-        'status' => 'string',
-        'address_id' => 'float',
-        'name' => 'string',
-        'owning_company_id' => 'float',
-        'weather_station_id' => 'AnyType',
-        'monitored_since' => '\DateTime',
-        'address' => '\SunDataMetropolisClient\Model\Address',
-        'companies' => '\SunDataMetropolisClient\Model\Company[]',
-        'tags' => '\SunDataMetropolisClient\Model\Tag[]',
-        'custom_fields' => 'AnyType[]'
+        'company_id' => '\SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]'
     ];
 
     /**
@@ -76,17 +66,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'address_id' => null,
-        'name' => null,
-        'owning_company_id' => null,
-        'weather_station_id' => null,
-        'monitored_since' => 'date-time',
-        'address' => null,
-        'companies' => null,
-        'tags' => null,
-        'custom_fields' => null
+        'company_id' => null
     ];
 
     /**
@@ -116,17 +96,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'address_id' => 'address_id',
-        'name' => 'name',
-        'owning_company_id' => 'owning_company_id',
-        'weather_station_id' => 'weather_station_id',
-        'monitored_since' => 'monitored_since',
-        'address' => 'address',
-        'companies' => 'companies',
-        'tags' => 'tags',
-        'custom_fields' => 'custom_fields'
+        'company_id' => 'company_id'
     ];
 
     /**
@@ -135,17 +105,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'address_id' => 'setAddressId',
-        'name' => 'setName',
-        'owning_company_id' => 'setOwningCompanyId',
-        'weather_station_id' => 'setWeatherStationId',
-        'monitored_since' => 'setMonitoredSince',
-        'address' => 'setAddress',
-        'companies' => 'setCompanies',
-        'tags' => 'setTags',
-        'custom_fields' => 'setCustomFields'
+        'company_id' => 'setCompanyId'
     ];
 
     /**
@@ -154,17 +114,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'address_id' => 'getAddressId',
-        'name' => 'getName',
-        'owning_company_id' => 'getOwningCompanyId',
-        'weather_station_id' => 'getWeatherStationId',
-        'monitored_since' => 'getMonitoredSince',
-        'address' => 'getAddress',
-        'companies' => 'getCompanies',
-        'tags' => 'getTags',
-        'custom_fields' => 'getCustomFields'
+        'company_id' => 'getCompanyId'
     ];
 
     /**
@@ -227,17 +177,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['address_id'] = isset($data['address_id']) ? $data['address_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['owning_company_id'] = isset($data['owning_company_id']) ? $data['owning_company_id'] : null;
-        $this->container['weather_station_id'] = isset($data['weather_station_id']) ? $data['weather_station_id'] : null;
-        $this->container['monitored_since'] = isset($data['monitored_since']) ? $data['monitored_since'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['companies'] = isset($data['companies']) ? $data['companies'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
-        $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
+        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
     }
 
     /**
@@ -249,36 +189,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['address_id'] === null) {
-            $invalidProperties[] = "'address_id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['owning_company_id'] === null) {
-            $invalidProperties[] = "'owning_company_id' can't be null";
-        }
-        if ($this->container['monitored_since'] === null) {
-            $invalidProperties[] = "'monitored_since' can't be null";
-        }
-        if ($this->container['address'] === null) {
-            $invalidProperties[] = "'address' can't be null";
-        }
-        if ($this->container['companies'] === null) {
-            $invalidProperties[] = "'companies' can't be null";
-        }
-        if ($this->container['tags'] === null) {
-            $invalidProperties[] = "'tags' can't be null";
-        }
-        if ($this->container['custom_fields'] === null) {
-            $invalidProperties[] = "'custom_fields' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -295,265 +205,25 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets company_id
      *
-     * @return float
+     * @return \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null
      */
-    public function getId()
+    public function getCompanyId()
     {
-        return $this->container['id'];
+        return $this->container['company_id'];
     }
 
     /**
-     * Sets id
+     * Sets company_id
      *
-     * @param float $id id
+     * @param \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null $company_id company_id
      *
      * @return $this
      */
-    public function setId($id)
+    public function setCompanyId($company_id)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_id
-     *
-     * @return float
-     */
-    public function getAddressId()
-    {
-        return $this->container['address_id'];
-    }
-
-    /**
-     * Sets address_id
-     *
-     * @param float $address_id address_id
-     *
-     * @return $this
-     */
-    public function setAddressId($address_id)
-    {
-        $this->container['address_id'] = $address_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets owning_company_id
-     *
-     * @return float
-     */
-    public function getOwningCompanyId()
-    {
-        return $this->container['owning_company_id'];
-    }
-
-    /**
-     * Sets owning_company_id
-     *
-     * @param float $owning_company_id owning_company_id
-     *
-     * @return $this
-     */
-    public function setOwningCompanyId($owning_company_id)
-    {
-        $this->container['owning_company_id'] = $owning_company_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets weather_station_id
-     *
-     * @return AnyType|null
-     */
-    public function getWeatherStationId()
-    {
-        return $this->container['weather_station_id'];
-    }
-
-    /**
-     * Sets weather_station_id
-     *
-     * @param AnyType|null $weather_station_id weather_station_id
-     *
-     * @return $this
-     */
-    public function setWeatherStationId($weather_station_id)
-    {
-        $this->container['weather_station_id'] = $weather_station_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets monitored_since
-     *
-     * @return \DateTime
-     */
-    public function getMonitoredSince()
-    {
-        return $this->container['monitored_since'];
-    }
-
-    /**
-     * Sets monitored_since
-     *
-     * @param \DateTime $monitored_since monitored_since
-     *
-     * @return $this
-     */
-    public function setMonitoredSince($monitored_since)
-    {
-        $this->container['monitored_since'] = $monitored_since;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return \SunDataMetropolisClient\Model\Address
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param \SunDataMetropolisClient\Model\Address $address address
-     *
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets companies
-     *
-     * @return \SunDataMetropolisClient\Model\Company[]
-     */
-    public function getCompanies()
-    {
-        return $this->container['companies'];
-    }
-
-    /**
-     * Sets companies
-     *
-     * @param \SunDataMetropolisClient\Model\Company[] $companies companies
-     *
-     * @return $this
-     */
-    public function setCompanies($companies)
-    {
-        $this->container['companies'] = $companies;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return \SunDataMetropolisClient\Model\Tag[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param \SunDataMetropolisClient\Model\Tag[] $tags tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_fields
-     *
-     * @return AnyType[]
-     */
-    public function getCustomFields()
-    {
-        return $this->container['custom_fields'];
-    }
-
-    /**
-     * Sets custom_fields
-     *
-     * @param AnyType[] $custom_fields custom_fields
-     *
-     * @return $this
-     */
-    public function setCustomFields($custom_fields)
-    {
-        $this->container['custom_fields'] = $custom_fields;
+        $this->container['company_id'] = $company_id;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2001
+ * PlantUpdateResponseCompanyIds
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * InlineResponse2001 Class Doc Comment
+ * PlantUpdateResponseCompanyIds Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse2001 implements ModelInterface, ArrayAccess
+class PlantUpdateResponseCompanyIds implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_1';
+    protected static $openAPIModelName = 'PlantUpdateResponse_company_ids';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_id' => '\SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]'
+        'id' => 'int',
+        'is_owner' => 'bool'
     ];
 
     /**
@@ -66,7 +67,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'company_id' => null
+        'id' => 'int64',
+        'is_owner' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_id' => 'company_id'
+        'id' => 'id',
+        'is_owner' => 'is_owner'
     ];
 
     /**
@@ -105,7 +108,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company_id' => 'setCompanyId'
+        'id' => 'setId',
+        'is_owner' => 'setIsOwner'
     ];
 
     /**
@@ -114,7 +118,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company_id' => 'getCompanyId'
+        'id' => 'getId',
+        'is_owner' => 'getIsOwner'
     ];
 
     /**
@@ -177,7 +182,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['is_owner'] = isset($data['is_owner']) ? $data['is_owner'] : false;
     }
 
     /**
@@ -205,25 +211,49 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company_id
+     * Gets id
      *
-     * @return \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null
+     * @return int|null
      */
-    public function getCompanyId()
+    public function getId()
     {
-        return $this->container['company_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets company_id
+     * Sets id
      *
-     * @param \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null $company_id company_id
+     * @param int|null $id id
      *
      * @return $this
      */
-    public function setCompanyId($company_id)
+    public function setId($id)
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_owner
+     *
+     * @return bool|null
+     */
+    public function getIsOwner()
+    {
+        return $this->container['is_owner'];
+    }
+
+    /**
+     * Sets is_owner
+     *
+     * @param bool|null $is_owner is_owner
+     *
+     * @return $this
+     */
+    public function setIsOwner($is_owner)
+    {
+        $this->container['is_owner'] = $is_owner;
 
         return $this;
     }

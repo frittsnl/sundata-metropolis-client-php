@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2001
+ * PlantBasicResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * InlineResponse2001 Class Doc Comment
+ * PlantBasicResponse Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InlineResponse2001 implements ModelInterface, ArrayAccess
+class PlantBasicResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_1';
+    protected static $openAPIModelName = 'PlantBasicResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_id' => '\SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]'
+        'name' => 'string',
+        'owning_company_id' => 'int',
+        'address' => '\SunDataMetropolisClient\Model\Address',
+        'tag_ids' => 'int[]',
+        'company_ids' => 'object[]'
     ];
 
     /**
@@ -66,7 +70,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'company_id' => null
+        'name' => null,
+        'owning_company_id' => null,
+        'address' => null,
+        'tag_ids' => 'int64',
+        'company_ids' => null
     ];
 
     /**
@@ -96,7 +104,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_id' => 'company_id'
+        'name' => 'name',
+        'owning_company_id' => 'owning_company_id',
+        'address' => 'address',
+        'tag_ids' => 'tag_ids',
+        'company_ids' => 'company_ids'
     ];
 
     /**
@@ -105,7 +117,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company_id' => 'setCompanyId'
+        'name' => 'setName',
+        'owning_company_id' => 'setOwningCompanyId',
+        'address' => 'setAddress',
+        'tag_ids' => 'setTagIds',
+        'company_ids' => 'setCompanyIds'
     ];
 
     /**
@@ -114,7 +130,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company_id' => 'getCompanyId'
+        'name' => 'getName',
+        'owning_company_id' => 'getOwningCompanyId',
+        'address' => 'getAddress',
+        'tag_ids' => 'getTagIds',
+        'company_ids' => 'getCompanyIds'
     ];
 
     /**
@@ -177,7 +197,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['owning_company_id'] = isset($data['owning_company_id']) ? $data['owning_company_id'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['tag_ids'] = isset($data['tag_ids']) ? $data['tag_ids'] : null;
+        $this->container['company_ids'] = isset($data['company_ids']) ? $data['company_ids'] : null;
     }
 
     /**
@@ -189,6 +213,9 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +232,121 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company_id
+     * Gets name
      *
-     * @return \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null
+     * @return string
      */
-    public function getCompanyId()
+    public function getName()
     {
-        return $this->container['company_id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets company_id
+     * Sets name
      *
-     * @param \SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]|null $company_id company_id
+     * @param string $name name
      *
      * @return $this
      */
-    public function setCompanyId($company_id)
+    public function setName($name)
     {
-        $this->container['company_id'] = $company_id;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets owning_company_id
+     *
+     * @return int|null
+     */
+    public function getOwningCompanyId()
+    {
+        return $this->container['owning_company_id'];
+    }
+
+    /**
+     * Sets owning_company_id
+     *
+     * @param int|null $owning_company_id owning_company_id
+     *
+     * @return $this
+     */
+    public function setOwningCompanyId($owning_company_id)
+    {
+        $this->container['owning_company_id'] = $owning_company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return \SunDataMetropolisClient\Model\Address|null
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param \SunDataMetropolisClient\Model\Address|null $address address
+     *
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_ids
+     *
+     * @return int[]|null
+     */
+    public function getTagIds()
+    {
+        return $this->container['tag_ids'];
+    }
+
+    /**
+     * Sets tag_ids
+     *
+     * @param int[]|null $tag_ids tag_ids
+     *
+     * @return $this
+     */
+    public function setTagIds($tag_ids)
+    {
+        $this->container['tag_ids'] = $tag_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_ids
+     *
+     * @return object[]|null
+     */
+    public function getCompanyIds()
+    {
+        return $this->container['company_ids'];
+    }
+
+    /**
+     * Sets company_ids
+     *
+     * @param object[]|null $company_ids company_ids
+     *
+     * @return $this
+     */
+    public function setCompanyIds($company_ids)
+    {
+        $this->container['company_ids'] = $company_ids;
 
         return $this;
     }

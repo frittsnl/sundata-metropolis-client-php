@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**company_id** | [**\SunDataMetropolisClient\Model\Tag[]**](Tag.md) |  | [optional] 
+**company_id** | [**\SunDataMetropolisClient\Model\ChildCompaniesTagsResponse[]**](ChildCompaniesTagsResponse.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

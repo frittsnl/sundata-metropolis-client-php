@@ -1,6 +1,6 @@
 # SunDataMetropolisClient\MetersApi
 
-All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
+All URIs are relative to *https://api.sundata.nl/api/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

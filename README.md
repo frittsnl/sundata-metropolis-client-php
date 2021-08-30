@@ -87,7 +87,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://c02317b7e33d.ngrok.io/api/v0*
+All URIs are relative to *https://api.sundata.nl/api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -157,4 +157,3 @@ Class | Method | HTTP request | Description
 ## Author
 
 admin@sundata.nl
-

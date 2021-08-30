@@ -10,5 +10,6 @@ git_push.sh export-ignore
 phpunit.xml.dist export-ignore
 README.md export-ignore
 phpunit.xml.dist export-ignore
+README_GENERATOR.sh export-ignore
 /docs export-ignore
 /test export-ignore

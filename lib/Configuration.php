@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://c02317b7e33d.ngrok.io/api/v0';
+    protected $host = 'https://api.sundata.nl/api/v0';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -436,20 +436,12 @@ class Configuration
     {
         return array(
           array(
-            "url" => "https://c02317b7e33d.ngrok.io/api/v0",
-            "description" => "Docs",
-          ),
-          array(
-            "url" => "http://api.sundata.nl/api/v0",
+            "url" => "https://api.sundata.nl/api/v0",
             "description" => "Production",
           ),
           array(
             "url" => "https://metropolis.staging.sddns.nl/api/v0",
             "description" => "Staging",
-          ),
-          array(
-            "url" => "http://sundata-metropolis-api.test/api/v0",
-            "description" => "Local",
           )
         );
     }

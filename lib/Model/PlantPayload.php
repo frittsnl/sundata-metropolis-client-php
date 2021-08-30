@@ -58,6 +58,7 @@ class PlantPayload implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'owning_company_id' => 'int',
         'address' => '\SunDataMetropolisClient\Model\Address',
         'tag_ids' => 'int[]',
         'company_ids' => '\SunDataMetropolisClient\Model\PlantPayloadCompanyIds[]'
@@ -70,6 +71,7 @@ class PlantPayload implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'owning_company_id' => null,
         'address' => null,
         'tag_ids' => 'int64',
         'company_ids' => null
@@ -103,6 +105,7 @@ class PlantPayload implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'owning_company_id' => 'owning_company_id',
         'address' => 'address',
         'tag_ids' => 'tag_ids',
         'company_ids' => 'company_ids'
@@ -115,6 +118,7 @@ class PlantPayload implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'owning_company_id' => 'setOwningCompanyId',
         'address' => 'setAddress',
         'tag_ids' => 'setTagIds',
         'company_ids' => 'setCompanyIds'
@@ -127,6 +131,7 @@ class PlantPayload implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'owning_company_id' => 'getOwningCompanyId',
         'address' => 'getAddress',
         'tag_ids' => 'getTagIds',
         'company_ids' => 'getCompanyIds'
@@ -193,6 +198,7 @@ class PlantPayload implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['owning_company_id'] = isset($data['owning_company_id']) ? $data['owning_company_id'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['tag_ids'] = isset($data['tag_ids']) ? $data['tag_ids'] : null;
         $this->container['company_ids'] = isset($data['company_ids']) ? $data['company_ids'] : null;
@@ -245,6 +251,30 @@ class PlantPayload implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets owning_company_id
+     *
+     * @return int|null
+     */
+    public function getOwningCompanyId()
+    {
+        return $this->container['owning_company_id'];
+    }
+
+    /**
+     * Sets owning_company_id
+     *
+     * @param int|null $owning_company_id owning_company_id
+     *
+     * @return $this
+     */
+    public function setOwningCompanyId($owning_company_id)
+    {
+        $this->container['owning_company_id'] = $owning_company_id;
 
         return $this;
     }

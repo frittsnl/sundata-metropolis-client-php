@@ -1,4 +1,32 @@
-# Generating a new client
+## Generating a new client
+
+This repo contains `generate.sh` which will do the following for you;
+
+1. Get the latest openapi.yaml from our openapi spec repo
+2. Generate the client with the right parameters and templates applied
+3. Remove the openapi.yaml after it finishes generating
+
+To run, make sure the file is executable (`chmod +x generate.sh`) and run;
+
+```bash
+./generate.sh
+```
+
+If you're happy with the result, push the new client to GitHub.
+
+## Pushing the client to github
+
+This repo contains `git_push.sh` which will push all your changes to the repo.
+Note that this script can also help you with the versioning of your changes. Read more about versioning below.
+To apply versioning make sure to add a custom commit message that includes your versioning tag.
+
+The script will prompt you for a commit message. When none is provided, it will issue a minor update.
+
+To run, make sure the file is executable (`chmod +x git_push.sh`) and run;
+
+```bash
+./git_push.sh
+```
 
 ## Versioning
 

@@ -1,6 +1,6 @@
 {
-    "name": "frittsnl/sundata-metropolis-client-php",
-    "description": "SunData API OpenAPI Specification.",
+    "name": "{{gitUserId}}/{{gitRepoId}}",
+    "description": "{{{appDescription}}}",
     "keywords": [
         "openapitools",
         "openapi-generator",
@@ -30,9 +30,9 @@
         "friendsofphp/php-cs-fixer": "^2.12"
     },
     "autoload": {
-        "psr-4": { "SunDataMetropolisClient\\" : "lib/" }
+        "psr-4": { "{{escapedInvokerPackage}}\\" : "{{srcBasePath}}/" }
     },
     "autoload-dev": {
-        "psr-4": { "SunDataMetropolisClient\\Test\\" : "test/" }
+        "psr-4": { "{{escapedInvokerPackage}}\\Test\\" : "{{testBasePath}}/" }
     }
 }

@@ -26,3 +26,5 @@ git_push.sh
 generator.sh
 README_GENERATOR.sh
 .gitignore
+/resources
+/resources/*

@@ -63,7 +63,12 @@ class GetPlantResponse implements ModelInterface, ArrayAccess
         'owning_company_id' => 'int',
         'weather_station_id' => 'int',
         'monitored_since' => '\DateTime',
-        'address' => '\SunDataMetropolisClient\Model\Address'
+        'address' => '\SunDataMetropolisClient\Model\Address',
+        'tags' => '\SunDataMetropolisClient\Model\Tag[]',
+        'custom_fields' => '\SunDataMetropolisClient\Model\CustomField[]',
+        'companies' => '\SunDataMetropolisClient\Model\Company[]',
+        'meters' => '\SunDataMetropolisClient\Model\Meter[]',
+        'notes' => '\SunDataMetropolisClient\Model\Note[]'
     ];
 
     /**
@@ -78,7 +83,12 @@ class GetPlantResponse implements ModelInterface, ArrayAccess
         'owning_company_id' => null,
         'weather_station_id' => 'int64',
         'monitored_since' => 'date-time',
-        'address' => null
+        'address' => null,
+        'tags' => null,
+        'custom_fields' => null,
+        'companies' => null,
+        'meters' => null,
+        'notes' => null
     ];
 
     /**
@@ -114,7 +124,12 @@ class GetPlantResponse implements ModelInterface, ArrayAccess
         'owning_company_id' => 'owning_company_id',
         'weather_station_id' => 'weather_station_id',
         'monitored_since' => 'monitored_since',
-        'address' => 'address'
+        'address' => 'address',
+        'tags' => 'tags',
+        'custom_fields' => 'custom_fields',
+        'companies' => 'companies',
+        'meters' => 'meters',
+        'notes' => 'notes'
     ];
 
     /**
@@ -129,7 +144,12 @@ class GetPlantResponse implements ModelInterface, ArrayAccess
         'owning_company_id' => 'setOwningCompanyId',
         'weather_station_id' => 'setWeatherStationId',
         'monitored_since' => 'setMonitoredSince',
-        'address' => 'setAddress'
+        'address' => 'setAddress',
+        'tags' => 'setTags',
+        'custom_fields' => 'setCustomFields',
+        'companies' => 'setCompanies',
+        'meters' => 'setMeters',
+        'notes' => 'setNotes'
     ];
 
     /**
@@ -144,7 +164,12 @@ class GetPlantResponse implements ModelInterface, ArrayAccess
         'owning_company_id' => 'getOwningCompanyId',
         'weather_station_id' => 'getWeatherStationId',
         'monitored_since' => 'getMonitoredSince',
-        'address' => 'getAddress'
+        'address' => 'getAddress',
+        'tags' => 'getTags',
+        'custom_fields' => 'getCustomFields',
+        'companies' => 'getCompanies',
+        'meters' => 'getMeters',
+        'notes' => 'getNotes'
     ];
 
     /**
@@ -233,6 +258,11 @@ class GetPlantResponse implements ModelInterface, ArrayAccess
         $this->container['weather_station_id'] = isset($data['weather_station_id']) ? $data['weather_station_id'] : null;
         $this->container['monitored_since'] = isset($data['monitored_since']) ? $data['monitored_since'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
+        $this->container['companies'] = isset($data['companies']) ? $data['companies'] : null;
+        $this->container['meters'] = isset($data['meters']) ? $data['meters'] : null;
+        $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
     }
 
     /**
@@ -446,6 +476,126 @@ class GetPlantResponse implements ModelInterface, ArrayAccess
     public function setAddress($address)
     {
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \SunDataMetropolisClient\Model\Tag[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \SunDataMetropolisClient\Model\Tag[]|null $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_fields
+     *
+     * @return \SunDataMetropolisClient\Model\CustomField[]|null
+     */
+    public function getCustomFields()
+    {
+        return $this->container['custom_fields'];
+    }
+
+    /**
+     * Sets custom_fields
+     *
+     * @param \SunDataMetropolisClient\Model\CustomField[]|null $custom_fields custom_fields
+     *
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets companies
+     *
+     * @return \SunDataMetropolisClient\Model\Company[]|null
+     */
+    public function getCompanies()
+    {
+        return $this->container['companies'];
+    }
+
+    /**
+     * Sets companies
+     *
+     * @param \SunDataMetropolisClient\Model\Company[]|null $companies companies
+     *
+     * @return $this
+     */
+    public function setCompanies($companies)
+    {
+        $this->container['companies'] = $companies;
+
+        return $this;
+    }
+
+    /**
+     * Gets meters
+     *
+     * @return \SunDataMetropolisClient\Model\Meter[]|null
+     */
+    public function getMeters()
+    {
+        return $this->container['meters'];
+    }
+
+    /**
+     * Sets meters
+     *
+     * @param \SunDataMetropolisClient\Model\Meter[]|null $meters meters
+     *
+     * @return $this
+     */
+    public function setMeters($meters)
+    {
+        $this->container['meters'] = $meters;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     *
+     * @return \SunDataMetropolisClient\Model\Note[]|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param \SunDataMetropolisClient\Model\Note[]|null $notes notes
+     *
+     * @return $this
+     */
+    public function setNotes($notes)
+    {
+        $this->container['notes'] = $notes;
 
         return $this;
     }

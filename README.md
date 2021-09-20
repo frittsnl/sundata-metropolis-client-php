@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
 *PlantsApi* | [**createPlantCustomFields**](docs/Api/PlantsApi.md#createplantcustomfields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
 *PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
 *PlantsApi* | [**getPlantCustomFields**](docs/Api/PlantsApi.md#getplantcustomfields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
+*PlantsApi* | [**getPlants**](docs/Api/PlantsApi.md#getplants) | **GET** /companies/{company_id}/plants | Plants
 *PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
 *PlantsApi* | [**updatePlantCustomFields**](docs/Api/PlantsApi.md#updateplantcustomfields) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update Plant Custom Fields
 
@@ -121,6 +122,7 @@ Class | Method | HTTP request | Description
  - [CustomFieldResponse](docs/Model/CustomFieldResponse.md)
  - [CustomFieldType](docs/Model/CustomFieldType.md)
  - [CustomFieldUpdatePayload](docs/Model/CustomFieldUpdatePayload.md)
+ - [GetPaginatedPlantsResponse](docs/Model/GetPaginatedPlantsResponse.md)
  - [GetPlantResponse](docs/Model/GetPlantResponse.md)
  - [InboundDriver](docs/Model/InboundDriver.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)

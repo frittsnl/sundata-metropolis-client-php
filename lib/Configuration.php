@@ -442,6 +442,16 @@ class Configuration
           array(
             "url" => "https://metropolis.staging.sddns.nl/api/v0",
             "description" => "Staging",
+          ),
+          array(
+            "url" => "{customUrl}/api/v0",
+            "description" => "No description provided",
+            "variables" => array(
+              "customUrl" => array(
+                  "description" => "Custom url",
+                  "default_value" => "http://localhost",
+                )
+              )
           )
         );
     }

@@ -50,10 +50,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
@@ -131,12 +129,9 @@ Class | Method | HTTP request | Description
 
 ## Authorization
 
-### AccessToken
+### BearerAuth
 
-- **Type**: API key
-- **API key parameter name**: Access-Token
-- **Location**: HTTP header
-
+- **Type**: Bearer authentication
 
 ## Tests
 

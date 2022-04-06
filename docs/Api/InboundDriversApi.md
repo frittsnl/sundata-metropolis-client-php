@@ -24,10 +24,8 @@ Get the inbound drivers available to the Company
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\InboundDriversApi(
@@ -58,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 

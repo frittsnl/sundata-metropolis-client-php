@@ -1,3 +1,11 @@
+## Installing openapi-generator
+
+With brew:
+
+`brew install openapi-generator`
+
+Otherwise, check the docs: https://github.com/OpenAPITools/openapi-generator#1---installation
+
 ## Generating a new client
 
 This repo contains `generate.sh` which will do the following for you;

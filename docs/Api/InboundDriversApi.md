@@ -1,16 +1,17 @@
 # SunDataMetropolisClient\InboundDriversApi
 
-All URIs are relative to *https://api.sundata.nl/api/v0*
+All URIs are relative to https://api.sundata.nl/api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCompanyInboundDrivers**](InboundDriversApi.md#getCompanyInboundDrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
+[**getCompanyInboundDrivers()**](InboundDriversApi.md#getCompanyInboundDrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
 
 
+## `getCompanyInboundDrivers()`
 
-## getCompanyInboundDrivers
-
-> \SunDataMetropolisClient\Model\InboundDriver[] getCompanyInboundDrivers($company_id)
+```php
+getCompanyInboundDrivers($company_id): \SunDataMetropolisClient\Model\InboundDriver[]
+```
 
 Get Company Inbound Drivers
 
@@ -43,11 +44,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling InboundDriversApi->getCompanyInboundDrivers: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -64,9 +63,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

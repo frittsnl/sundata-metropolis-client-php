@@ -1,19 +1,20 @@
 # SunDataMetropolisClient\CompaniesApi
 
-All URIs are relative to *https://api.sundata.nl/api/v0*
+All URIs are relative to https://api.sundata.nl/api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getChildCompaniesTags**](CompaniesApi.md#getChildCompaniesTags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags
-[**getCompanyChildCompanies**](CompaniesApi.md#getCompanyChildCompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
-[**getCompanyTags**](CompaniesApi.md#getCompanyTags) | **GET** /companies/{company_id}/tags | Get Company Tags
-[**getCustomFieldTypes**](CompaniesApi.md#getCustomFieldTypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
+[**getChildCompaniesTags()**](CompaniesApi.md#getChildCompaniesTags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags
+[**getCompanyChildCompanies()**](CompaniesApi.md#getCompanyChildCompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
+[**getCompanyTags()**](CompaniesApi.md#getCompanyTags) | **GET** /companies/{company_id}/tags | Get Company Tags
+[**getCustomFieldTypes()**](CompaniesApi.md#getCustomFieldTypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
 
 
+## `getChildCompaniesTags()`
 
-## getChildCompaniesTags
-
-> \SunDataMetropolisClient\Model\InlineResponse200 getChildCompaniesTags($company_id)
+```php
+getChildCompaniesTags($company_id): \SunDataMetropolisClient\Model\InlineResponse200
+```
 
 Get Child Companies Tags
 
@@ -46,11 +47,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CompaniesApi->getChildCompaniesTags: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -67,16 +66,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCompanyChildCompanies()`
 
-## getCompanyChildCompanies
-
-> \SunDataMetropolisClient\Model\Company[] getCompanyChildCompanies($company_id)
+```php
+getCompanyChildCompanies($company_id): \SunDataMetropolisClient\Model\Company[]
+```
 
 Get Company Child Companies
 
@@ -109,11 +109,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CompaniesApi->getCompanyChildCompanies: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -130,16 +128,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCompanyTags()`
 
-## getCompanyTags
-
-> \SunDataMetropolisClient\Model\Tag[] getCompanyTags($company_id)
+```php
+getCompanyTags($company_id): \SunDataMetropolisClient\Model\Tag[]
+```
 
 Get Company Tags
 
@@ -172,11 +171,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CompaniesApi->getCompanyTags: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -193,16 +190,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCustomFieldTypes()`
 
-## getCustomFieldTypes
-
-> \SunDataMetropolisClient\Model\CustomFieldType[] getCustomFieldTypes($company_id)
+```php
+getCustomFieldTypes($company_id): \SunDataMetropolisClient\Model\CustomFieldType[]
+```
 
 Get Company Custom Field types
 
@@ -235,11 +233,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CompaniesApi->getCustomFieldTypes: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -256,9 +252,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

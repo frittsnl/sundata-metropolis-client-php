@@ -1,22 +1,23 @@
 # SunDataMetropolisClient\PlantsApi
 
-All URIs are relative to *https://api.sundata.nl/api/v0*
+All URIs are relative to https://api.sundata.nl/api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createPlant**](PlantsApi.md#createPlant) | **POST** /companies/{company_id}/plants | Create Plant
-[**createPlantCustomFields**](PlantsApi.md#createPlantCustomFields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
-[**getPlantById**](PlantsApi.md#getPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
-[**getPlantCustomFields**](PlantsApi.md#getPlantCustomFields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
-[**getPlants**](PlantsApi.md#getPlants) | **GET** /companies/{company_id}/plants | Plants
-[**updatePlant**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
-[**updatePlantCustomFields**](PlantsApi.md#updatePlantCustomFields) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update Plant Custom Fields
+[**createPlant()**](PlantsApi.md#createPlant) | **POST** /companies/{company_id}/plants | Create Plant
+[**createPlantCustomFields()**](PlantsApi.md#createPlantCustomFields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
+[**getPlantById()**](PlantsApi.md#getPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
+[**getPlantCustomFields()**](PlantsApi.md#getPlantCustomFields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
+[**getPlants()**](PlantsApi.md#getPlants) | **GET** /companies/{company_id}/plants | Plants
+[**updatePlant()**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
+[**updatePlantCustomFields()**](PlantsApi.md#updatePlantCustomFields) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update Plant Custom Fields
 
 
+## `createPlant()`
 
-## createPlant
-
-> \SunDataMetropolisClient\Model\PlantCreateResponse createPlant($company_id, $with, $plant_payload)
+```php
+createPlant($company_id, $with, $plant_payload): \SunDataMetropolisClient\Model\PlantCreateResponse
+```
 
 Create Plant
 
@@ -29,10 +30,8 @@ Create a new Plant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
@@ -43,7 +42,7 @@ $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
 );
 $company_id = 56; // int | The id of the company
 $with = tags,custom_fields,companies,meters,notes; // string | May containg all or some of the following values\\: `tags`, `custom_fields`, `companies`, `meters`, `notes`
-$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload | 
+$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload
 
 try {
     $result = $apiInstance->createPlant($company_id, $with, $plant_payload);
@@ -51,11 +50,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->createPlant: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -69,21 +66,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createPlantCustomFields()`
 
-## createPlantCustomFields
-
-> \SunDataMetropolisClient\Model\CustomFieldResponse createPlantCustomFields($company_id, $plant_id, $custom_field_create_payload)
+```php
+createPlantCustomFields($company_id, $plant_id, $custom_field_create_payload): \SunDataMetropolisClient\Model\CustomFieldResponse
+```
 
 Create Plant Custom Fields
 
@@ -96,10 +94,8 @@ Create Plant Custom Fields
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
@@ -110,7 +106,7 @@ $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
 );
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
-$custom_field_create_payload = new \SunDataMetropolisClient\Model\CustomFieldCreatePayload(); // \SunDataMetropolisClient\Model\CustomFieldCreatePayload | 
+$custom_field_create_payload = new \SunDataMetropolisClient\Model\CustomFieldCreatePayload(); // \SunDataMetropolisClient\Model\CustomFieldCreatePayload
 
 try {
     $result = $apiInstance->createPlantCustomFields($company_id, $plant_id, $custom_field_create_payload);
@@ -118,11 +114,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->createPlantCustomFields: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -136,21 +130,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPlantById()`
 
-## getPlantById
-
-> \SunDataMetropolisClient\Model\GetPlantResponse getPlantById($company_id, $plant_id, $with)
+```php
+getPlantById($company_id, $plant_id, $with): \SunDataMetropolisClient\Model\GetPlantResponse
+```
 
 Plant details
 
@@ -163,10 +158,8 @@ Gets the details of a plant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
@@ -185,11 +178,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->getPlantById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -203,21 +194,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPlantCustomFields()`
 
-## getPlantCustomFields
-
-> \SunDataMetropolisClient\Model\CustomFieldResponse[] getPlantCustomFields($company_id, $plant_id)
+```php
+getPlantCustomFields($company_id, $plant_id): \SunDataMetropolisClient\Model\CustomFieldResponse[]
+```
 
 Get Plant Custom Fields
 
@@ -230,10 +222,8 @@ Get Plant Custom Fields
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
@@ -251,11 +241,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->getPlantCustomFields: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -268,21 +256,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPlants()`
 
-## getPlants
-
-> \SunDataMetropolisClient\Model\GetPaginatedPlantsResponse getPlants($company_id, $with, $query, $street, $postal_code, $city, $reference_identifier, $page)
+```php
+getPlants($company_id, $with, $query, $street, $postal_code, $city, $reference_identifier, $page): \SunDataMetropolisClient\Model\GetPaginatedPlantsResponse
+```
 
 Plants
 
@@ -295,10 +284,8 @@ Gets the plants within a company
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
@@ -309,11 +296,11 @@ $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
 );
 $company_id = 56; // int | The id of the company
 $with = tags,custom_fields,companies,meters,notes; // string | May containg all or some of the following values\\: `tags`, `custom_fields`, `companies`, `meters`, `notes`
-$query = Familie de Vries; // string | 
-$street = Maliesingel; // string | 
-$postal_code = 3581BK; // string | 
-$city = Utrecht; // string | 
-$reference_identifier = 31212117-dc7f-308e-9191-888dbb268074; // string | 
+$query = Familie de Vries; // string
+$street = Maliesingel; // string
+$postal_code = 3581BK; // string
+$city = Utrecht; // string
+$reference_identifier = 31212117-dc7f-308e-9191-888dbb268074; // string
 $page = 2; // int | Page of the search results
 
 try {
@@ -322,11 +309,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->getPlants: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -345,21 +330,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updatePlant()`
 
-## updatePlant
-
-> \SunDataMetropolisClient\Model\PlantUpdateResponse updatePlant($company_id, $plant_id, $with, $plant_payload)
+```php
+updatePlant($company_id, $plant_id, $with, $plant_payload): \SunDataMetropolisClient\Model\PlantUpdateResponse
+```
 
 Update Plant
 
@@ -372,10 +358,8 @@ Update the details of a Plant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
@@ -387,7 +371,7 @@ $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
 $with = tags,custom_fields,companies,meters,notes; // string | May containg all or some of the following values\\: `tags`, `custom_fields`, `companies`, `meters`, `notes`
-$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload | 
+$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload
 
 try {
     $result = $apiInstance->updatePlant($company_id, $plant_id, $with, $plant_payload);
@@ -395,11 +379,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->updatePlant: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -414,21 +396,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updatePlantCustomFields()`
 
-## updatePlantCustomFields
-
-> \SunDataMetropolisClient\Model\CustomFieldResponse updatePlantCustomFields($company_id, $plant_id, $custom_field_id, $custom_field_update_payload)
+```php
+updatePlantCustomFields($company_id, $plant_id, $custom_field_id, $custom_field_update_payload): \SunDataMetropolisClient\Model\CustomFieldResponse
+```
 
 Update Plant Custom Fields
 
@@ -441,10 +424,8 @@ Update Plant Custom Fields
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
@@ -456,7 +437,7 @@ $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
 $custom_field_id = 56; // int | The id of the custom field
-$custom_field_update_payload = new \SunDataMetropolisClient\Model\CustomFieldUpdatePayload(); // \SunDataMetropolisClient\Model\CustomFieldUpdatePayload | 
+$custom_field_update_payload = new \SunDataMetropolisClient\Model\CustomFieldUpdatePayload(); // \SunDataMetropolisClient\Model\CustomFieldUpdatePayload
 
 try {
     $result = $apiInstance->updatePlantCustomFields($company_id, $plant_id, $custom_field_id, $custom_field_update_payload);
@@ -464,11 +445,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->updatePlantCustomFields: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -483,14 +462,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

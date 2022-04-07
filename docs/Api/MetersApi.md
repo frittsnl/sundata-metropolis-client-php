@@ -1,19 +1,20 @@
 # SunDataMetropolisClient\MetersApi
 
-All URIs are relative to *https://api.sundata.nl/api/v0*
+All URIs are relative to https://api.sundata.nl/api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createMeter**](MetersApi.md#createMeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
-[**getMeterById**](MetersApi.md#getMeterById) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
-[**updateMeter**](MetersApi.md#updateMeter) | **PUT** /companies/{company_id}/meters/{meter_id} | Update Meter
-[**validateMeterExistence**](MetersApi.md#validateMeterExistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
+[**createMeter()**](MetersApi.md#createMeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
+[**getMeterById()**](MetersApi.md#getMeterById) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
+[**updateMeter()**](MetersApi.md#updateMeter) | **PUT** /companies/{company_id}/meters/{meter_id} | Update Meter
+[**validateMeterExistence()**](MetersApi.md#validateMeterExistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
 
 
+## `createMeter()`
 
-## createMeter
-
-> \SunDataMetropolisClient\Model\Meter createMeter($company_id, $plant_id, $create_meter_payload)
+```php
+createMeter($company_id, $plant_id, $create_meter_payload): \SunDataMetropolisClient\Model\Meter
+```
 
 Create Plant Meter
 
@@ -26,10 +27,8 @@ Create a new Plant Meter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
@@ -40,7 +39,7 @@ $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
 );
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
-$create_meter_payload = new \SunDataMetropolisClient\Model\CreateMeterPayload(); // \SunDataMetropolisClient\Model\CreateMeterPayload | 
+$create_meter_payload = new \SunDataMetropolisClient\Model\CreateMeterPayload(); // \SunDataMetropolisClient\Model\CreateMeterPayload
 
 try {
     $result = $apiInstance->createMeter($company_id, $plant_id, $create_meter_payload);
@@ -48,11 +47,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MetersApi->createMeter: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -66,21 +63,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getMeterById()`
 
-## getMeterById
-
-> \SunDataMetropolisClient\Model\Meter getMeterById($company_id, $plant_id, $meter_id)
+```php
+getMeterById($company_id, $plant_id, $meter_id): \SunDataMetropolisClient\Model\Meter
+```
 
 Get Meter by ID
 
@@ -93,10 +91,8 @@ Get the details of a Meter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
@@ -115,11 +111,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MetersApi->getMeterById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -133,21 +127,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateMeter()`
 
-## updateMeter
-
-> \SunDataMetropolisClient\Model\Meter updateMeter($company_id, $meter_id, $meter_update_payload)
+```php
+updateMeter($company_id, $meter_id, $meter_update_payload): \SunDataMetropolisClient\Model\Meter
+```
 
 Update Meter
 
@@ -160,10 +155,8 @@ Modify the details of a Meter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
@@ -174,7 +167,7 @@ $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
 );
 $company_id = 56; // int | The id of the company
 $meter_id = 56; // int | The id of the meter
-$meter_update_payload = new \SunDataMetropolisClient\Model\MeterUpdatePayload(); // \SunDataMetropolisClient\Model\MeterUpdatePayload | 
+$meter_update_payload = new \SunDataMetropolisClient\Model\MeterUpdatePayload(); // \SunDataMetropolisClient\Model\MeterUpdatePayload
 
 try {
     $result = $apiInstance->updateMeter($company_id, $meter_id, $meter_update_payload);
@@ -182,11 +175,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MetersApi->updateMeter: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -200,21 +191,22 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `validateMeterExistence()`
 
-## validateMeterExistence
-
-> \SunDataMetropolisClient\Model\MeterExistenceResponse validateMeterExistence($inbound_driver, $reference_identifier)
+```php
+validateMeterExistence($inbound_driver, $reference_identifier): \SunDataMetropolisClient\Model\MeterExistenceResponse
+```
 
 Validate whether a reference_identifier is valid.
 
@@ -227,10 +219,8 @@ Validate the existence of a meter
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: AccessToken
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKey('Access-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Access-Token', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
@@ -248,11 +238,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling MetersApi->validateMeterExistence: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -265,14 +253,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AccessToken](../../README.md#AccessToken)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

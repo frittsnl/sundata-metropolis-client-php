@@ -1,5 +1,5 @@
 # Get the latest openapi spec
-wget https://raw.githubusercontent.com/frittsnl/metropolis-openapi-spec/master/openapi.yaml
+curl https://raw.githubusercontent.com/frittsnl/metropolis-openapi-spec/master/openapi.yaml -o openapi.yaml
 
 # Remove currently generated client to avoid multiple clients when names change
 rm -rf docs lib test

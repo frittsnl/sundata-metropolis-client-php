@@ -14,7 +14,7 @@ To run, make sure the file is executable (`chmod +x generate.sh`) and run;
 
 If you're happy with the result, push the new client to GitHub.
 
-## Pushing the client to github
+## Pushing the client to GitHub
 
 This repo contains `git_push.sh` which will push all your changes to the repo.
 Note that this script can also help you with the versioning of your changes. Read more about versioning below.

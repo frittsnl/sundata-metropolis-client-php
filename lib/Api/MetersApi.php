@@ -740,6 +740,7 @@ class MetersApi
      * Update Meter
      *
      * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
      * @param  int $meter_id The id of the meter (required)
      * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload meter_update_payload (optional)
      *
@@ -747,9 +748,9 @@ class MetersApi
      * @throws \InvalidArgumentException
      * @return \SunDataMetropolisClient\Model\Meter
      */
-    public function updateMeter($company_id, $meter_id, $meter_update_payload = null)
+    public function updateMeter($company_id, $plant_id, $meter_id, $meter_update_payload = null)
     {
-        list($response) = $this->updateMeterWithHttpInfo($company_id, $meter_id, $meter_update_payload);
+        list($response) = $this->updateMeterWithHttpInfo($company_id, $plant_id, $meter_id, $meter_update_payload);
         return $response;
     }
 
@@ -759,6 +760,7 @@ class MetersApi
      * Update Meter
      *
      * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
      * @param  int $meter_id The id of the meter (required)
      * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
      *
@@ -766,9 +768,9 @@ class MetersApi
      * @throws \InvalidArgumentException
      * @return array of \SunDataMetropolisClient\Model\Meter, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMeterWithHttpInfo($company_id, $meter_id, $meter_update_payload = null)
+    public function updateMeterWithHttpInfo($company_id, $plant_id, $meter_id, $meter_update_payload = null)
     {
-        $request = $this->updateMeterRequest($company_id, $meter_id, $meter_update_payload);
+        $request = $this->updateMeterRequest($company_id, $plant_id, $meter_id, $meter_update_payload);
 
         try {
             $options = $this->createHttpClientOption();
@@ -854,15 +856,16 @@ class MetersApi
      * Update Meter
      *
      * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
      * @param  int $meter_id The id of the meter (required)
      * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMeterAsync($company_id, $meter_id, $meter_update_payload = null)
+    public function updateMeterAsync($company_id, $plant_id, $meter_id, $meter_update_payload = null)
     {
-        return $this->updateMeterAsyncWithHttpInfo($company_id, $meter_id, $meter_update_payload)
+        return $this->updateMeterAsyncWithHttpInfo($company_id, $plant_id, $meter_id, $meter_update_payload)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -876,16 +879,17 @@ class MetersApi
      * Update Meter
      *
      * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
      * @param  int $meter_id The id of the meter (required)
      * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMeterAsyncWithHttpInfo($company_id, $meter_id, $meter_update_payload = null)
+    public function updateMeterAsyncWithHttpInfo($company_id, $plant_id, $meter_id, $meter_update_payload = null)
     {
         $returnType = '\SunDataMetropolisClient\Model\Meter';
-        $request = $this->updateMeterRequest($company_id, $meter_id, $meter_update_payload);
+        $request = $this->updateMeterRequest($company_id, $plant_id, $meter_id, $meter_update_payload);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -924,18 +928,25 @@ class MetersApi
      * Create request for operation 'updateMeter'
      *
      * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
      * @param  int $meter_id The id of the meter (required)
      * @param  \SunDataMetropolisClient\Model\MeterUpdatePayload $meter_update_payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMeterRequest($company_id, $meter_id, $meter_update_payload = null)
+    public function updateMeterRequest($company_id, $plant_id, $meter_id, $meter_update_payload = null)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $company_id when calling updateMeter'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling updateMeter'
             );
         }
         // verify the required parameter 'meter_id' is set
@@ -945,7 +956,7 @@ class MetersApi
             );
         }
 
-        $resourcePath = '/companies/{company_id}/meters/{meter_id}';
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/meters/{meter_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -959,6 +970,14 @@ class MetersApi
             $resourcePath = str_replace(
                 '{' . 'company_id' . '}',
                 ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
                 $resourcePath
             );
         }

@@ -1,12 +1,12 @@
 # SunDataMetropolisClient\MetersApi
 
-All URIs are relative to https://api.sundata.nl/api/v0.
+All URIs are relative to /api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createMeter()**](MetersApi.md#createMeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
 [**getMeterById()**](MetersApi.md#getMeterById) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
-[**updateMeter()**](MetersApi.md#updateMeter) | **PUT** /companies/{company_id}/meters/{meter_id} | Update Meter
+[**updateMeter()**](MetersApi.md#updateMeter) | **PUT** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Update Meter
 [**validateMeterExistence()**](MetersApi.md#validateMeterExistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
 
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ## `updateMeter()`
 
 ```php
-updateMeter($company_id, $meter_id, $meter_update_payload): \SunDataMetropolisClient\Model\Meter
+updateMeter($company_id, $plant_id, $meter_id, $meter_update_payload): \SunDataMetropolisClient\Model\Meter
 ```
 
 Update Meter
@@ -166,11 +166,12 @@ $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
     $config
 );
 $company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
 $meter_id = 56; // int | The id of the meter
 $meter_update_payload = new \SunDataMetropolisClient\Model\MeterUpdatePayload(); // \SunDataMetropolisClient\Model\MeterUpdatePayload
 
 try {
-    $result = $apiInstance->updateMeter($company_id, $meter_id, $meter_update_payload);
+    $result = $apiInstance->updateMeter($company_id, $plant_id, $meter_id, $meter_update_payload);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetersApi->updateMeter: ', $e->getMessage(), PHP_EOL;
@@ -182,6 +183,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
  **meter_id** | **int**| The id of the meter |
  **meter_update_payload** | [**\SunDataMetropolisClient\Model\MeterUpdatePayload**](../Model/MeterUpdatePayload.md)|  | [optional]
 

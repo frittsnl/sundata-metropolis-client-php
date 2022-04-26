@@ -1,6 +1,6 @@
 <?php
 /**
- * PlantsApiTest
+ * SatelliteApiTest
  * PHP version 7.3
  *
  * @category Class
@@ -34,14 +34,14 @@ use \SunDataMetropolisClient\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PlantsApiTest Class Doc Comment
+ * SatelliteApiTest Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PlantsApiTest extends TestCase
+class SatelliteApiTest extends TestCase
 {
 
     /**
@@ -73,48 +73,24 @@ class PlantsApiTest extends TestCase
     }
 
     /**
-     * Test case for createPlant
+     * Test case for getPlantDetails
      *
-     * Create Plant.
+     * Get plant details.
      *
      */
-    public function testCreatePlant()
+    public function testGetPlantDetails()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for getPlantById
+     * Test case for getPlantMeterDetails
      *
-     * Plant details.
-     *
-     */
-    public function testGetPlantById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getPlants
-     *
-     * Plants.
+     * Get the meter and plant details.
      *
      */
-    public function testGetPlants()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updatePlant
-     *
-     * Update Plant.
-     *
-     */
-    public function testUpdatePlant()
+    public function testGetPlantMeterDetails()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

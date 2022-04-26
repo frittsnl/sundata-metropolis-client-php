@@ -1,25 +1,25 @@
-# SunDataMetropolisClient\CompaniesApi
+# SunDataMetropolisClient\ContactsApi
 
 All URIs are relative to /api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getChildCompaniesTags()**](CompaniesApi.md#getChildCompaniesTags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags
-[**getCompanyChildCompanies()**](CompaniesApi.md#getCompanyChildCompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
-[**getCompanyInboundDrivers()**](CompaniesApi.md#getCompanyInboundDrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
-[**getCompanyTags()**](CompaniesApi.md#getCompanyTags) | **GET** /companies/{company_id}/tags | Get Company Tags
-[**getCustomFieldTypes()**](CompaniesApi.md#getCustomFieldTypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
+[**createPlantContact()**](ContactsApi.md#createPlantContact) | **POST** /companies/{company_id}/plants/{plant_id}/contacts | Create a new plant contact
+[**deletePlantContact()**](ContactsApi.md#deletePlantContact) | **DELETE** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Delete a plant contact
+[**getPlantContact()**](ContactsApi.md#getPlantContact) | **GET** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Get a single plant contact
+[**getPlantContacts()**](ContactsApi.md#getPlantContacts) | **GET** /companies/{company_id}/plants/{plant_id}/contacts | Get all contacts for a plant
+[**updatePlantContact()**](ContactsApi.md#updatePlantContact) | **PUT** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Update a plant contact
 
 
-## `getChildCompaniesTags()`
+## `createPlantContact()`
 
 ```php
-getChildCompaniesTags($company_id): \SunDataMetropolisClient\Model\InlineResponse200
+createPlantContact($company_id, $plant_id, $contact_basic): \SunDataMetropolisClient\Model\Contact
 ```
 
-Get Child Companies Tags
+Create a new plant contact
 
-Get all Tags of a Company's Child Companies
+Create a new plant contact. All fields are optional, but one of three is required.
 
 ### Example
 
@@ -32,19 +32,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
+$apiInstance = new SunDataMetropolisClient\Api\ContactsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$contact_basic = new \SunDataMetropolisClient\Model\ContactBasic(); // \SunDataMetropolisClient\Model\ContactBasic
 
 try {
-    $result = $apiInstance->getChildCompaniesTags($company_id);
+    $result = $apiInstance->createPlantContact($company_id, $plant_id, $contact_basic);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getChildCompaniesTags: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContactsApi->createPlantContact: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -53,10 +55,76 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **contact_basic** | [**\SunDataMetropolisClient\Model\ContactBasic**](../Model/ContactBasic.md)|  | [optional]
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\SunDataMetropolisClient\Model\Contact**](../Model/Contact.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deletePlantContact()`
+
+```php
+deletePlantContact($company_id, $plant_id, $contact_id): bool
+```
+
+Delete a plant contact
+
+Delete a plant contact
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$contact_id = 56; // int | The id of the contact
+
+try {
+    $result = $apiInstance->deletePlantContact($company_id, $plant_id, $contact_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->deletePlantContact: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **contact_id** | **int**| The id of the contact |
+
+### Return type
+
+**bool**
 
 ### Authorization
 
@@ -71,15 +139,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCompanyChildCompanies()`
+## `getPlantContact()`
 
 ```php
-getCompanyChildCompanies($company_id): \SunDataMetropolisClient\Model\Company[]
+getPlantContact($company_id, $plant_id, $contact_id): \SunDataMetropolisClient\Model\Contact
 ```
 
-Get Company Child Companies
+Get a single plant contact
 
-Get the Child Companies of a Company by Company ID
+Get a single plant contact
 
 ### Example
 
@@ -92,19 +160,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
+$apiInstance = new SunDataMetropolisClient\Api\ContactsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$contact_id = 56; // int | The id of the contact
 
 try {
-    $result = $apiInstance->getCompanyChildCompanies($company_id);
+    $result = $apiInstance->getPlantContact($company_id, $plant_id, $contact_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyChildCompanies: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContactsApi->getPlantContact: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -113,10 +183,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **contact_id** | **int**| The id of the contact |
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\Company[]**](../Model/Company.md)
+[**\SunDataMetropolisClient\Model\Contact**](../Model/Contact.md)
 
 ### Authorization
 
@@ -131,15 +203,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCompanyInboundDrivers()`
+## `getPlantContacts()`
 
 ```php
-getCompanyInboundDrivers($company_id): \SunDataMetropolisClient\Model\InboundDriver[]
+getPlantContacts($company_id, $plant_id): \SunDataMetropolisClient\Model\Contact[]
 ```
 
-Get Company Inbound Drivers
+Get all contacts for a plant
 
-Get the inbound drivers available to the Company
+Get all contacts for a plant
 
 ### Example
 
@@ -152,19 +224,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
+$apiInstance = new SunDataMetropolisClient\Api\ContactsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
 
 try {
-    $result = $apiInstance->getCompanyInboundDrivers($company_id);
+    $result = $apiInstance->getPlantContacts($company_id, $plant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyInboundDrivers: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContactsApi->getPlantContacts: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -173,10 +246,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\InboundDriver[]**](../Model/InboundDriver.md)
+[**\SunDataMetropolisClient\Model\Contact[]**](../Model/Contact.md)
 
 ### Authorization
 
@@ -191,15 +265,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCompanyTags()`
+## `updatePlantContact()`
 
 ```php
-getCompanyTags($company_id): \SunDataMetropolisClient\Model\Tag[]
+updatePlantContact($company_id, $plant_id, $contact_id, $body): \SunDataMetropolisClient\Model\Contact
 ```
 
-Get Company Tags
+Update a plant contact
 
-Get all tags of a Company
+Update a single plant contact
 
 ### Example
 
@@ -212,19 +286,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
+$apiInstance = new SunDataMetropolisClient\Api\ContactsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$contact_id = 56; // int | The id of the contact
+$body = new \stdClass; // object
 
 try {
-    $result = $apiInstance->getCompanyTags($company_id);
+    $result = $apiInstance->updatePlantContact($company_id, $plant_id, $contact_id, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyTags: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContactsApi->updatePlantContact: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -233,10 +310,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **contact_id** | **int**| The id of the contact |
+ **body** | **object**|  | [optional]
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\Tag[]**](../Model/Tag.md)
+[**\SunDataMetropolisClient\Model\Contact**](../Model/Contact.md)
 
 ### Authorization
 
@@ -244,67 +324,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCustomFieldTypes()`
-
-```php
-getCustomFieldTypes($company_id): \SunDataMetropolisClient\Model\CustomFieldType[]
-```
-
-Get Company Custom Field types
-
-Get the Custom Field types of a Company
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
-
-try {
-    $result = $apiInstance->getCustomFieldTypes($company_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCustomFieldTypes: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\CustomFieldType[]**](../Model/CustomFieldType.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

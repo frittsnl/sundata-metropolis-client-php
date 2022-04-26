@@ -73,26 +73,33 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://api.sundata.nl/api/v0*
+All URIs are relative to */api/v0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CompaniesApi* | [**getChildCompaniesTags**](docs/Api/CompaniesApi.md#getchildcompaniestags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags
 *CompaniesApi* | [**getCompanyChildCompanies**](docs/Api/CompaniesApi.md#getcompanychildcompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
+*CompaniesApi* | [**getCompanyInboundDrivers**](docs/Api/CompaniesApi.md#getcompanyinbounddrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
 *CompaniesApi* | [**getCompanyTags**](docs/Api/CompaniesApi.md#getcompanytags) | **GET** /companies/{company_id}/tags | Get Company Tags
 *CompaniesApi* | [**getCustomFieldTypes**](docs/Api/CompaniesApi.md#getcustomfieldtypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
-*InboundDriversApi* | [**getCompanyInboundDrivers**](docs/Api/InboundDriversApi.md#getcompanyinbounddrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Company Inbound Drivers
+*ContactsApi* | [**createPlantContact**](docs/Api/ContactsApi.md#createplantcontact) | **POST** /companies/{company_id}/plants/{plant_id}/contacts | Create a new plant contact
+*ContactsApi* | [**deletePlantContact**](docs/Api/ContactsApi.md#deleteplantcontact) | **DELETE** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Delete a plant contact
+*ContactsApi* | [**getPlantContact**](docs/Api/ContactsApi.md#getplantcontact) | **GET** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Get a single plant contact
+*ContactsApi* | [**getPlantContacts**](docs/Api/ContactsApi.md#getplantcontacts) | **GET** /companies/{company_id}/plants/{plant_id}/contacts | Get all contacts for a plant
+*ContactsApi* | [**updatePlantContact**](docs/Api/ContactsApi.md#updateplantcontact) | **PUT** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Update a plant contact
+*CustomFieldsApi* | [**createPlantCustomFields**](docs/Api/CustomFieldsApi.md#createplantcustomfields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
+*CustomFieldsApi* | [**getPlantCustomFields**](docs/Api/CustomFieldsApi.md#getplantcustomfields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
+*CustomFieldsApi* | [**updatePlantCustomFields**](docs/Api/CustomFieldsApi.md#updateplantcustomfields) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update Plant Custom Fields
 *MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
 *MetersApi* | [**getMeterById**](docs/Api/MetersApi.md#getmeterbyid) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
-*MetersApi* | [**updateMeter**](docs/Api/MetersApi.md#updatemeter) | **PUT** /companies/{company_id}/meters/{meter_id} | Update Meter
+*MetersApi* | [**updateMeter**](docs/Api/MetersApi.md#updatemeter) | **PUT** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Update Meter
 *MetersApi* | [**validateMeterExistence**](docs/Api/MetersApi.md#validatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
 *PlantsApi* | [**createPlant**](docs/Api/PlantsApi.md#createplant) | **POST** /companies/{company_id}/plants | Create Plant
-*PlantsApi* | [**createPlantCustomFields**](docs/Api/PlantsApi.md#createplantcustomfields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
 *PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
-*PlantsApi* | [**getPlantCustomFields**](docs/Api/PlantsApi.md#getplantcustomfields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
 *PlantsApi* | [**getPlants**](docs/Api/PlantsApi.md#getplants) | **GET** /companies/{company_id}/plants | Plants
 *PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
-*PlantsApi* | [**updatePlantCustomFields**](docs/Api/PlantsApi.md#updateplantcustomfields) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update Plant Custom Fields
+*SatelliteApi* | [**getPlantDetails**](docs/Api/SatelliteApi.md#getplantdetails) | **GET** /satellite-app/plant-details | Get plant details
+*SatelliteApi* | [**getPlantMeterDetails**](docs/Api/SatelliteApi.md#getplantmeterdetails) | **GET** /satellite-app/meter-plant-details | Get the meter and plant details
 
 ## Models
 
@@ -101,6 +108,9 @@ Class | Method | HTTP request | Description
 - [AddressBasic](docs/Model/AddressBasic.md)
 - [ChildCompaniesTagsResponse](docs/Model/ChildCompaniesTagsResponse.md)
 - [Company](docs/Model/Company.md)
+- [Contact](docs/Model/Contact.md)
+- [ContactAllOf](docs/Model/ContactAllOf.md)
+- [ContactBasic](docs/Model/ContactBasic.md)
 - [CreateMeterPayload](docs/Model/CreateMeterPayload.md)
 - [CustomField](docs/Model/CustomField.md)
 - [CustomFieldCreatePayload](docs/Model/CustomFieldCreatePayload.md)
@@ -112,7 +122,11 @@ Class | Method | HTTP request | Description
 - [InboundDriver](docs/Model/InboundDriver.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
 - [Meter](docs/Model/Meter.md)
+- [MeterDetail](docs/Model/MeterDetail.md)
 - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
+- [MeterPerformance](docs/Model/MeterPerformance.md)
+- [MeterPlantDetails](docs/Model/MeterPlantDetails.md)
+- [MeterPlantDetailsPlant](docs/Model/MeterPlantDetailsPlant.md)
 - [MeterUpdatePayload](docs/Model/MeterUpdatePayload.md)
 - [Note](docs/Model/Note.md)
 - [Plant](docs/Model/Plant.md)

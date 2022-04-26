@@ -667,6 +667,281 @@ class CompaniesApi
     }
 
     /**
+     * Operation getCompanyInboundDrivers
+     *
+     * Get Company Inbound Drivers
+     *
+     * @param  int $company_id The id of the company (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SunDataMetropolisClient\Model\InboundDriver[]
+     */
+    public function getCompanyInboundDrivers($company_id)
+    {
+        list($response) = $this->getCompanyInboundDriversWithHttpInfo($company_id);
+        return $response;
+    }
+
+    /**
+     * Operation getCompanyInboundDriversWithHttpInfo
+     *
+     * Get Company Inbound Drivers
+     *
+     * @param  int $company_id The id of the company (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SunDataMetropolisClient\Model\InboundDriver[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCompanyInboundDriversWithHttpInfo($company_id)
+    {
+        $request = $this->getCompanyInboundDriversRequest($company_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SunDataMetropolisClient\Model\InboundDriver[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\InboundDriver[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SunDataMetropolisClient\Model\InboundDriver[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SunDataMetropolisClient\Model\InboundDriver[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCompanyInboundDriversAsync
+     *
+     * Get Company Inbound Drivers
+     *
+     * @param  int $company_id The id of the company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCompanyInboundDriversAsync($company_id)
+    {
+        return $this->getCompanyInboundDriversAsyncWithHttpInfo($company_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCompanyInboundDriversAsyncWithHttpInfo
+     *
+     * Get Company Inbound Drivers
+     *
+     * @param  int $company_id The id of the company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCompanyInboundDriversAsyncWithHttpInfo($company_id)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\InboundDriver[]';
+        $request = $this->getCompanyInboundDriversRequest($company_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCompanyInboundDrivers'
+     *
+     * @param  int $company_id The id of the company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCompanyInboundDriversRequest($company_id)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling getCompanyInboundDrivers'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/inbound-drivers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getCompanyTags
      *
      * Get Company Tags

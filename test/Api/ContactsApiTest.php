@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundDriversApiTest
+ * ContactsApiTest
  * PHP version 7.3
  *
  * @category Class
@@ -34,14 +34,14 @@ use \SunDataMetropolisClient\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * InboundDriversApiTest Class Doc Comment
+ * ContactsApiTest Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InboundDriversApiTest extends TestCase
+class ContactsApiTest extends TestCase
 {
 
     /**
@@ -73,12 +73,60 @@ class InboundDriversApiTest extends TestCase
     }
 
     /**
-     * Test case for getCompanyInboundDrivers
+     * Test case for createPlantContact
      *
-     * Get Company Inbound Drivers.
+     * Create a new plant contact.
      *
      */
-    public function testGetCompanyInboundDrivers()
+    public function testCreatePlantContact()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for deletePlantContact
+     *
+     * Delete a plant contact.
+     *
+     */
+    public function testDeletePlantContact()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getPlantContact
+     *
+     * Get a single plant contact.
+     *
+     */
+    public function testGetPlantContact()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getPlantContacts
+     *
+     * Get all contacts for a plant.
+     *
+     */
+    public function testGetPlantContacts()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updatePlantContact
+     *
+     * Update a plant contact.
+     *
+     */
+    public function testUpdatePlantContact()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

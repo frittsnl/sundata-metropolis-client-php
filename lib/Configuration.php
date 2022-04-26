@@ -84,7 +84,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api.sundata.nl/api/v0';
+    protected $host = '/api/v0';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -438,6 +438,10 @@ class Configuration
     public function getHostSettings()
     {
         return [
+            [
+                "url" => "/api/v0",
+                "description" => "Current server",
+            ],
             [
                 "url" => "https://api.sundata.nl/api/v0",
                 "description" => "Production",

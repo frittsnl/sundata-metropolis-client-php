@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
 *SatelliteApi* | [**getPlantDetails**](docs/Api/SatelliteApi.md#getplantdetails) | **GET** /satellite-app/plant-details | Get plant details
 *SatelliteApi* | [**getPlantMeterDetails**](docs/Api/SatelliteApi.md#getplantmeterdetails) | **GET** /satellite-app/meter-plant-details | Get the meter and plant details
+*SatelliteApi* | [**getWeatherInPeriod**](docs/Api/SatelliteApi.md#getweatherinperiod) | **GET** /satellite-app/weather-in-period | Get the weather from a station in a specified period
 
 ## Models
 
@@ -121,6 +122,8 @@ Class | Method | HTTP request | Description
 - [GetPlantResponse](docs/Model/GetPlantResponse.md)
 - [InboundDriver](docs/Model/InboundDriver.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
+- [InlineResponse2001](docs/Model/InlineResponse2001.md)
+- [InlineResponse2001Data](docs/Model/InlineResponse2001Data.md)
 - [Meter](docs/Model/Meter.md)
 - [MeterDetail](docs/Model/MeterDetail.md)
 - [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
@@ -137,9 +140,11 @@ Class | Method | HTTP request | Description
 - [PlantPayload](docs/Model/PlantPayload.md)
 - [PlantPayloadCompanyIds](docs/Model/PlantPayloadCompanyIds.md)
 - [PlantUpdateResponse](docs/Model/PlantUpdateResponse.md)
+- [Station](docs/Model/Station.md)
 - [Tag](docs/Model/Tag.md)
 - [Type](docs/Model/Type.md)
 - [User](docs/Model/User.md)
+- [WeatherMonth](docs/Model/WeatherMonth.md)
 
 ## Authorization
 

@@ -26,6 +26,8 @@ docs/Model/GetPaginatedPlantsResponse.md
 docs/Model/GetPlantResponse.md
 docs/Model/InboundDriver.md
 docs/Model/InlineResponse200.md
+docs/Model/InlineResponse2001.md
+docs/Model/InlineResponse2001Data.md
 docs/Model/Meter.md
 docs/Model/MeterDetail.md
 docs/Model/MeterExistenceResponse.md
@@ -42,9 +44,11 @@ docs/Model/PlantCreateResponse.md
 docs/Model/PlantPayload.md
 docs/Model/PlantPayloadCompanyIds.md
 docs/Model/PlantUpdateResponse.md
+docs/Model/Station.md
 docs/Model/Tag.md
 docs/Model/Type.md
 docs/Model/User.md
+docs/Model/WeatherMonth.md
 lib/Api/CompaniesApi.php
 lib/Api/ContactsApi.php
 lib/Api/CustomFieldsApi.php
@@ -72,6 +76,8 @@ lib/Model/GetPaginatedPlantsResponse.php
 lib/Model/GetPlantResponse.php
 lib/Model/InboundDriver.php
 lib/Model/InlineResponse200.php
+lib/Model/InlineResponse2001.php
+lib/Model/InlineResponse2001Data.php
 lib/Model/Meter.php
 lib/Model/MeterDetail.php
 lib/Model/MeterExistenceResponse.php
@@ -89,9 +95,11 @@ lib/Model/PlantCreateResponse.php
 lib/Model/PlantPayload.php
 lib/Model/PlantPayloadCompanyIds.php
 lib/Model/PlantUpdateResponse.php
+lib/Model/Station.php
 lib/Model/Tag.php
 lib/Model/Type.php
 lib/Model/User.php
+lib/Model/WeatherMonth.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/CompaniesApiTest.php
@@ -117,6 +125,8 @@ test/Model/CustomFieldUpdatePayloadTest.php
 test/Model/GetPaginatedPlantsResponseTest.php
 test/Model/GetPlantResponseTest.php
 test/Model/InboundDriverTest.php
+test/Model/InlineResponse2001DataTest.php
+test/Model/InlineResponse2001Test.php
 test/Model/InlineResponse200Test.php
 test/Model/MeterDetailTest.php
 test/Model/MeterExistenceResponseTest.php
@@ -134,6 +144,8 @@ test/Model/PlantPayloadCompanyIdsTest.php
 test/Model/PlantPayloadTest.php
 test/Model/PlantTest.php
 test/Model/PlantUpdateResponseTest.php
+test/Model/StationTest.php
 test/Model/TagTest.php
 test/Model/TypeTest.php
 test/Model/UserTest.php
+test/Model/WeatherMonthTest.php

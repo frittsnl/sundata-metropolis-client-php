@@ -717,6 +717,328 @@ class SatelliteApi
     }
 
     /**
+     * Operation getWeatherInPeriod
+     *
+     * Get the weather from a station in a specified period
+     *
+     * @param  int $station The weather station id (required)
+     * @param  string $start The start date, inclusive (required)
+     * @param  string $end The end date, exclusive (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SunDataMetropolisClient\Model\InlineResponse2001
+     */
+    public function getWeatherInPeriod($station, $start, $end)
+    {
+        list($response) = $this->getWeatherInPeriodWithHttpInfo($station, $start, $end);
+        return $response;
+    }
+
+    /**
+     * Operation getWeatherInPeriodWithHttpInfo
+     *
+     * Get the weather from a station in a specified period
+     *
+     * @param  int $station The weather station id (required)
+     * @param  string $start The start date, inclusive (required)
+     * @param  string $end The end date, exclusive (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SunDataMetropolisClient\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWeatherInPeriodWithHttpInfo($station, $start, $end)
+    {
+        $request = $this->getWeatherInPeriodRequest($station, $start, $end);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SunDataMetropolisClient\Model\InlineResponse2001' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\InlineResponse2001', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SunDataMetropolisClient\Model\InlineResponse2001';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SunDataMetropolisClient\Model\InlineResponse2001',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWeatherInPeriodAsync
+     *
+     * Get the weather from a station in a specified period
+     *
+     * @param  int $station The weather station id (required)
+     * @param  string $start The start date, inclusive (required)
+     * @param  string $end The end date, exclusive (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWeatherInPeriodAsync($station, $start, $end)
+    {
+        return $this->getWeatherInPeriodAsyncWithHttpInfo($station, $start, $end)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWeatherInPeriodAsyncWithHttpInfo
+     *
+     * Get the weather from a station in a specified period
+     *
+     * @param  int $station The weather station id (required)
+     * @param  string $start The start date, inclusive (required)
+     * @param  string $end The end date, exclusive (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWeatherInPeriodAsyncWithHttpInfo($station, $start, $end)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\InlineResponse2001';
+        $request = $this->getWeatherInPeriodRequest($station, $start, $end);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWeatherInPeriod'
+     *
+     * @param  int $station The weather station id (required)
+     * @param  string $start The start date, inclusive (required)
+     * @param  string $end The end date, exclusive (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getWeatherInPeriodRequest($station, $start, $end)
+    {
+        // verify the required parameter 'station' is set
+        if ($station === null || (is_array($station) && count($station) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $station when calling getWeatherInPeriod'
+            );
+        }
+        // verify the required parameter 'start' is set
+        if ($start === null || (is_array($start) && count($start) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $start when calling getWeatherInPeriod'
+            );
+        }
+        // verify the required parameter 'end' is set
+        if ($end === null || (is_array($end) && count($end) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $end when calling getWeatherInPeriod'
+            );
+        }
+
+        $resourcePath = '/satellite-app/weather-in-period';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($station !== null) {
+            if('form' === 'form' && is_array($station)) {
+                foreach($station as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['station'] = $station;
+            }
+        }
+        // query params
+        if ($start !== null) {
+            if('form' === 'form' && is_array($start)) {
+                foreach($start as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['start'] = $start;
+            }
+        }
+        // query params
+        if ($end !== null) {
+            if('form' === 'form' && is_array($end)) {
+                foreach($end as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['end'] = $end;
+            }
+        }
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Create http client option
      *
      * @throws \RuntimeException on file opening failure

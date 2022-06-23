@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomFieldsApiTest
+ * UtilitiesApiTest
  * PHP version 7.3
  *
  * @category Class
@@ -34,14 +34,14 @@ use \SunDataMetropolisClient\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomFieldsApiTest Class Doc Comment
+ * UtilitiesApiTest Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomFieldsApiTest extends TestCase
+class UtilitiesApiTest extends TestCase
 {
 
     /**
@@ -73,60 +73,12 @@ class CustomFieldsApiTest extends TestCase
     }
 
     /**
-     * Test case for createPlantCustomFields
+     * Test case for validateMeterExistence
      *
-     * Create Plant Custom Fields.
-     *
-     */
-    public function testCreatePlantCustomFields()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deletePlantCustomField
-     *
-     * Delete plant custom field.
+     * Validate whether a reference_identifier is valid..
      *
      */
-    public function testDeletePlantCustomField()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getPlantCustomField
-     *
-     * Get a plant custom field.
-     *
-     */
-    public function testGetPlantCustomField()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getPlantCustomFields
-     *
-     * Get Plant Custom Fields.
-     *
-     */
-    public function testGetPlantCustomFields()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updatePlantCustomField
-     *
-     * Update plant custom field.
-     *
-     */
-    public function testUpdatePlantCustomField()
+    public function testValidateMeterExistence()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

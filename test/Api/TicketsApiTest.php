@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomFieldsApiTest
+ * TicketsApiTest
  * PHP version 7.3
  *
  * @category Class
@@ -34,14 +34,14 @@ use \SunDataMetropolisClient\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomFieldsApiTest Class Doc Comment
+ * TicketsApiTest Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomFieldsApiTest extends TestCase
+class TicketsApiTest extends TestCase
 {
 
     /**
@@ -73,60 +73,84 @@ class CustomFieldsApiTest extends TestCase
     }
 
     /**
-     * Test case for createPlantCustomFields
+     * Test case for closeTicket
      *
-     * Create Plant Custom Fields.
+     * Close a ticket.
      *
      */
-    public function testCreatePlantCustomFields()
+    public function testCloseTicket()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for deletePlantCustomField
+     * Test case for createTicket
      *
-     * Delete plant custom field.
+     * Create a new ticket.
      *
      */
-    public function testDeletePlantCustomField()
+    public function testCreateTicket()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for getPlantCustomField
+     * Test case for deleteTicket
      *
-     * Get a plant custom field.
+     * Delete a ticket.
      *
      */
-    public function testGetPlantCustomField()
+    public function testDeleteTicket()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for getPlantCustomFields
+     * Test case for getTicket
      *
-     * Get Plant Custom Fields.
+     * Get a ticket.
      *
      */
-    public function testGetPlantCustomFields()
+    public function testGetTicket()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for updatePlantCustomField
+     * Test case for getTickets
      *
-     * Update plant custom field.
+     * Get all tickets for a plant.
      *
      */
-    public function testUpdatePlantCustomField()
+    public function testGetTickets()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for openTicket
+     *
+     * Open a ticket.
+     *
+     */
+    public function testOpenTicket()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateTicket
+     *
+     * Update a ticket.
+     *
+     */
+    public function testUpdateTicket()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

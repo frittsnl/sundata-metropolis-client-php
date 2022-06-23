@@ -63,7 +63,7 @@ class Meter implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'int',
         'plant_id' => 'int',
         'inbound_driver_id' => 'int',
-        'reference_identifier' => 'object',
+        'reference_identifier' => 'string',
         'amount_in_cents_per_kwh' => 'float',
         'peak_in_watt' => 'float',
         'p90_in_kwh' => 'float',
@@ -399,7 +399,7 @@ class Meter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets reference_identifier
      *
-     * @return object
+     * @return string
      */
     public function getReferenceIdentifier()
     {
@@ -409,7 +409,7 @@ class Meter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reference_identifier
      *
-     * @param object $reference_identifier reference_identifier
+     * @param string $reference_identifier reference_identifier
      *
      * @return self
      */

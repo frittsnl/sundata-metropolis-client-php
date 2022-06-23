@@ -60,13 +60,12 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'int',
         'name' => 'string',
         'company_id' => 'int',
-        'id' => 'int',
+        'company_name' => 'string',
         'type' => 'string',
-        'nullable' => 'bool',
-        'regex' => 'string',
-        'unique' => 'bool'
+        'editable' => 'bool'
     ];
 
     /**
@@ -77,13 +76,12 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'int64',
         'name' => null,
         'company_id' => 'int64',
-        'id' => 'int64',
+        'company_name' => null,
         'type' => null,
-        'nullable' => null,
-        'regex' => null,
-        'unique' => null
+        'editable' => null
     ];
 
     /**
@@ -113,13 +111,12 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'name' => 'name',
         'company_id' => 'company_id',
-        'id' => 'id',
+        'company_name' => 'company_name',
         'type' => 'type',
-        'nullable' => 'nullable',
-        'regex' => 'regex',
-        'unique' => 'unique'
+        'editable' => 'editable'
     ];
 
     /**
@@ -128,13 +125,12 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'name' => 'setName',
         'company_id' => 'setCompanyId',
-        'id' => 'setId',
+        'company_name' => 'setCompanyName',
         'type' => 'setType',
-        'nullable' => 'setNullable',
-        'regex' => 'setRegex',
-        'unique' => 'setUnique'
+        'editable' => 'setEditable'
     ];
 
     /**
@@ -143,13 +139,12 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'name' => 'getName',
         'company_id' => 'getCompanyId',
-        'id' => 'getId',
+        'company_name' => 'getCompanyName',
         'type' => 'getType',
-        'nullable' => 'getNullable',
-        'regex' => 'getRegex',
-        'unique' => 'getUnique'
+        'editable' => 'getEditable'
     ];
 
     /**
@@ -209,13 +204,12 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = $data['id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['company_id'] = $data['company_id'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
+        $this->container['company_name'] = $data['company_name'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['nullable'] = $data['nullable'] ?? null;
-        $this->container['regex'] = $data['regex'] ?? null;
-        $this->container['unique'] = $data['unique'] ?? null;
+        $this->container['editable'] = $data['editable'] ?? null;
     }
 
     /**
@@ -227,23 +221,17 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
         if ($this->container['company_id'] === null) {
             $invalidProperties[] = "'company_id' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['nullable'] === null) {
-            $invalidProperties[] = "'nullable' can't be null";
-        }
-        if ($this->container['unique'] === null) {
-            $invalidProperties[] = "'unique' can't be null";
         }
         return $invalidProperties;
     }
@@ -259,6 +247,30 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -309,25 +321,25 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets company_name
      *
-     * @return int
+     * @return string|null
      */
-    public function getId()
+    public function getCompanyName()
     {
-        return $this->container['id'];
+        return $this->container['company_name'];
     }
 
     /**
-     * Sets id
+     * Sets company_name
      *
-     * @param int $id id
+     * @param string|null $company_name company_name
      *
      * @return self
      */
-    public function setId($id)
+    public function setCompanyName($company_name)
     {
-        $this->container['id'] = $id;
+        $this->container['company_name'] = $company_name;
 
         return $this;
     }
@@ -357,73 +369,25 @@ class CustomFieldType implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets nullable
+     * Gets editable
      *
-     * @return bool
+     * @return bool|null
      */
-    public function getNullable()
+    public function getEditable()
     {
-        return $this->container['nullable'];
+        return $this->container['editable'];
     }
 
     /**
-     * Sets nullable
+     * Sets editable
      *
-     * @param bool $nullable nullable
+     * @param bool|null $editable editable
      *
      * @return self
      */
-    public function setNullable($nullable)
+    public function setEditable($editable)
     {
-        $this->container['nullable'] = $nullable;
-
-        return $this;
-    }
-
-    /**
-     * Gets regex
-     *
-     * @return string|null
-     */
-    public function getRegex()
-    {
-        return $this->container['regex'];
-    }
-
-    /**
-     * Sets regex
-     *
-     * @param string|null $regex regex
-     *
-     * @return self
-     */
-    public function setRegex($regex)
-    {
-        $this->container['regex'] = $regex;
-
-        return $this;
-    }
-
-    /**
-     * Gets unique
-     *
-     * @return bool
-     */
-    public function getUnique()
-    {
-        return $this->container['unique'];
-    }
-
-    /**
-     * Sets unique
-     *
-     * @param bool $unique unique
-     *
-     * @return self
-     */
-    public function setUnique($unique)
-    {
-        $this->container['unique'] = $unique;
+        $this->container['editable'] = $editable;
 
         return $this;
     }

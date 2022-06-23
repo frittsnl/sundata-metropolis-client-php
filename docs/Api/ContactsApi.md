@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 ## `updatePlantContact()`
 
 ```php
-updatePlantContact($company_id, $plant_id, $contact_id, $body): \SunDataMetropolisClient\Model\Contact
+updatePlantContact($company_id, $plant_id, $contact_id, $contact): \SunDataMetropolisClient\Model\Contact
 ```
 
 Update a plant contact
@@ -295,10 +295,10 @@ $apiInstance = new SunDataMetropolisClient\Api\ContactsApi(
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
 $contact_id = 56; // int | The id of the contact
-$body = new \stdClass; // object
+$contact = new \SunDataMetropolisClient\Model\Contact(); // \SunDataMetropolisClient\Model\Contact
 
 try {
-    $result = $apiInstance->updatePlantContact($company_id, $plant_id, $contact_id, $body);
+    $result = $apiInstance->updatePlantContact($company_id, $plant_id, $contact_id, $contact);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->updatePlantContact: ', $e->getMessage(), PHP_EOL;
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
  **company_id** | **int**| The id of the company |
  **plant_id** | **int**| The id of the plant |
  **contact_id** | **int**| The id of the contact |
- **body** | **object**|  | [optional]
+ **contact** | [**\SunDataMetropolisClient\Model\Contact**](../Model/Contact.md)|  | [optional]
 
 ### Return type
 

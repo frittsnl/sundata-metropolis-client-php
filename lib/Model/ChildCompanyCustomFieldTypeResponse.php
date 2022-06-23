@@ -1,6 +1,6 @@
 <?php
 /**
- * MeterPerformance
+ * ChildCompanyCustomFieldTypeResponse
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * MeterPerformance Class Doc Comment
+ * ChildCompanyCustomFieldTypeResponse Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
@@ -43,7 +43,7 @@ use \SunDataMetropolisClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
+class ChildCompanyCustomFieldTypeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MeterPerformance';
+    protected static $openAPIModelName = 'ChildCompanyCustomFieldTypeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,12 +60,13 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_date' => '\DateTime',
-        'end_date' => '\DateTime',
-        'average_efficiency' => 'float',
-        'actual_yield_in_kwh' => 'float',
-        'expected_yield_in_kwh' => 'float',
-        'calculated_yield_in_kwh' => 'float'
+        'company_id' => 'int',
+        'company_name' => 'string',
+        'created_at' => '\DateTime',
+        'deleted_at' => '\DateTime',
+        'non_mon_accessible' => 'bool',
+        'pivot' => '\SunDataMetropolisClient\Model\ChildCompanyCustomFieldTypeResponsePivot',
+        'plant_custom_field_types' => '\SunDataMetropolisClient\Model\CustomFieldType[]'
     ];
 
     /**
@@ -76,12 +77,13 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'start_date' => 'date-time',
-        'end_date' => 'date-time',
-        'average_efficiency' => null,
-        'actual_yield_in_kwh' => null,
-        'expected_yield_in_kwh' => null,
-        'calculated_yield_in_kwh' => null
+        'company_id' => 'int64',
+        'company_name' => null,
+        'created_at' => 'date-time',
+        'deleted_at' => 'date-time',
+        'non_mon_accessible' => null,
+        'pivot' => null,
+        'plant_custom_field_types' => null
     ];
 
     /**
@@ -111,12 +113,13 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_date' => 'start_date',
-        'end_date' => 'end_date',
-        'average_efficiency' => 'average_efficiency',
-        'actual_yield_in_kwh' => 'actual_yield_in_kwh',
-        'expected_yield_in_kwh' => 'expected_yield_in_kwh',
-        'calculated_yield_in_kwh' => 'calculated_yield_in_kwh'
+        'company_id' => 'company_id',
+        'company_name' => 'company_name',
+        'created_at' => 'created_at',
+        'deleted_at' => 'deleted_at',
+        'non_mon_accessible' => 'non_mon_accessible',
+        'pivot' => 'pivot',
+        'plant_custom_field_types' => 'plant_custom_field_types'
     ];
 
     /**
@@ -125,12 +128,13 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate',
-        'average_efficiency' => 'setAverageEfficiency',
-        'actual_yield_in_kwh' => 'setActualYieldInKwh',
-        'expected_yield_in_kwh' => 'setExpectedYieldInKwh',
-        'calculated_yield_in_kwh' => 'setCalculatedYieldInKwh'
+        'company_id' => 'setCompanyId',
+        'company_name' => 'setCompanyName',
+        'created_at' => 'setCreatedAt',
+        'deleted_at' => 'setDeletedAt',
+        'non_mon_accessible' => 'setNonMonAccessible',
+        'pivot' => 'setPivot',
+        'plant_custom_field_types' => 'setPlantCustomFieldTypes'
     ];
 
     /**
@@ -139,12 +143,13 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate',
-        'average_efficiency' => 'getAverageEfficiency',
-        'actual_yield_in_kwh' => 'getActualYieldInKwh',
-        'expected_yield_in_kwh' => 'getExpectedYieldInKwh',
-        'calculated_yield_in_kwh' => 'getCalculatedYieldInKwh'
+        'company_id' => 'getCompanyId',
+        'company_name' => 'getCompanyName',
+        'created_at' => 'getCreatedAt',
+        'deleted_at' => 'getDeletedAt',
+        'non_mon_accessible' => 'getNonMonAccessible',
+        'pivot' => 'getPivot',
+        'plant_custom_field_types' => 'getPlantCustomFieldTypes'
     ];
 
     /**
@@ -204,12 +209,13 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['start_date'] = $data['start_date'] ?? null;
-        $this->container['end_date'] = $data['end_date'] ?? null;
-        $this->container['average_efficiency'] = $data['average_efficiency'] ?? null;
-        $this->container['actual_yield_in_kwh'] = $data['actual_yield_in_kwh'] ?? null;
-        $this->container['expected_yield_in_kwh'] = $data['expected_yield_in_kwh'] ?? null;
-        $this->container['calculated_yield_in_kwh'] = $data['calculated_yield_in_kwh'] ?? null;
+        $this->container['company_id'] = $data['company_id'] ?? null;
+        $this->container['company_name'] = $data['company_name'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['deleted_at'] = $data['deleted_at'] ?? null;
+        $this->container['non_mon_accessible'] = $data['non_mon_accessible'] ?? null;
+        $this->container['pivot'] = $data['pivot'] ?? null;
+        $this->container['plant_custom_field_types'] = $data['plant_custom_field_types'] ?? null;
     }
 
     /**
@@ -237,145 +243,169 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets start_date
+     * Gets company_id
+     *
+     * @return int|null
+     */
+    public function getCompanyId()
+    {
+        return $this->container['company_id'];
+    }
+
+    /**
+     * Sets company_id
+     *
+     * @param int|null $company_id company_id
+     *
+     * @return self
+     */
+    public function setCompanyId($company_id)
+    {
+        $this->container['company_id'] = $company_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_name
+     *
+     * @return string|null
+     */
+    public function getCompanyName()
+    {
+        return $this->container['company_name'];
+    }
+
+    /**
+     * Sets company_name
+     *
+     * @param string|null $company_name company_name
+     *
+     * @return self
+     */
+    public function setCompanyName($company_name)
+    {
+        $this->container['company_name'] = $company_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
      *
      * @return \DateTime|null
      */
-    public function getStartDate()
+    public function getCreatedAt()
     {
-        return $this->container['start_date'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets start_date
+     * Sets created_at
      *
-     * @param \DateTime|null $start_date start_date
+     * @param \DateTime|null $created_at created_at
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setCreatedAt($created_at)
     {
-        $this->container['start_date'] = $start_date;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets end_date
+     * Gets deleted_at
      *
      * @return \DateTime|null
      */
-    public function getEndDate()
+    public function getDeletedAt()
     {
-        return $this->container['end_date'];
+        return $this->container['deleted_at'];
     }
 
     /**
-     * Sets end_date
+     * Sets deleted_at
      *
-     * @param \DateTime|null $end_date end_date
+     * @param \DateTime|null $deleted_at deleted_at
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setDeletedAt($deleted_at)
     {
-        $this->container['end_date'] = $end_date;
+        $this->container['deleted_at'] = $deleted_at;
 
         return $this;
     }
 
     /**
-     * Gets average_efficiency
+     * Gets non_mon_accessible
      *
-     * @return float|null
+     * @return bool|null
      */
-    public function getAverageEfficiency()
+    public function getNonMonAccessible()
     {
-        return $this->container['average_efficiency'];
+        return $this->container['non_mon_accessible'];
     }
 
     /**
-     * Sets average_efficiency
+     * Sets non_mon_accessible
      *
-     * @param float|null $average_efficiency average_efficiency
+     * @param bool|null $non_mon_accessible non_mon_accessible
      *
      * @return self
      */
-    public function setAverageEfficiency($average_efficiency)
+    public function setNonMonAccessible($non_mon_accessible)
     {
-        $this->container['average_efficiency'] = $average_efficiency;
+        $this->container['non_mon_accessible'] = $non_mon_accessible;
 
         return $this;
     }
 
     /**
-     * Gets actual_yield_in_kwh
+     * Gets pivot
      *
-     * @return float|null
+     * @return \SunDataMetropolisClient\Model\ChildCompanyCustomFieldTypeResponsePivot|null
      */
-    public function getActualYieldInKwh()
+    public function getPivot()
     {
-        return $this->container['actual_yield_in_kwh'];
+        return $this->container['pivot'];
     }
 
     /**
-     * Sets actual_yield_in_kwh
+     * Sets pivot
      *
-     * @param float|null $actual_yield_in_kwh actual_yield_in_kwh
+     * @param \SunDataMetropolisClient\Model\ChildCompanyCustomFieldTypeResponsePivot|null $pivot pivot
      *
      * @return self
      */
-    public function setActualYieldInKwh($actual_yield_in_kwh)
+    public function setPivot($pivot)
     {
-        $this->container['actual_yield_in_kwh'] = $actual_yield_in_kwh;
+        $this->container['pivot'] = $pivot;
 
         return $this;
     }
 
     /**
-     * Gets expected_yield_in_kwh
+     * Gets plant_custom_field_types
      *
-     * @return float|null
+     * @return \SunDataMetropolisClient\Model\CustomFieldType[]|null
      */
-    public function getExpectedYieldInKwh()
+    public function getPlantCustomFieldTypes()
     {
-        return $this->container['expected_yield_in_kwh'];
+        return $this->container['plant_custom_field_types'];
     }
 
     /**
-     * Sets expected_yield_in_kwh
+     * Sets plant_custom_field_types
      *
-     * @param float|null $expected_yield_in_kwh expected_yield_in_kwh
+     * @param \SunDataMetropolisClient\Model\CustomFieldType[]|null $plant_custom_field_types plant_custom_field_types
      *
      * @return self
      */
-    public function setExpectedYieldInKwh($expected_yield_in_kwh)
+    public function setPlantCustomFieldTypes($plant_custom_field_types)
     {
-        $this->container['expected_yield_in_kwh'] = $expected_yield_in_kwh;
-
-        return $this;
-    }
-
-    /**
-     * Gets calculated_yield_in_kwh
-     *
-     * @return float|null
-     */
-    public function getCalculatedYieldInKwh()
-    {
-        return $this->container['calculated_yield_in_kwh'];
-    }
-
-    /**
-     * Sets calculated_yield_in_kwh
-     *
-     * @param float|null $calculated_yield_in_kwh calculated_yield_in_kwh
-     *
-     * @return self
-     */
-    public function setCalculatedYieldInKwh($calculated_yield_in_kwh)
-    {
-        $this->container['calculated_yield_in_kwh'] = $calculated_yield_in_kwh;
+        $this->container['plant_custom_field_types'] = $plant_custom_field_types;
 
         return $this;
     }

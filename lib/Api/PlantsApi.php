@@ -117,6 +117,319 @@ class PlantsApi
     }
 
     /**
+     * Operation attachChildCompany
+     *
+     * Attach a child company to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string[]
+     */
+    public function attachChildCompany($company_id, $plant_id, $child_company_id)
+    {
+        list($response) = $this->attachChildCompanyWithHttpInfo($company_id, $plant_id, $child_company_id);
+        return $response;
+    }
+
+    /**
+     * Operation attachChildCompanyWithHttpInfo
+     *
+     * Attach a child company to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function attachChildCompanyWithHttpInfo($company_id, $plant_id, $child_company_id)
+    {
+        $request = $this->attachChildCompanyRequest($company_id, $plant_id, $child_company_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('string[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation attachChildCompanyAsync
+     *
+     * Attach a child company to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function attachChildCompanyAsync($company_id, $plant_id, $child_company_id)
+    {
+        return $this->attachChildCompanyAsyncWithHttpInfo($company_id, $plant_id, $child_company_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation attachChildCompanyAsyncWithHttpInfo
+     *
+     * Attach a child company to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function attachChildCompanyAsyncWithHttpInfo($company_id, $plant_id, $child_company_id)
+    {
+        $returnType = 'string[]';
+        $request = $this->attachChildCompanyRequest($company_id, $plant_id, $child_company_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'attachChildCompany'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function attachChildCompanyRequest($company_id, $plant_id, $child_company_id)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling attachChildCompany'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling attachChildCompany'
+            );
+        }
+        // verify the required parameter 'child_company_id' is set
+        if ($child_company_id === null || (is_array($child_company_id) && count($child_company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $child_company_id when calling attachChildCompany'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/companies/{child_company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($child_company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'child_company_id' . '}',
+                ObjectSerializer::toPathValue($child_company_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createPlant
      *
      * Create Plant
@@ -419,6 +732,319 @@ class PlantsApi
     }
 
     /**
+     * Operation detachChildCompany
+     *
+     * Detach a child company from the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string[]
+     */
+    public function detachChildCompany($company_id, $plant_id, $child_company_id)
+    {
+        list($response) = $this->detachChildCompanyWithHttpInfo($company_id, $plant_id, $child_company_id);
+        return $response;
+    }
+
+    /**
+     * Operation detachChildCompanyWithHttpInfo
+     *
+     * Detach a child company from the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function detachChildCompanyWithHttpInfo($company_id, $plant_id, $child_company_id)
+    {
+        $request = $this->detachChildCompanyRequest($company_id, $plant_id, $child_company_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('string[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation detachChildCompanyAsync
+     *
+     * Detach a child company from the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function detachChildCompanyAsync($company_id, $plant_id, $child_company_id)
+    {
+        return $this->detachChildCompanyAsyncWithHttpInfo($company_id, $plant_id, $child_company_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation detachChildCompanyAsyncWithHttpInfo
+     *
+     * Detach a child company from the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function detachChildCompanyAsyncWithHttpInfo($company_id, $plant_id, $child_company_id)
+    {
+        $returnType = 'string[]';
+        $request = $this->detachChildCompanyRequest($company_id, $plant_id, $child_company_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'detachChildCompany'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $child_company_id The id of the child company (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function detachChildCompanyRequest($company_id, $plant_id, $child_company_id)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling detachChildCompany'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling detachChildCompany'
+            );
+        }
+        // verify the required parameter 'child_company_id' is set
+        if ($child_company_id === null || (is_array($child_company_id) && count($child_company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $child_company_id when calling detachChildCompany'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/companies/{child_company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($child_company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'child_company_id' . '}',
+                ObjectSerializer::toPathValue($child_company_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getPlantById
      *
      * Plant details
@@ -647,6 +1273,300 @@ class PlantsApi
                 $queryParams['with'] = $with;
             }
         }
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPlantCompanies
+     *
+     * Get all companies attached to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SunDataMetropolisClient\Model\Company[]
+     */
+    public function getPlantCompanies($company_id, $plant_id)
+    {
+        list($response) = $this->getPlantCompaniesWithHttpInfo($company_id, $plant_id);
+        return $response;
+    }
+
+    /**
+     * Operation getPlantCompaniesWithHttpInfo
+     *
+     * Get all companies attached to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SunDataMetropolisClient\Model\Company[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPlantCompaniesWithHttpInfo($company_id, $plant_id)
+    {
+        $request = $this->getPlantCompaniesRequest($company_id, $plant_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SunDataMetropolisClient\Model\Company[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Company[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SunDataMetropolisClient\Model\Company[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SunDataMetropolisClient\Model\Company[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPlantCompaniesAsync
+     *
+     * Get all companies attached to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPlantCompaniesAsync($company_id, $plant_id)
+    {
+        return $this->getPlantCompaniesAsyncWithHttpInfo($company_id, $plant_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPlantCompaniesAsyncWithHttpInfo
+     *
+     * Get all companies attached to the plant
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPlantCompaniesAsyncWithHttpInfo($company_id, $plant_id)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\Company[]';
+        $request = $this->getPlantCompaniesRequest($company_id, $plant_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPlantCompanies'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPlantCompaniesRequest($company_id, $plant_id)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling getPlantCompanies'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling getPlantCompanies'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/companies';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
 
 
         // path params

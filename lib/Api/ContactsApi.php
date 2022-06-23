@@ -1349,15 +1349,15 @@ class ContactsApi
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      * @param  int $contact_id The id of the contact (required)
-     * @param  object $body body (optional)
+     * @param  \SunDataMetropolisClient\Model\Contact $contact contact (optional)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SunDataMetropolisClient\Model\Contact
      */
-    public function updatePlantContact($company_id, $plant_id, $contact_id, $body = null)
+    public function updatePlantContact($company_id, $plant_id, $contact_id, $contact = null)
     {
-        list($response) = $this->updatePlantContactWithHttpInfo($company_id, $plant_id, $contact_id, $body);
+        list($response) = $this->updatePlantContactWithHttpInfo($company_id, $plant_id, $contact_id, $contact);
         return $response;
     }
 
@@ -1369,15 +1369,15 @@ class ContactsApi
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      * @param  int $contact_id The id of the contact (required)
-     * @param  object $body (optional)
+     * @param  \SunDataMetropolisClient\Model\Contact $contact (optional)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SunDataMetropolisClient\Model\Contact, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePlantContactWithHttpInfo($company_id, $plant_id, $contact_id, $body = null)
+    public function updatePlantContactWithHttpInfo($company_id, $plant_id, $contact_id, $contact = null)
     {
-        $request = $this->updatePlantContactRequest($company_id, $plant_id, $contact_id, $body);
+        $request = $this->updatePlantContactRequest($company_id, $plant_id, $contact_id, $contact);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1465,14 +1465,14 @@ class ContactsApi
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      * @param  int $contact_id The id of the contact (required)
-     * @param  object $body (optional)
+     * @param  \SunDataMetropolisClient\Model\Contact $contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePlantContactAsync($company_id, $plant_id, $contact_id, $body = null)
+    public function updatePlantContactAsync($company_id, $plant_id, $contact_id, $contact = null)
     {
-        return $this->updatePlantContactAsyncWithHttpInfo($company_id, $plant_id, $contact_id, $body)
+        return $this->updatePlantContactAsyncWithHttpInfo($company_id, $plant_id, $contact_id, $contact)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1488,15 +1488,15 @@ class ContactsApi
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      * @param  int $contact_id The id of the contact (required)
-     * @param  object $body (optional)
+     * @param  \SunDataMetropolisClient\Model\Contact $contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePlantContactAsyncWithHttpInfo($company_id, $plant_id, $contact_id, $body = null)
+    public function updatePlantContactAsyncWithHttpInfo($company_id, $plant_id, $contact_id, $contact = null)
     {
         $returnType = '\SunDataMetropolisClient\Model\Contact';
-        $request = $this->updatePlantContactRequest($company_id, $plant_id, $contact_id, $body);
+        $request = $this->updatePlantContactRequest($company_id, $plant_id, $contact_id, $contact);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1537,12 +1537,12 @@ class ContactsApi
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      * @param  int $contact_id The id of the contact (required)
-     * @param  object $body (optional)
+     * @param  \SunDataMetropolisClient\Model\Contact $contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePlantContactRequest($company_id, $plant_id, $contact_id, $body = null)
+    public function updatePlantContactRequest($company_id, $plant_id, $contact_id, $contact = null)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -1610,11 +1610,11 @@ class ContactsApi
         }
 
         // for model (json/xml)
-        if (isset($body)) {
+        if (isset($contact)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($contact));
             } else {
-                $httpBody = $body;
+                $httpBody = $contact;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

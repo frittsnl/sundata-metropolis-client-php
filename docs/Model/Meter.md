@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  |
 **plant_id** | **int** |  |
 **inbound_driver_id** | **int** |  |
-**reference_identifier** | **object** |  |
+**reference_identifier** | **string** |  |
 **amount_in_cents_per_kwh** | **float** |  | [optional]
 **peak_in_watt** | **float** |  | [optional]
 **p90_in_kwh** | **float** |  | [optional]

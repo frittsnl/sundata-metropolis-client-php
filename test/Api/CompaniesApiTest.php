@@ -73,24 +73,12 @@ class CompaniesApiTest extends TestCase
     }
 
     /**
-     * Test case for getChildCompaniesTags
+     * Test case for getCompany
      *
-     * Get Child Companies Tags.
-     *
-     */
-    public function testGetChildCompaniesTags()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getCompanyChildCompanies
-     *
-     * Get Company Child Companies.
+     * Get a company.
      *
      */
-    public function testGetCompanyChildCompanies()
+    public function testGetCompany()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -99,7 +87,7 @@ class CompaniesApiTest extends TestCase
     /**
      * Test case for getCompanyInboundDrivers
      *
-     * Get Company Inbound Drivers.
+     * Get Inbound Drivers attached to company.
      *
      */
     public function testGetCompanyInboundDrivers()
@@ -115,6 +103,42 @@ class CompaniesApiTest extends TestCase
      *
      */
     public function testGetCompanyTags()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getCompanyTicket
+     *
+     * Get a ticket of a company.
+     *
+     */
+    public function testGetCompanyTicket()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getCompanyTickets
+     *
+     * Get all tickets of a company.
+     *
+     */
+    public function testGetCompanyTickets()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getCompanyVisibleInboundDrivers
+     *
+     * Get Inbound Drivers visible to the company.
+     *
+     */
+    public function testGetCompanyVisibleInboundDrivers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

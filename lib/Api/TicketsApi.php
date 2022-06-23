@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomFieldsApi
+ * TicketsApi
  * PHP version 7.3
  *
  * @category Class
@@ -41,14 +41,14 @@ use SunDataMetropolisClient\HeaderSelector;
 use SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * CustomFieldsApi Class Doc Comment
+ * TicketsApi Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomFieldsApi
+class TicketsApi
 {
     /**
      * @var ClientInterface
@@ -117,345 +117,40 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation createPlantCustomFields
+     * Operation closeTicket
      *
-     * Create Plant Custom Fields
-     *
-     * @param  int $company_id The id of the company (required)
-     * @param  int $plant_id The id of the plant (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldCreatePayload $custom_field_create_payload custom_field_create_payload (optional)
-     *
-     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \SunDataMetropolisClient\Model\CustomFieldResponse
-     */
-    public function createPlantCustomFields($company_id, $plant_id, $custom_field_create_payload = null)
-    {
-        list($response) = $this->createPlantCustomFieldsWithHttpInfo($company_id, $plant_id, $custom_field_create_payload);
-        return $response;
-    }
-
-    /**
-     * Operation createPlantCustomFieldsWithHttpInfo
-     *
-     * Create Plant Custom Fields
+     * Close a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldCreatePayload $custom_field_create_payload (optional)
-     *
-     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \SunDataMetropolisClient\Model\CustomFieldResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createPlantCustomFieldsWithHttpInfo($company_id, $plant_id, $custom_field_create_payload = null)
-    {
-        $request = $this->createPlantCustomFieldsRequest($company_id, $plant_id, $custom_field_create_payload);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\SunDataMetropolisClient\Model\CustomFieldResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\CustomFieldResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\SunDataMetropolisClient\Model\CustomFieldResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createPlantCustomFieldsAsync
-     *
-     * Create Plant Custom Fields
-     *
-     * @param  int $company_id The id of the company (required)
-     * @param  int $plant_id The id of the plant (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldCreatePayload $custom_field_create_payload (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createPlantCustomFieldsAsync($company_id, $plant_id, $custom_field_create_payload = null)
-    {
-        return $this->createPlantCustomFieldsAsyncWithHttpInfo($company_id, $plant_id, $custom_field_create_payload)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createPlantCustomFieldsAsyncWithHttpInfo
-     *
-     * Create Plant Custom Fields
-     *
-     * @param  int $company_id The id of the company (required)
-     * @param  int $plant_id The id of the plant (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldCreatePayload $custom_field_create_payload (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createPlantCustomFieldsAsyncWithHttpInfo($company_id, $plant_id, $custom_field_create_payload = null)
-    {
-        $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse';
-        $request = $this->createPlantCustomFieldsRequest($company_id, $plant_id, $custom_field_create_payload);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createPlantCustomFields'
-     *
-     * @param  int $company_id The id of the company (required)
-     * @param  int $plant_id The id of the plant (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldCreatePayload $custom_field_create_payload (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function createPlantCustomFieldsRequest($company_id, $plant_id, $custom_field_create_payload = null)
-    {
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling createPlantCustomFields'
-            );
-        }
-        // verify the required parameter 'plant_id' is set
-        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $plant_id when calling createPlantCustomFields'
-            );
-        }
-
-        $resourcePath = '/companies/{company_id}/plants/{plant_id}/custom-fields';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($plant_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'plant_id' . '}',
-                ObjectSerializer::toPathValue($plant_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($custom_field_create_payload)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($custom_field_create_payload));
-            } else {
-                $httpBody = $custom_field_create_payload;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deletePlantCustomField
-     *
-     * Delete plant custom field
-     *
-     * @param  int $company_id The id of the company (required)
-     * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string[]
      */
-    public function deletePlantCustomField($company_id, $plant_id, $custom_field_id)
+    public function closeTicket($company_id, $plant_id, $ticket_id)
     {
-        list($response) = $this->deletePlantCustomFieldWithHttpInfo($company_id, $plant_id, $custom_field_id);
+        list($response) = $this->closeTicketWithHttpInfo($company_id, $plant_id, $ticket_id);
         return $response;
     }
 
     /**
-     * Operation deletePlantCustomFieldWithHttpInfo
+     * Operation closeTicketWithHttpInfo
      *
-     * Delete plant custom field
+     * Close a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePlantCustomFieldWithHttpInfo($company_id, $plant_id, $custom_field_id)
+    public function closeTicketWithHttpInfo($company_id, $plant_id, $ticket_id)
     {
-        $request = $this->deletePlantCustomFieldRequest($company_id, $plant_id, $custom_field_id);
+        $request = $this->closeTicketRequest($company_id, $plant_id, $ticket_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -536,20 +231,20 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation deletePlantCustomFieldAsync
+     * Operation closeTicketAsync
      *
-     * Delete plant custom field
+     * Close a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePlantCustomFieldAsync($company_id, $plant_id, $custom_field_id)
+    public function closeTicketAsync($company_id, $plant_id, $ticket_id)
     {
-        return $this->deletePlantCustomFieldAsyncWithHttpInfo($company_id, $plant_id, $custom_field_id)
+        return $this->closeTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -558,21 +253,21 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation deletePlantCustomFieldAsyncWithHttpInfo
+     * Operation closeTicketAsyncWithHttpInfo
      *
-     * Delete plant custom field
+     * Close a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePlantCustomFieldAsyncWithHttpInfo($company_id, $plant_id, $custom_field_id)
+    public function closeTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
     {
         $returnType = 'string[]';
-        $request = $this->deletePlantCustomFieldRequest($company_id, $plant_id, $custom_field_id);
+        $request = $this->closeTicketRequest($company_id, $plant_id, $ticket_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -608,37 +303,37 @@ class CustomFieldsApi
     }
 
     /**
-     * Create request for operation 'deletePlantCustomField'
+     * Create request for operation 'closeTicket'
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePlantCustomFieldRequest($company_id, $plant_id, $custom_field_id)
+    public function closeTicketRequest($company_id, $plant_id, $ticket_id)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling deletePlantCustomField'
+                'Missing the required parameter $company_id when calling closeTicket'
             );
         }
         // verify the required parameter 'plant_id' is set
         if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $plant_id when calling deletePlantCustomField'
+                'Missing the required parameter $plant_id when calling closeTicket'
             );
         }
-        // verify the required parameter 'custom_field_id' is set
-        if ($custom_field_id === null || (is_array($custom_field_id) && count($custom_field_id) === 0)) {
+        // verify the required parameter 'ticket_id' is set
+        if ($ticket_id === null || (is_array($ticket_id) && count($ticket_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $custom_field_id when calling deletePlantCustomField'
+                'Missing the required parameter $ticket_id when calling closeTicket'
             );
         }
 
-        $resourcePath = '/companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id}';
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/close';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -664,10 +359,628 @@ class CustomFieldsApi
             );
         }
         // path params
-        if ($custom_field_id !== null) {
+        if ($ticket_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'custom_field_id' . '}',
-                ObjectSerializer::toPathValue($custom_field_id),
+                '{' . 'ticket_id' . '}',
+                ObjectSerializer::toPathValue($ticket_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createTicket
+     *
+     * Create a new ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\TicketBasic $ticket_basic ticket_basic (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SunDataMetropolisClient\Model\Ticket
+     */
+    public function createTicket($company_id, $plant_id, $ticket_basic = null)
+    {
+        list($response) = $this->createTicketWithHttpInfo($company_id, $plant_id, $ticket_basic);
+        return $response;
+    }
+
+    /**
+     * Operation createTicketWithHttpInfo
+     *
+     * Create a new ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\TicketBasic $ticket_basic (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SunDataMetropolisClient\Model\Ticket, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTicketWithHttpInfo($company_id, $plant_id, $ticket_basic = null)
+    {
+        $request = $this->createTicketRequest($company_id, $plant_id, $ticket_basic);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SunDataMetropolisClient\Model\Ticket' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Ticket', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SunDataMetropolisClient\Model\Ticket';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SunDataMetropolisClient\Model\Ticket',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTicketAsync
+     *
+     * Create a new ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\TicketBasic $ticket_basic (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTicketAsync($company_id, $plant_id, $ticket_basic = null)
+    {
+        return $this->createTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_basic)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTicketAsyncWithHttpInfo
+     *
+     * Create a new ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\TicketBasic $ticket_basic (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_basic = null)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\Ticket';
+        $request = $this->createTicketRequest($company_id, $plant_id, $ticket_basic);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTicket'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  \SunDataMetropolisClient\Model\TicketBasic $ticket_basic (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createTicketRequest($company_id, $plant_id, $ticket_basic = null)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling createTicket'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling createTicket'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/tickets';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($ticket_basic)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($ticket_basic));
+            } else {
+                $httpBody = $ticket_basic;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTicket
+     *
+     * Delete a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return bool
+     */
+    public function deleteTicket($company_id, $plant_id, $ticket_id)
+    {
+        list($response) = $this->deleteTicketWithHttpInfo($company_id, $plant_id, $ticket_id);
+        return $response;
+    }
+
+    /**
+     * Operation deleteTicketWithHttpInfo
+     *
+     * Delete a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of bool, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTicketWithHttpInfo($company_id, $plant_id, $ticket_id)
+    {
+        $request = $this->deleteTicketRequest($company_id, $plant_id, $ticket_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('bool' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'bool', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'bool';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'bool',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTicketAsync
+     *
+     * Delete a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTicketAsync($company_id, $plant_id, $ticket_id)
+    {
+        return $this->deleteTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTicketAsyncWithHttpInfo
+     *
+     * Delete a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
+    {
+        $returnType = 'bool';
+        $request = $this->deleteTicketRequest($company_id, $plant_id, $ticket_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTicket'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTicketRequest($company_id, $plant_id, $ticket_id)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling deleteTicket'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling deleteTicket'
+            );
+        }
+        // verify the required parameter 'ticket_id' is set
+        if ($ticket_id === null || (is_array($ticket_id) && count($ticket_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ticket_id when calling deleteTicket'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($ticket_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ticket_id' . '}',
+                ObjectSerializer::toPathValue($ticket_id),
                 $resourcePath
             );
         }
@@ -735,40 +1048,40 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation getPlantCustomField
+     * Operation getTicket
      *
-     * Get a plant custom field
+     * Get a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SunDataMetropolisClient\Model\CustomFieldResponse
+     * @return \SunDataMetropolisClient\Model\Ticket
      */
-    public function getPlantCustomField($company_id, $plant_id, $custom_field_id)
+    public function getTicket($company_id, $plant_id, $ticket_id)
     {
-        list($response) = $this->getPlantCustomFieldWithHttpInfo($company_id, $plant_id, $custom_field_id);
+        list($response) = $this->getTicketWithHttpInfo($company_id, $plant_id, $ticket_id);
         return $response;
     }
 
     /**
-     * Operation getPlantCustomFieldWithHttpInfo
+     * Operation getTicketWithHttpInfo
      *
-     * Get a plant custom field
+     * Get a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SunDataMetropolisClient\Model\CustomFieldResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunDataMetropolisClient\Model\Ticket, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPlantCustomFieldWithHttpInfo($company_id, $plant_id, $custom_field_id)
+    public function getTicketWithHttpInfo($company_id, $plant_id, $ticket_id)
     {
-        $request = $this->getPlantCustomFieldRequest($company_id, $plant_id, $custom_field_id);
+        $request = $this->getTicketRequest($company_id, $plant_id, $ticket_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -807,20 +1120,20 @@ class CustomFieldsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\SunDataMetropolisClient\Model\CustomFieldResponse' === '\SplFileObject') {
+                    if ('\SunDataMetropolisClient\Model\Ticket' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\CustomFieldResponse', []),
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Ticket', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse';
+            $returnType = '\SunDataMetropolisClient\Model\Ticket';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -838,7 +1151,7 @@ class CustomFieldsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SunDataMetropolisClient\Model\CustomFieldResponse',
+                        '\SunDataMetropolisClient\Model\Ticket',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -849,20 +1162,20 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation getPlantCustomFieldAsync
+     * Operation getTicketAsync
      *
-     * Get a plant custom field
+     * Get a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlantCustomFieldAsync($company_id, $plant_id, $custom_field_id)
+    public function getTicketAsync($company_id, $plant_id, $ticket_id)
     {
-        return $this->getPlantCustomFieldAsyncWithHttpInfo($company_id, $plant_id, $custom_field_id)
+        return $this->getTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -871,21 +1184,21 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation getPlantCustomFieldAsyncWithHttpInfo
+     * Operation getTicketAsyncWithHttpInfo
      *
-     * Get a plant custom field
+     * Get a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlantCustomFieldAsyncWithHttpInfo($company_id, $plant_id, $custom_field_id)
+    public function getTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
     {
-        $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse';
-        $request = $this->getPlantCustomFieldRequest($company_id, $plant_id, $custom_field_id);
+        $returnType = '\SunDataMetropolisClient\Model\Ticket';
+        $request = $this->getTicketRequest($company_id, $plant_id, $ticket_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -921,37 +1234,37 @@ class CustomFieldsApi
     }
 
     /**
-     * Create request for operation 'getPlantCustomField'
+     * Create request for operation 'getTicket'
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPlantCustomFieldRequest($company_id, $plant_id, $custom_field_id)
+    public function getTicketRequest($company_id, $plant_id, $ticket_id)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling getPlantCustomField'
+                'Missing the required parameter $company_id when calling getTicket'
             );
         }
         // verify the required parameter 'plant_id' is set
         if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $plant_id when calling getPlantCustomField'
+                'Missing the required parameter $plant_id when calling getTicket'
             );
         }
-        // verify the required parameter 'custom_field_id' is set
-        if ($custom_field_id === null || (is_array($custom_field_id) && count($custom_field_id) === 0)) {
+        // verify the required parameter 'ticket_id' is set
+        if ($ticket_id === null || (is_array($ticket_id) && count($ticket_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $custom_field_id when calling getPlantCustomField'
+                'Missing the required parameter $ticket_id when calling getTicket'
             );
         }
 
-        $resourcePath = '/companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id}';
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -977,10 +1290,10 @@ class CustomFieldsApi
             );
         }
         // path params
-        if ($custom_field_id !== null) {
+        if ($ticket_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'custom_field_id' . '}',
-                ObjectSerializer::toPathValue($custom_field_id),
+                '{' . 'ticket_id' . '}',
+                ObjectSerializer::toPathValue($ticket_id),
                 $resourcePath
             );
         }
@@ -1048,38 +1361,38 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation getPlantCustomFields
+     * Operation getTickets
      *
-     * Get Plant Custom Fields
+     * Get all tickets for a plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SunDataMetropolisClient\Model\CustomFieldResponse[]
+     * @return \SunDataMetropolisClient\Model\Ticket[]
      */
-    public function getPlantCustomFields($company_id, $plant_id)
+    public function getTickets($company_id, $plant_id)
     {
-        list($response) = $this->getPlantCustomFieldsWithHttpInfo($company_id, $plant_id);
+        list($response) = $this->getTicketsWithHttpInfo($company_id, $plant_id);
         return $response;
     }
 
     /**
-     * Operation getPlantCustomFieldsWithHttpInfo
+     * Operation getTicketsWithHttpInfo
      *
-     * Get Plant Custom Fields
+     * Get all tickets for a plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SunDataMetropolisClient\Model\CustomFieldResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SunDataMetropolisClient\Model\Ticket[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPlantCustomFieldsWithHttpInfo($company_id, $plant_id)
+    public function getTicketsWithHttpInfo($company_id, $plant_id)
     {
-        $request = $this->getPlantCustomFieldsRequest($company_id, $plant_id);
+        $request = $this->getTicketsRequest($company_id, $plant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1118,20 +1431,20 @@ class CustomFieldsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\SunDataMetropolisClient\Model\CustomFieldResponse[]' === '\SplFileObject') {
+                    if ('\SunDataMetropolisClient\Model\Ticket[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\CustomFieldResponse[]', []),
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Ticket[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse[]';
+            $returnType = '\SunDataMetropolisClient\Model\Ticket[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1149,7 +1462,7 @@ class CustomFieldsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SunDataMetropolisClient\Model\CustomFieldResponse[]',
+                        '\SunDataMetropolisClient\Model\Ticket[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1160,9 +1473,9 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation getPlantCustomFieldsAsync
+     * Operation getTicketsAsync
      *
-     * Get Plant Custom Fields
+     * Get all tickets for a plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -1170,9 +1483,9 @@ class CustomFieldsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlantCustomFieldsAsync($company_id, $plant_id)
+    public function getTicketsAsync($company_id, $plant_id)
     {
-        return $this->getPlantCustomFieldsAsyncWithHttpInfo($company_id, $plant_id)
+        return $this->getTicketsAsyncWithHttpInfo($company_id, $plant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1181,9 +1494,9 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation getPlantCustomFieldsAsyncWithHttpInfo
+     * Operation getTicketsAsyncWithHttpInfo
      *
-     * Get Plant Custom Fields
+     * Get all tickets for a plant
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -1191,10 +1504,10 @@ class CustomFieldsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPlantCustomFieldsAsyncWithHttpInfo($company_id, $plant_id)
+    public function getTicketsAsyncWithHttpInfo($company_id, $plant_id)
     {
-        $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse[]';
-        $request = $this->getPlantCustomFieldsRequest($company_id, $plant_id);
+        $returnType = '\SunDataMetropolisClient\Model\Ticket[]';
+        $request = $this->getTicketsRequest($company_id, $plant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1230,7 +1543,7 @@ class CustomFieldsApi
     }
 
     /**
-     * Create request for operation 'getPlantCustomFields'
+     * Create request for operation 'getTickets'
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
@@ -1238,22 +1551,22 @@ class CustomFieldsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPlantCustomFieldsRequest($company_id, $plant_id)
+    public function getTicketsRequest($company_id, $plant_id)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling getPlantCustomFields'
+                'Missing the required parameter $company_id when calling getTickets'
             );
         }
         // verify the required parameter 'plant_id' is set
         if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $plant_id when calling getPlantCustomFields'
+                'Missing the required parameter $plant_id when calling getTickets'
             );
         }
 
-        $resourcePath = '/companies/{company_id}/plants/{plant_id}/custom-fields';
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/tickets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1342,42 +1655,40 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation updatePlantCustomField
+     * Operation openTicket
      *
-     * Update plant custom field
+     * Open a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldUpdatePayload $custom_field_update_payload custom_field_update_payload (optional)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SunDataMetropolisClient\Model\CustomFieldResponse
+     * @return string[]
      */
-    public function updatePlantCustomField($company_id, $plant_id, $custom_field_id, $custom_field_update_payload = null)
+    public function openTicket($company_id, $plant_id, $ticket_id)
     {
-        list($response) = $this->updatePlantCustomFieldWithHttpInfo($company_id, $plant_id, $custom_field_id, $custom_field_update_payload);
+        list($response) = $this->openTicketWithHttpInfo($company_id, $plant_id, $ticket_id);
         return $response;
     }
 
     /**
-     * Operation updatePlantCustomFieldWithHttpInfo
+     * Operation openTicketWithHttpInfo
      *
-     * Update plant custom field
+     * Open a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldUpdatePayload $custom_field_update_payload (optional)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \SunDataMetropolisClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SunDataMetropolisClient\Model\CustomFieldResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePlantCustomFieldWithHttpInfo($company_id, $plant_id, $custom_field_id, $custom_field_update_payload = null)
+    public function openTicketWithHttpInfo($company_id, $plant_id, $ticket_id)
     {
-        $request = $this->updatePlantCustomFieldRequest($company_id, $plant_id, $custom_field_id, $custom_field_update_payload);
+        $request = $this->openTicketRequest($company_id, $plant_id, $ticket_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1416,20 +1727,20 @@ class CustomFieldsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\SunDataMetropolisClient\Model\CustomFieldResponse' === '\SplFileObject') {
+                    if ('string[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\CustomFieldResponse', []),
+                        ObjectSerializer::deserialize($content, 'string[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse';
+            $returnType = 'string[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1447,7 +1758,7 @@ class CustomFieldsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SunDataMetropolisClient\Model\CustomFieldResponse',
+                        'string[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1458,21 +1769,20 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation updatePlantCustomFieldAsync
+     * Operation openTicketAsync
      *
-     * Update plant custom field
+     * Open a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldUpdatePayload $custom_field_update_payload (optional)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePlantCustomFieldAsync($company_id, $plant_id, $custom_field_id, $custom_field_update_payload = null)
+    public function openTicketAsync($company_id, $plant_id, $ticket_id)
     {
-        return $this->updatePlantCustomFieldAsyncWithHttpInfo($company_id, $plant_id, $custom_field_id, $custom_field_update_payload)
+        return $this->openTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1481,22 +1791,21 @@ class CustomFieldsApi
     }
 
     /**
-     * Operation updatePlantCustomFieldAsyncWithHttpInfo
+     * Operation openTicketAsyncWithHttpInfo
      *
-     * Update plant custom field
+     * Open a ticket
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldUpdatePayload $custom_field_update_payload (optional)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePlantCustomFieldAsyncWithHttpInfo($company_id, $plant_id, $custom_field_id, $custom_field_update_payload = null)
+    public function openTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id)
     {
-        $returnType = '\SunDataMetropolisClient\Model\CustomFieldResponse';
-        $request = $this->updatePlantCustomFieldRequest($company_id, $plant_id, $custom_field_id, $custom_field_update_payload);
+        $returnType = 'string[]';
+        $request = $this->openTicketRequest($company_id, $plant_id, $ticket_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1532,38 +1841,37 @@ class CustomFieldsApi
     }
 
     /**
-     * Create request for operation 'updatePlantCustomField'
+     * Create request for operation 'openTicket'
      *
      * @param  int $company_id The id of the company (required)
      * @param  int $plant_id The id of the plant (required)
-     * @param  int $custom_field_id The id of the custom field (required)
-     * @param  \SunDataMetropolisClient\Model\CustomFieldUpdatePayload $custom_field_update_payload (optional)
+     * @param  int $ticket_id The id of the ticket (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePlantCustomFieldRequest($company_id, $plant_id, $custom_field_id, $custom_field_update_payload = null)
+    public function openTicketRequest($company_id, $plant_id, $ticket_id)
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling updatePlantCustomField'
+                'Missing the required parameter $company_id when calling openTicket'
             );
         }
         // verify the required parameter 'plant_id' is set
         if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $plant_id when calling updatePlantCustomField'
+                'Missing the required parameter $plant_id when calling openTicket'
             );
         }
-        // verify the required parameter 'custom_field_id' is set
-        if ($custom_field_id === null || (is_array($custom_field_id) && count($custom_field_id) === 0)) {
+        // verify the required parameter 'ticket_id' is set
+        if ($ticket_id === null || (is_array($ticket_id) && count($ticket_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $custom_field_id when calling updatePlantCustomField'
+                'Missing the required parameter $ticket_id when calling openTicket'
             );
         }
 
-        $resourcePath = '/companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id}';
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/open';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1589,10 +1897,328 @@ class CustomFieldsApi
             );
         }
         // path params
-        if ($custom_field_id !== null) {
+        if ($ticket_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'custom_field_id' . '}',
-                ObjectSerializer::toPathValue($custom_field_id),
+                '{' . 'ticket_id' . '}',
+                ObjectSerializer::toPathValue($ticket_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateTicket
+     *
+     * Update a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     * @param  \SunDataMetropolisClient\Model\Ticket $ticket ticket (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SunDataMetropolisClient\Model\Ticket
+     */
+    public function updateTicket($company_id, $plant_id, $ticket_id, $ticket = null)
+    {
+        list($response) = $this->updateTicketWithHttpInfo($company_id, $plant_id, $ticket_id, $ticket);
+        return $response;
+    }
+
+    /**
+     * Operation updateTicketWithHttpInfo
+     *
+     * Update a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     * @param  \SunDataMetropolisClient\Model\Ticket $ticket (optional)
+     *
+     * @throws \SunDataMetropolisClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SunDataMetropolisClient\Model\Ticket, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTicketWithHttpInfo($company_id, $plant_id, $ticket_id, $ticket = null)
+    {
+        $request = $this->updateTicketRequest($company_id, $plant_id, $ticket_id, $ticket);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SunDataMetropolisClient\Model\Ticket' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SunDataMetropolisClient\Model\Ticket', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SunDataMetropolisClient\Model\Ticket';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SunDataMetropolisClient\Model\Ticket',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateTicketAsync
+     *
+     * Update a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     * @param  \SunDataMetropolisClient\Model\Ticket $ticket (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateTicketAsync($company_id, $plant_id, $ticket_id, $ticket = null)
+    {
+        return $this->updateTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id, $ticket)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateTicketAsyncWithHttpInfo
+     *
+     * Update a ticket
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     * @param  \SunDataMetropolisClient\Model\Ticket $ticket (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateTicketAsyncWithHttpInfo($company_id, $plant_id, $ticket_id, $ticket = null)
+    {
+        $returnType = '\SunDataMetropolisClient\Model\Ticket';
+        $request = $this->updateTicketRequest($company_id, $plant_id, $ticket_id, $ticket);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateTicket'
+     *
+     * @param  int $company_id The id of the company (required)
+     * @param  int $plant_id The id of the plant (required)
+     * @param  int $ticket_id The id of the ticket (required)
+     * @param  \SunDataMetropolisClient\Model\Ticket $ticket (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateTicketRequest($company_id, $plant_id, $ticket_id, $ticket = null)
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling updateTicket'
+            );
+        }
+        // verify the required parameter 'plant_id' is set
+        if ($plant_id === null || (is_array($plant_id) && count($plant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $plant_id when calling updateTicket'
+            );
+        }
+        // verify the required parameter 'ticket_id' is set
+        if ($ticket_id === null || (is_array($ticket_id) && count($ticket_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ticket_id when calling updateTicket'
+            );
+        }
+
+        $resourcePath = '/companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($plant_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'plant_id' . '}',
+                ObjectSerializer::toPathValue($plant_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($ticket_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'ticket_id' . '}',
+                ObjectSerializer::toPathValue($ticket_id),
                 $resourcePath
             );
         }
@@ -1610,11 +2236,11 @@ class CustomFieldsApi
         }
 
         // for model (json/xml)
-        if (isset($custom_field_update_payload)) {
+        if (isset($ticket)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($custom_field_update_payload));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($ticket));
             } else {
-                $httpBody = $custom_field_update_payload;
+                $httpBody = $ticket;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

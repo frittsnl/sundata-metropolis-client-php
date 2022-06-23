@@ -73,6 +73,18 @@ class PlantsApiTest extends TestCase
     }
 
     /**
+     * Test case for attachChildCompany
+     *
+     * Attach a child company to the plant.
+     *
+     */
+    public function testAttachChildCompany()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for createPlant
      *
      * Create Plant.
@@ -85,12 +97,36 @@ class PlantsApiTest extends TestCase
     }
 
     /**
+     * Test case for detachChildCompany
+     *
+     * Detach a child company from the plant.
+     *
+     */
+    public function testDetachChildCompany()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getPlantById
      *
      * Plant details.
      *
      */
     public function testGetPlantById()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getPlantCompanies
+     *
+     * Get all companies attached to the plant.
+     *
+     */
+    public function testGetPlantCompanies()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

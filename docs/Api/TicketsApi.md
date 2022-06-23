@@ -1,27 +1,27 @@
-# SunDataMetropolisClient\CompaniesApi
+# SunDataMetropolisClient\TicketsApi
 
 All URIs are relative to /api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCompany()**](CompaniesApi.md#getCompany) | **GET** /companies/{company_id} | Get a company
-[**getCompanyInboundDrivers()**](CompaniesApi.md#getCompanyInboundDrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Inbound Drivers attached to company
-[**getCompanyTags()**](CompaniesApi.md#getCompanyTags) | **GET** /companies/{company_id}/tags | Get Company Tags
-[**getCompanyTicket()**](CompaniesApi.md#getCompanyTicket) | **GET** /companies/{company_id}/tickets/{ticket_id} | Get a ticket of a company
-[**getCompanyTickets()**](CompaniesApi.md#getCompanyTickets) | **GET** /companies/{company_id}/tickets | Get all tickets of a company
-[**getCompanyVisibleInboundDrivers()**](CompaniesApi.md#getCompanyVisibleInboundDrivers) | **GET** /companies/{company_id}/visible-inbound-drivers | Get Inbound Drivers visible to the company
-[**getCustomFieldTypes()**](CompaniesApi.md#getCustomFieldTypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
+[**closeTicket()**](TicketsApi.md#closeTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/close | Close a ticket
+[**createTicket()**](TicketsApi.md#createTicket) | **POST** /companies/{company_id}/plants/{plant_id}/tickets | Create a new ticket
+[**deleteTicket()**](TicketsApi.md#deleteTicket) | **DELETE** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Delete a ticket
+[**getTicket()**](TicketsApi.md#getTicket) | **GET** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Get a ticket
+[**getTickets()**](TicketsApi.md#getTickets) | **GET** /companies/{company_id}/plants/{plant_id}/tickets | Get all tickets for a plant
+[**openTicket()**](TicketsApi.md#openTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/open | Open a ticket
+[**updateTicket()**](TicketsApi.md#updateTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Update a ticket
 
 
-## `getCompany()`
+## `closeTicket()`
 
 ```php
-getCompany($company_id): \SunDataMetropolisClient\Model\Company
+closeTicket($company_id, $plant_id, $ticket_id): string[]
 ```
 
-Get a company
+Close a ticket
 
-Get a company to which the user belongs
+Close a ticket for a plant. Only possible if the ticket is already open.
 
 ### Example
 
@@ -34,201 +34,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
+$apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
-
-try {
-    $result = $apiInstance->getCompany($company_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompany: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\Company**](../Model/Company.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCompanyInboundDrivers()`
-
-```php
-getCompanyInboundDrivers($company_id): \SunDataMetropolisClient\Model\InboundDriver[]
-```
-
-Get Inbound Drivers attached to company
-
-Get the inbound drivers available to the Company for adding to meters.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
-
-try {
-    $result = $apiInstance->getCompanyInboundDrivers($company_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyInboundDrivers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\InboundDriver[]**](../Model/InboundDriver.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCompanyTags()`
-
-```php
-getCompanyTags($company_id): \SunDataMetropolisClient\Model\Tag[]
-```
-
-Get Company Tags
-
-Get all tags of a Company
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
-
-try {
-    $result = $apiInstance->getCompanyTags($company_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyTags: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\Tag[]**](../Model/Tag.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCompanyTicket()`
-
-```php
-getCompanyTicket($company_id, $ticket_id, $with): \SunDataMetropolisClient\Model\Ticket
-```
-
-Get a ticket of a company
-
-Returns a single ticket created by the company
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
 $ticket_id = 56; // int | The id of the ticket
-$with = plant,assignees,assignments; // string | May containg all or some of the following values\\: `plant`, `assignees`, `assignments`
 
 try {
-    $result = $apiInstance->getCompanyTicket($company_id, $ticket_id, $with);
+    $result = $apiInstance->closeTicket($company_id, $plant_id, $ticket_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyTicket: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TicketsApi->closeTicket: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -237,8 +57,200 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
  **ticket_id** | **int**| The id of the ticket |
- **with** | **string**| May containg all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
+
+### Return type
+
+**string[]**
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createTicket()`
+
+```php
+createTicket($company_id, $plant_id, $ticket_basic): \SunDataMetropolisClient\Model\Ticket
+```
+
+Create a new ticket
+
+Create a new Ticket.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$ticket_basic = new \SunDataMetropolisClient\Model\TicketBasic(); // \SunDataMetropolisClient\Model\TicketBasic
+
+try {
+    $result = $apiInstance->createTicket($company_id, $plant_id, $ticket_basic);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TicketsApi->createTicket: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **ticket_basic** | [**\SunDataMetropolisClient\Model\TicketBasic**](../Model/TicketBasic.md)|  | [optional]
+
+### Return type
+
+[**\SunDataMetropolisClient\Model\Ticket**](../Model/Ticket.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteTicket()`
+
+```php
+deleteTicket($company_id, $plant_id, $ticket_id): bool
+```
+
+Delete a ticket
+
+Delete a ticket
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$ticket_id = 56; // int | The id of the ticket
+
+try {
+    $result = $apiInstance->deleteTicket($company_id, $plant_id, $ticket_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TicketsApi->deleteTicket: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **ticket_id** | **int**| The id of the ticket |
+
+### Return type
+
+**bool**
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTicket()`
+
+```php
+getTicket($company_id, $plant_id, $ticket_id): \SunDataMetropolisClient\Model\Ticket
+```
+
+Get a ticket
+
+Get a ticket
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$ticket_id = 56; // int | The id of the ticket
+
+try {
+    $result = $apiInstance->getTicket($company_id, $plant_id, $ticket_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TicketsApi->getTicket: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **ticket_id** | **int**| The id of the ticket |
 
 ### Return type
 
@@ -257,15 +269,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCompanyTickets()`
+## `getTickets()`
 
 ```php
-getCompanyTickets($company_id, $page, $ticket_status, $with): \SunDataMetropolisClient\Model\Ticket
+getTickets($company_id, $plant_id): \SunDataMetropolisClient\Model\Ticket[]
 ```
 
-Get all tickets of a company
+Get all tickets for a plant
 
-Returns all the tickets created by the company
+Get all tickets for a plant that are visible to the company.
 
 ### Example
 
@@ -278,22 +290,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
+$apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
-$page = 56; // int
-$ticket_status = 'ticket_status_example'; // string
-$with = plant,assignees,assignments; // string | May containg all or some of the following values\\: `plant`, `assignees`, `assignments`
+$plant_id = 56; // int | The id of the plant
 
 try {
-    $result = $apiInstance->getCompanyTickets($company_id, $page, $ticket_status, $with);
+    $result = $apiInstance->getTickets($company_id, $plant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyTickets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TicketsApi->getTickets: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -302,9 +312,137 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
- **page** | **int**|  | [optional]
- **ticket_status** | **string**|  | [optional]
- **with** | **string**| May containg all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
+ **plant_id** | **int**| The id of the plant |
+
+### Return type
+
+[**\SunDataMetropolisClient\Model\Ticket[]**](../Model/Ticket.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `openTicket()`
+
+```php
+openTicket($company_id, $plant_id, $ticket_id): string[]
+```
+
+Open a ticket
+
+Open a ticket for a plant. Only possible if the ticket has been previously closed.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$ticket_id = 56; // int | The id of the ticket
+
+try {
+    $result = $apiInstance->openTicket($company_id, $plant_id, $ticket_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TicketsApi->openTicket: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **ticket_id** | **int**| The id of the ticket |
+
+### Return type
+
+**string[]**
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateTicket()`
+
+```php
+updateTicket($company_id, $plant_id, $ticket_id, $ticket): \SunDataMetropolisClient\Model\Ticket
+```
+
+Update a ticket
+
+Update a ticket
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$ticket_id = 56; // int | The id of the ticket
+$ticket = new \SunDataMetropolisClient\Model\Ticket(); // \SunDataMetropolisClient\Model\Ticket
+
+try {
+    $result = $apiInstance->updateTicket($company_id, $plant_id, $ticket_id, $ticket);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TicketsApi->updateTicket: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **ticket_id** | **int**| The id of the ticket |
+ **ticket** | [**\SunDataMetropolisClient\Model\Ticket**](../Model/Ticket.md)|  | [optional]
 
 ### Return type
 
@@ -316,127 +454,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCompanyVisibleInboundDrivers()`
-
-```php
-getCompanyVisibleInboundDrivers($company_id): \SunDataMetropolisClient\Model\InboundDriver[]
-```
-
-Get Inbound Drivers visible to the company
-
-Get the inbound drivers visible to the Company. Useful for filtering or checking the driver-statuses.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
-
-try {
-    $result = $apiInstance->getCompanyVisibleInboundDrivers($company_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCompanyVisibleInboundDrivers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\InboundDriver[]**](../Model/InboundDriver.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getCustomFieldTypes()`
-
-```php
-getCustomFieldTypes($company_id): \SunDataMetropolisClient\Model\CustomFieldType[]
-```
-
-Get Company Custom Field types
-
-Get the Custom Field types of a Company
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
-
-try {
-    $result = $apiInstance->getCustomFieldTypes($company_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CompaniesApi->getCustomFieldTypes: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\CustomFieldType[]**](../Model/CustomFieldType.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -4,11 +4,78 @@ All URIs are relative to /api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**attachChildCompany()**](PlantsApi.md#attachChildCompany) | **PUT** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Attach a child company to the plant
 [**createPlant()**](PlantsApi.md#createPlant) | **POST** /companies/{company_id}/plants | Create Plant
+[**detachChildCompany()**](PlantsApi.md#detachChildCompany) | **DELETE** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Detach a child company from the plant
 [**getPlantById()**](PlantsApi.md#getPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
+[**getPlantCompanies()**](PlantsApi.md#getPlantCompanies) | **GET** /companies/{company_id}/plants/{plant_id}/companies | Get all companies attached to the plant
 [**getPlants()**](PlantsApi.md#getPlants) | **GET** /companies/{company_id}/plants | Plants
 [**updatePlant()**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
 
+
+## `attachChildCompany()`
+
+```php
+attachChildCompany($company_id, $plant_id, $child_company_id): string[]
+```
+
+Attach a child company to the plant
+
+Attach a child company to the plant. Only allowed when owning the plant.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$child_company_id = 56; // int | The id of the child company
+
+try {
+    $result = $apiInstance->attachChildCompany($company_id, $plant_id, $child_company_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlantsApi->attachChildCompany: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **child_company_id** | **int**| The id of the child company |
+
+### Return type
+
+**string[]**
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createPlant()`
 
@@ -74,6 +141,70 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `detachChildCompany()`
+
+```php
+detachChildCompany($company_id, $plant_id, $child_company_id): string[]
+```
+
+Detach a child company from the plant
+
+Detach a child company from the plant. Only allowed when owning the plant.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$child_company_id = 56; // int | The id of the child company
+
+try {
+    $result = $apiInstance->detachChildCompany($company_id, $plant_id, $child_company_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlantsApi->detachChildCompany: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+ **child_company_id** | **int**| The id of the child company |
+
+### Return type
+
+**string[]**
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getPlantById()`
 
 ```php
@@ -124,6 +255,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\SunDataMetropolisClient\Model\GetPlantResponse**](../Model/GetPlantResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPlantCompanies()`
+
+```php
+getPlantCompanies($company_id, $plant_id): \SunDataMetropolisClient\Model\Company[]
+```
+
+Get all companies attached to the plant
+
+Get all companies attached to the plant
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+
+try {
+    $result = $apiInstance->getPlantCompanies($company_id, $plant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlantsApi->getPlantCompanies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **plant_id** | **int**| The id of the plant |
+
+### Return type
+
+[**\SunDataMetropolisClient\Model\Company[]**](../Model/Company.md)
 
 ### Authorization
 

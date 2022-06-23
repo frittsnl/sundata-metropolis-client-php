@@ -62,7 +62,7 @@ class CustomFieldResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'value' => 'string',
         'id' => 'int',
-        'type' => '\SunDataMetropolisClient\Model\Type'
+        'type' => '\SunDataMetropolisClient\Model\CustomFieldType'
     ];
 
     /**
@@ -269,7 +269,7 @@ class CustomFieldResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \SunDataMetropolisClient\Model\Type|null
+     * @return \SunDataMetropolisClient\Model\CustomFieldType|null
      */
     public function getType()
     {
@@ -279,7 +279,7 @@ class CustomFieldResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \SunDataMetropolisClient\Model\Type|null $type type
+     * @param \SunDataMetropolisClient\Model\CustomFieldType|null $type type
      *
      * @return self
      */

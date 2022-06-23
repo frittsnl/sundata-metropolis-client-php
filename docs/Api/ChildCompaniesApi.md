@@ -1,25 +1,25 @@
-# SunDataMetropolisClient\CustomFieldsApi
+# SunDataMetropolisClient\ChildCompaniesApi
 
 All URIs are relative to /api/v0.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createPlantCustomFields()**](CustomFieldsApi.md#createPlantCustomFields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
-[**deletePlantCustomField()**](CustomFieldsApi.md#deletePlantCustomField) | **DELETE** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Delete plant custom field
-[**getPlantCustomField()**](CustomFieldsApi.md#getPlantCustomField) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Get a plant custom field
-[**getPlantCustomFields()**](CustomFieldsApi.md#getPlantCustomFields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
-[**updatePlantCustomField()**](CustomFieldsApi.md#updatePlantCustomField) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update plant custom field
+[**getAllCustomFieldTypesOfChildCompany()**](ChildCompaniesApi.md#getAllCustomFieldTypesOfChildCompany) | **GET** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types | Get all custom field types linked to the child company
+[**getChildCompaniesTags()**](ChildCompaniesApi.md#getChildCompaniesTags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags
+[**getCompanyChildCompanies()**](ChildCompaniesApi.md#getCompanyChildCompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
+[**linkChildToCustomFieldType()**](ChildCompaniesApi.md#linkChildToCustomFieldType) | **PUT** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Link a child company to a plant custom field type
+[**unlinkChildFromCustomFieldType()**](ChildCompaniesApi.md#unlinkChildFromCustomFieldType) | **DELETE** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Unlink a child company from a plant custom field type
 
 
-## `createPlantCustomFields()`
+## `getAllCustomFieldTypesOfChildCompany()`
 
 ```php
-createPlantCustomFields($company_id, $plant_id, $custom_field_create_payload): \SunDataMetropolisClient\Model\CustomFieldResponse
+getAllCustomFieldTypesOfChildCompany($company_id, $child_company_id): \SunDataMetropolisClient\Model\ChildCompanyCustomFieldTypeResponse[]
 ```
 
-Create Plant Custom Fields
+Get all custom field types linked to the child company
 
-Create Plant Custom Fields
+Get all custom field types linked to the child company
 
 ### Example
 
@@ -32,21 +32,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CustomFieldsApi(
+$apiInstance = new SunDataMetropolisClient\Api\ChildCompaniesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
-$plant_id = 56; // int | The id of the plant
-$custom_field_create_payload = new \SunDataMetropolisClient\Model\CustomFieldCreatePayload(); // \SunDataMetropolisClient\Model\CustomFieldCreatePayload
+$child_company_id = 56; // int | The id of the child company
 
 try {
-    $result = $apiInstance->createPlantCustomFields($company_id, $plant_id, $custom_field_create_payload);
+    $result = $apiInstance->getAllCustomFieldTypesOfChildCompany($company_id, $child_company_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->createPlantCustomFields: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ChildCompaniesApi->getAllCustomFieldTypesOfChildCompany: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -55,12 +54,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **custom_field_create_payload** | [**\SunDataMetropolisClient\Model\CustomFieldCreatePayload**](../Model/CustomFieldCreatePayload.md)|  | [optional]
+ **child_company_id** | **int**| The id of the child company |
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\CustomFieldResponse**](../Model/CustomFieldResponse.md)
+[**\SunDataMetropolisClient\Model\ChildCompanyCustomFieldTypeResponse[]**](../Model/ChildCompanyCustomFieldTypeResponse.md)
 
 ### Authorization
 
@@ -68,22 +66,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deletePlantCustomField()`
+## `getChildCompaniesTags()`
 
 ```php
-deletePlantCustomField($company_id, $plant_id, $custom_field_id): string[]
+getChildCompaniesTags($company_id): \SunDataMetropolisClient\Model\InlineResponse200
 ```
 
-Delete plant custom field
+Get Child Companies Tags
 
-Delete a plant custom field
+Get all Tags of a Company's Child Companies
 
 ### Example
 
@@ -96,21 +94,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CustomFieldsApi(
+$apiInstance = new SunDataMetropolisClient\Api\ChildCompaniesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
-$plant_id = 56; // int | The id of the plant
-$custom_field_id = 56; // int | The id of the custom field
 
 try {
-    $result = $apiInstance->deletePlantCustomField($company_id, $plant_id, $custom_field_id);
+    $result = $apiInstance->getChildCompaniesTags($company_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->deletePlantCustomField: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ChildCompaniesApi->getChildCompaniesTags: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -119,7 +115,129 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
+
+### Return type
+
+[**\SunDataMetropolisClient\Model\InlineResponse200**](../Model/InlineResponse200.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCompanyChildCompanies()`
+
+```php
+getCompanyChildCompanies($company_id): \SunDataMetropolisClient\Model\Company[]
+```
+
+Get Company Child Companies
+
+Get the Child Companies of a Company by Company ID
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\ChildCompaniesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+
+try {
+    $result = $apiInstance->getCompanyChildCompanies($company_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ChildCompaniesApi->getCompanyChildCompanies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+
+### Return type
+
+[**\SunDataMetropolisClient\Model\Company[]**](../Model/Company.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `linkChildToCustomFieldType()`
+
+```php
+linkChildToCustomFieldType($company_id, $child_company_id, $custom_field_id): string[]
+```
+
+Link a child company to a plant custom field type
+
+Link a child company to a plant custom field type so that this child company may view these custom fields.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\ChildCompaniesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$child_company_id = 56; // int | The id of the child company
+$custom_field_id = 56; // int | The id of the custom field
+
+try {
+    $result = $apiInstance->linkChildToCustomFieldType($company_id, $child_company_id, $custom_field_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ChildCompaniesApi->linkChildToCustomFieldType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **int**| The id of the company |
+ **child_company_id** | **int**| The id of the child company |
  **custom_field_id** | **int**| The id of the custom field |
 
 ### Return type
@@ -139,15 +257,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getPlantCustomField()`
+## `unlinkChildFromCustomFieldType()`
 
 ```php
-getPlantCustomField($company_id, $plant_id, $custom_field_id): \SunDataMetropolisClient\Model\CustomFieldResponse
+unlinkChildFromCustomFieldType($company_id, $child_company_id, $custom_field_id): string[]
 ```
 
-Get a plant custom field
+Unlink a child company from a plant custom field type
 
-Get a plant custom field that is viewable to the company
+Unlink a child company from a plant custom field type so that this child company may no longer view these custom fields.
 
 ### Example
 
@@ -160,21 +278,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new SunDataMetropolisClient\Api\CustomFieldsApi(
+$apiInstance = new SunDataMetropolisClient\Api\ChildCompaniesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $company_id = 56; // int | The id of the company
-$plant_id = 56; // int | The id of the plant
+$child_company_id = 56; // int | The id of the child company
 $custom_field_id = 56; // int | The id of the custom field
 
 try {
-    $result = $apiInstance->getPlantCustomField($company_id, $plant_id, $custom_field_id);
+    $result = $apiInstance->unlinkChildFromCustomFieldType($company_id, $child_company_id, $custom_field_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getPlantCustomField: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ChildCompaniesApi->unlinkChildFromCustomFieldType: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -183,12 +301,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
+ **child_company_id** | **int**| The id of the child company |
  **custom_field_id** | **int**| The id of the custom field |
 
 ### Return type
 
-[**\SunDataMetropolisClient\Model\CustomFieldResponse**](../Model/CustomFieldResponse.md)
+**string[]**
 
 ### Authorization
 
@@ -197,134 +315,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getPlantCustomFields()`
-
-```php
-getPlantCustomFields($company_id, $plant_id): \SunDataMetropolisClient\Model\CustomFieldResponse[]
-```
-
-Get Plant Custom Fields
-
-Get Plant Custom Fields
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CustomFieldsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
-$plant_id = 56; // int | The id of the plant
-
-try {
-    $result = $apiInstance->getPlantCustomFields($company_id, $plant_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->getPlantCustomFields: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\CustomFieldResponse[]**](../Model/CustomFieldResponse.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updatePlantCustomField()`
-
-```php
-updatePlantCustomField($company_id, $plant_id, $custom_field_id, $custom_field_update_payload): \SunDataMetropolisClient\Model\CustomFieldResponse
-```
-
-Update plant custom field
-
-Update plant custom field
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new SunDataMetropolisClient\Api\CustomFieldsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$company_id = 56; // int | The id of the company
-$plant_id = 56; // int | The id of the plant
-$custom_field_id = 56; // int | The id of the custom field
-$custom_field_update_payload = new \SunDataMetropolisClient\Model\CustomFieldUpdatePayload(); // \SunDataMetropolisClient\Model\CustomFieldUpdatePayload
-
-try {
-    $result = $apiInstance->updatePlantCustomField($company_id, $plant_id, $custom_field_id, $custom_field_update_payload);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomFieldsApi->updatePlantCustomField: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **custom_field_id** | **int**| The id of the custom field |
- **custom_field_update_payload** | [**\SunDataMetropolisClient\Model\CustomFieldUpdatePayload**](../Model/CustomFieldUpdatePayload.md)|  | [optional]
-
-### Return type
-
-[**\SunDataMetropolisClient\Model\CustomFieldResponse**](../Model/CustomFieldResponse.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

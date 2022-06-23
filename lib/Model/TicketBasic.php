@@ -1,6 +1,6 @@
 <?php
 /**
- * Type
+ * TicketBasic
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * Type Class Doc Comment
+ * TicketBasic Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
@@ -43,7 +43,7 @@ use \SunDataMetropolisClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Type implements ModelInterface, ArrayAccess, \JsonSerializable
+class TicketBasic implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Type';
+    protected static $openAPIModelName = 'TicketBasic';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,13 +60,8 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'company_id' => 'float',
-        'id' => 'float',
-        'type' => 'string',
-        'nullable' => 'bool',
-        'regex' => 'string',
-        'unique' => 'bool'
+        'title' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -77,13 +72,8 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'company_id' => null,
-        'id' => null,
-        'type' => null,
-        'nullable' => null,
-        'regex' => null,
-        'unique' => null
+        'title' => null,
+        'description' => null
     ];
 
     /**
@@ -113,13 +103,8 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'company_id' => 'company_id',
-        'id' => 'id',
-        'type' => 'type',
-        'nullable' => 'nullable',
-        'regex' => 'regex',
-        'unique' => 'unique'
+        'title' => 'title',
+        'description' => 'description'
     ];
 
     /**
@@ -128,13 +113,8 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'company_id' => 'setCompanyId',
-        'id' => 'setId',
-        'type' => 'setType',
-        'nullable' => 'setNullable',
-        'regex' => 'setRegex',
-        'unique' => 'setUnique'
+        'title' => 'setTitle',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -143,13 +123,8 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'company_id' => 'getCompanyId',
-        'id' => 'getId',
-        'type' => 'getType',
-        'nullable' => 'getNullable',
-        'regex' => 'getRegex',
-        'unique' => 'getUnique'
+        'title' => 'getTitle',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -209,13 +184,8 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['company_id'] = $data['company_id'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['nullable'] = $data['nullable'] ?? null;
-        $this->container['regex'] = $data['regex'] ?? null;
-        $this->container['unique'] = $data['unique'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
     }
 
     /**
@@ -227,24 +197,6 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['company_id'] === null) {
-            $invalidProperties[] = "'company_id' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['nullable'] === null) {
-            $invalidProperties[] = "'nullable' can't be null";
-        }
-        if ($this->container['unique'] === null) {
-            $invalidProperties[] = "'unique' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -261,169 +213,49 @@ class Type implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_id
-     *
-     * @return float
-     */
-    public function getCompanyId()
-    {
-        return $this->container['company_id'];
-    }
-
-    /**
-     * Sets company_id
-     *
-     * @param float $company_id company_id
-     *
-     * @return self
-     */
-    public function setCompanyId($company_id)
-    {
-        $this->container['company_id'] = $company_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return float
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param float $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets nullable
-     *
-     * @return bool
-     */
-    public function getNullable()
-    {
-        return $this->container['nullable'];
-    }
-
-    /**
-     * Sets nullable
-     *
-     * @param bool $nullable nullable
-     *
-     * @return self
-     */
-    public function setNullable($nullable)
-    {
-        $this->container['nullable'] = $nullable;
-
-        return $this;
-    }
-
-    /**
-     * Gets regex
+     * Gets title
      *
      * @return string|null
      */
-    public function getRegex()
+    public function getTitle()
     {
-        return $this->container['regex'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets regex
+     * Sets title
      *
-     * @param string|null $regex regex
+     * @param string|null $title title
      *
      * @return self
      */
-    public function setRegex($regex)
+    public function setTitle($title)
     {
-        $this->container['regex'] = $regex;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets unique
+     * Gets description
      *
-     * @return bool
+     * @return string|null
      */
-    public function getUnique()
+    public function getDescription()
     {
-        return $this->container['unique'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets unique
+     * Sets description
      *
-     * @param bool $unique unique
+     * @param string|null $description description
      *
      * @return self
      */
-    public function setUnique($unique)
+    public function setDescription($description)
     {
-        $this->container['unique'] = $unique;
+        $this->container['description'] = $description;
 
         return $this;
     }

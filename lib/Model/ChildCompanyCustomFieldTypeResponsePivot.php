@@ -1,6 +1,6 @@
 <?php
 /**
- * PlantBasicResponse
+ * ChildCompanyCustomFieldTypeResponsePivot
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * PlantBasicResponse Class Doc Comment
+ * ChildCompanyCustomFieldTypeResponsePivot Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
@@ -43,7 +43,7 @@ use \SunDataMetropolisClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ChildCompanyCustomFieldTypeResponsePivot implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PlantBasicResponse';
+    protected static $openAPIModelName = 'ChildCompanyCustomFieldTypeResponse_pivot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,11 +60,8 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'owning_company_id' => 'int',
-        'address' => '\SunDataMetropolisClient\Model\Address',
-        'tag_ids' => 'int[]',
-        'company_ids' => 'object[]'
+        'child_company_id' => 'int',
+        'parent_company_id' => 'int'
     ];
 
     /**
@@ -75,11 +72,8 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'owning_company_id' => null,
-        'address' => null,
-        'tag_ids' => 'int64',
-        'company_ids' => null
+        'child_company_id' => 'int64',
+        'parent_company_id' => 'int64'
     ];
 
     /**
@@ -109,11 +103,8 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'owning_company_id' => 'owning_company_id',
-        'address' => 'address',
-        'tag_ids' => 'tag_ids',
-        'company_ids' => 'company_ids'
+        'child_company_id' => 'child_company_id',
+        'parent_company_id' => 'parent_company_id'
     ];
 
     /**
@@ -122,11 +113,8 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'owning_company_id' => 'setOwningCompanyId',
-        'address' => 'setAddress',
-        'tag_ids' => 'setTagIds',
-        'company_ids' => 'setCompanyIds'
+        'child_company_id' => 'setChildCompanyId',
+        'parent_company_id' => 'setParentCompanyId'
     ];
 
     /**
@@ -135,11 +123,8 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'owning_company_id' => 'getOwningCompanyId',
-        'address' => 'getAddress',
-        'tag_ids' => 'getTagIds',
-        'company_ids' => 'getCompanyIds'
+        'child_company_id' => 'getChildCompanyId',
+        'parent_company_id' => 'getParentCompanyId'
     ];
 
     /**
@@ -199,11 +184,8 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['owning_company_id'] = $data['owning_company_id'] ?? null;
-        $this->container['address'] = $data['address'] ?? null;
-        $this->container['tag_ids'] = $data['tag_ids'] ?? null;
-        $this->container['company_ids'] = $data['company_ids'] ?? null;
+        $this->container['child_company_id'] = $data['child_company_id'] ?? null;
+        $this->container['parent_company_id'] = $data['parent_company_id'] ?? null;
     }
 
     /**
@@ -215,9 +197,6 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -234,121 +213,49 @@ class PlantBasicResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets owning_company_id
+     * Gets child_company_id
      *
      * @return int|null
      */
-    public function getOwningCompanyId()
+    public function getChildCompanyId()
     {
-        return $this->container['owning_company_id'];
+        return $this->container['child_company_id'];
     }
 
     /**
-     * Sets owning_company_id
+     * Sets child_company_id
      *
-     * @param int|null $owning_company_id owning_company_id
+     * @param int|null $child_company_id child_company_id
      *
      * @return self
      */
-    public function setOwningCompanyId($owning_company_id)
+    public function setChildCompanyId($child_company_id)
     {
-        $this->container['owning_company_id'] = $owning_company_id;
+        $this->container['child_company_id'] = $child_company_id;
 
         return $this;
     }
 
     /**
-     * Gets address
+     * Gets parent_company_id
      *
-     * @return \SunDataMetropolisClient\Model\Address|null
+     * @return int|null
      */
-    public function getAddress()
+    public function getParentCompanyId()
     {
-        return $this->container['address'];
+        return $this->container['parent_company_id'];
     }
 
     /**
-     * Sets address
+     * Sets parent_company_id
      *
-     * @param \SunDataMetropolisClient\Model\Address|null $address address
+     * @param int|null $parent_company_id parent_company_id
      *
      * @return self
      */
-    public function setAddress($address)
+    public function setParentCompanyId($parent_company_id)
     {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag_ids
-     *
-     * @return int[]|null
-     */
-    public function getTagIds()
-    {
-        return $this->container['tag_ids'];
-    }
-
-    /**
-     * Sets tag_ids
-     *
-     * @param int[]|null $tag_ids tag_ids
-     *
-     * @return self
-     */
-    public function setTagIds($tag_ids)
-    {
-        $this->container['tag_ids'] = $tag_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_ids
-     *
-     * @return object[]|null
-     */
-    public function getCompanyIds()
-    {
-        return $this->container['company_ids'];
-    }
-
-    /**
-     * Sets company_ids
-     *
-     * @param object[]|null $company_ids company_ids
-     *
-     * @return self
-     */
-    public function setCompanyIds($company_ids)
-    {
-        $this->container['company_ids'] = $company_ids;
+        $this->container['parent_company_id'] = $parent_company_id;
 
         return $this;
     }

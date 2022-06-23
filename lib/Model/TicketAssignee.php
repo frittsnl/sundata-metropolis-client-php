@@ -1,6 +1,6 @@
 <?php
 /**
- * MeterPerformance
+ * TicketAssignee
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \SunDataMetropolisClient\ObjectSerializer;
 
 /**
- * MeterPerformance Class Doc Comment
+ * TicketAssignee Class Doc Comment
  *
  * @category Class
  * @package  SunDataMetropolisClient
@@ -43,7 +43,7 @@ use \SunDataMetropolisClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
+class TicketAssignee implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MeterPerformance';
+    protected static $openAPIModelName = 'TicketAssignee';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,12 +60,12 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_date' => '\DateTime',
-        'end_date' => '\DateTime',
-        'average_efficiency' => 'float',
-        'actual_yield_in_kwh' => 'float',
-        'expected_yield_in_kwh' => 'float',
-        'calculated_yield_in_kwh' => 'float'
+        'id' => 'int',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'email' => 'string',
+        'assigned_on' => '\DateTime',
+        'unassigned_on' => '\DateTime'
     ];
 
     /**
@@ -76,12 +76,12 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'start_date' => 'date-time',
-        'end_date' => 'date-time',
-        'average_efficiency' => null,
-        'actual_yield_in_kwh' => null,
-        'expected_yield_in_kwh' => null,
-        'calculated_yield_in_kwh' => null
+        'id' => 'int64',
+        'first_name' => null,
+        'last_name' => null,
+        'email' => null,
+        'assigned_on' => 'date-time',
+        'unassigned_on' => 'date-time'
     ];
 
     /**
@@ -111,12 +111,12 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_date' => 'start_date',
-        'end_date' => 'end_date',
-        'average_efficiency' => 'average_efficiency',
-        'actual_yield_in_kwh' => 'actual_yield_in_kwh',
-        'expected_yield_in_kwh' => 'expected_yield_in_kwh',
-        'calculated_yield_in_kwh' => 'calculated_yield_in_kwh'
+        'id' => 'id',
+        'first_name' => 'first_name',
+        'last_name' => 'last_name',
+        'email' => 'email',
+        'assigned_on' => 'assigned_on',
+        'unassigned_on' => 'unassigned_on'
     ];
 
     /**
@@ -125,12 +125,12 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate',
-        'average_efficiency' => 'setAverageEfficiency',
-        'actual_yield_in_kwh' => 'setActualYieldInKwh',
-        'expected_yield_in_kwh' => 'setExpectedYieldInKwh',
-        'calculated_yield_in_kwh' => 'setCalculatedYieldInKwh'
+        'id' => 'setId',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName',
+        'email' => 'setEmail',
+        'assigned_on' => 'setAssignedOn',
+        'unassigned_on' => 'setUnassignedOn'
     ];
 
     /**
@@ -139,12 +139,12 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate',
-        'average_efficiency' => 'getAverageEfficiency',
-        'actual_yield_in_kwh' => 'getActualYieldInKwh',
-        'expected_yield_in_kwh' => 'getExpectedYieldInKwh',
-        'calculated_yield_in_kwh' => 'getCalculatedYieldInKwh'
+        'id' => 'getId',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName',
+        'email' => 'getEmail',
+        'assigned_on' => 'getAssignedOn',
+        'unassigned_on' => 'getUnassignedOn'
     ];
 
     /**
@@ -204,12 +204,12 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['start_date'] = $data['start_date'] ?? null;
-        $this->container['end_date'] = $data['end_date'] ?? null;
-        $this->container['average_efficiency'] = $data['average_efficiency'] ?? null;
-        $this->container['actual_yield_in_kwh'] = $data['actual_yield_in_kwh'] ?? null;
-        $this->container['expected_yield_in_kwh'] = $data['expected_yield_in_kwh'] ?? null;
-        $this->container['calculated_yield_in_kwh'] = $data['calculated_yield_in_kwh'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['first_name'] = $data['first_name'] ?? null;
+        $this->container['last_name'] = $data['last_name'] ?? null;
+        $this->container['email'] = $data['email'] ?? null;
+        $this->container['assigned_on'] = $data['assigned_on'] ?? null;
+        $this->container['unassigned_on'] = $data['unassigned_on'] ?? null;
     }
 
     /**
@@ -237,145 +237,145 @@ class MeterPerformance implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets start_date
+     * Gets id
+     *
+     * @return int|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name first_name
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name last_name
+     *
+     * @return self
+     */
+    public function setLastName($last_name)
+    {
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email email
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets assigned_on
      *
      * @return \DateTime|null
      */
-    public function getStartDate()
+    public function getAssignedOn()
     {
-        return $this->container['start_date'];
+        return $this->container['assigned_on'];
     }
 
     /**
-     * Sets start_date
+     * Sets assigned_on
      *
-     * @param \DateTime|null $start_date start_date
+     * @param \DateTime|null $assigned_on assigned_on
      *
      * @return self
      */
-    public function setStartDate($start_date)
+    public function setAssignedOn($assigned_on)
     {
-        $this->container['start_date'] = $start_date;
+        $this->container['assigned_on'] = $assigned_on;
 
         return $this;
     }
 
     /**
-     * Gets end_date
+     * Gets unassigned_on
      *
      * @return \DateTime|null
      */
-    public function getEndDate()
+    public function getUnassignedOn()
     {
-        return $this->container['end_date'];
+        return $this->container['unassigned_on'];
     }
 
     /**
-     * Sets end_date
+     * Sets unassigned_on
      *
-     * @param \DateTime|null $end_date end_date
+     * @param \DateTime|null $unassigned_on unassigned_on
      *
      * @return self
      */
-    public function setEndDate($end_date)
+    public function setUnassignedOn($unassigned_on)
     {
-        $this->container['end_date'] = $end_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets average_efficiency
-     *
-     * @return float|null
-     */
-    public function getAverageEfficiency()
-    {
-        return $this->container['average_efficiency'];
-    }
-
-    /**
-     * Sets average_efficiency
-     *
-     * @param float|null $average_efficiency average_efficiency
-     *
-     * @return self
-     */
-    public function setAverageEfficiency($average_efficiency)
-    {
-        $this->container['average_efficiency'] = $average_efficiency;
-
-        return $this;
-    }
-
-    /**
-     * Gets actual_yield_in_kwh
-     *
-     * @return float|null
-     */
-    public function getActualYieldInKwh()
-    {
-        return $this->container['actual_yield_in_kwh'];
-    }
-
-    /**
-     * Sets actual_yield_in_kwh
-     *
-     * @param float|null $actual_yield_in_kwh actual_yield_in_kwh
-     *
-     * @return self
-     */
-    public function setActualYieldInKwh($actual_yield_in_kwh)
-    {
-        $this->container['actual_yield_in_kwh'] = $actual_yield_in_kwh;
-
-        return $this;
-    }
-
-    /**
-     * Gets expected_yield_in_kwh
-     *
-     * @return float|null
-     */
-    public function getExpectedYieldInKwh()
-    {
-        return $this->container['expected_yield_in_kwh'];
-    }
-
-    /**
-     * Sets expected_yield_in_kwh
-     *
-     * @param float|null $expected_yield_in_kwh expected_yield_in_kwh
-     *
-     * @return self
-     */
-    public function setExpectedYieldInKwh($expected_yield_in_kwh)
-    {
-        $this->container['expected_yield_in_kwh'] = $expected_yield_in_kwh;
-
-        return $this;
-    }
-
-    /**
-     * Gets calculated_yield_in_kwh
-     *
-     * @return float|null
-     */
-    public function getCalculatedYieldInKwh()
-    {
-        return $this->container['calculated_yield_in_kwh'];
-    }
-
-    /**
-     * Sets calculated_yield_in_kwh
-     *
-     * @param float|null $calculated_yield_in_kwh calculated_yield_in_kwh
-     *
-     * @return self
-     */
-    public function setCalculatedYieldInKwh($calculated_yield_in_kwh)
-    {
-        $this->container['calculated_yield_in_kwh'] = $calculated_yield_in_kwh;
+        $this->container['unassigned_on'] = $unassigned_on;
 
         return $this;
     }

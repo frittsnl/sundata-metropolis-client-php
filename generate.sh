@@ -5,7 +5,7 @@
 # Remove currently generated client to avoid multiple clients when names change
 rm -rf docs lib test
 
-openapi-generator generate -i ../metropolis/docs/openapi.yaml -g php --additional-properties=invokerPackage=SunDataMetropolisClient --git-user-id frittsnl --git-repo-id sundata-metropolis-client-php
+openapi-generator generate -i ../metropolis/docs/gen/openapi.yaml -g php --additional-properties=invokerPackage=SunDataMetropolisClient --git-user-id frittsnl --git-repo-id sundata-metropolis-client-php
 
 # Remove the api spec
 rm  openapi.yaml

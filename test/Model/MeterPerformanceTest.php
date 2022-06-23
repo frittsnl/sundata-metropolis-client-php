@@ -124,4 +124,13 @@ class MeterPerformanceTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "calculated_yield_in_kwh"
+     */
+    public function testPropertyCalculatedYieldInKwh()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * TypeTest
+ * ChildCompanyCustomFieldTypeResponseTest
  *
  * PHP version 7.3
  *
@@ -32,15 +32,15 @@ namespace SunDataMetropolisClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TypeTest Class Doc Comment
+ * ChildCompanyCustomFieldTypeResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Type
+ * @description ChildCompanyCustomFieldTypeResponse
  * @package     SunDataMetropolisClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TypeTest extends TestCase
+class ChildCompanyCustomFieldTypeResponseTest extends TestCase
 {
 
     /**
@@ -72,18 +72,9 @@ class TypeTest extends TestCase
     }
 
     /**
-     * Test "Type"
+     * Test "ChildCompanyCustomFieldTypeResponse"
      */
-    public function testType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
+    public function testChildCompanyCustomFieldTypeResponse()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -99,45 +90,54 @@ class TypeTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "company_name"
      */
-    public function testPropertyId()
+    public function testPropertyCompanyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "created_at"
      */
-    public function testPropertyType()
+    public function testPropertyCreatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "nullable"
+     * Test attribute "deleted_at"
      */
-    public function testPropertyNullable()
+    public function testPropertyDeletedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "regex"
+     * Test attribute "non_mon_accessible"
      */
-    public function testPropertyRegex()
+    public function testPropertyNonMonAccessible()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "unique"
+     * Test attribute "pivot"
      */
-    public function testPropertyUnique()
+    public function testPropertyPivot()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "plant_custom_field_types"
+     */
+    public function testPropertyPlantCustomFieldTypes()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

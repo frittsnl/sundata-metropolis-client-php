@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomFieldTypeTest
+ * TicketTest
  *
  * PHP version 7.3
  *
@@ -32,15 +32,15 @@ namespace SunDataMetropolisClient\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomFieldTypeTest Class Doc Comment
+ * TicketTest Class Doc Comment
  *
  * @category    Class
- * @description CustomFieldType
+ * @description Ticket
  * @package     SunDataMetropolisClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomFieldTypeTest extends TestCase
+class TicketTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class CustomFieldTypeTest extends TestCase
     }
 
     /**
-     * Test "CustomFieldType"
+     * Test "Ticket"
      */
-    public function testCustomFieldType()
+    public function testTicket()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -90,9 +90,18 @@ class CustomFieldTypeTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "number"
      */
-    public function testPropertyName()
+    public function testPropertyNumber()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "plant_id"
+     */
+    public function testPropertyPlantId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -108,27 +117,99 @@ class CustomFieldTypeTest extends TestCase
     }
 
     /**
-     * Test attribute "company_name"
+     * Test attribute "creator_id"
      */
-    public function testPropertyCompanyName()
+    public function testPropertyCreatorId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "title"
      */
-    public function testPropertyType()
+    public function testPropertyTitle()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "editable"
+     * Test attribute "description"
      */
-    public function testPropertyEditable()
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "closed_on"
+     */
+    public function testPropertyClosedOn()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "deleted_at"
+     */
+    public function testPropertyDeletedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "creator"
+     */
+    public function testPropertyCreator()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "plant"
+     */
+    public function testPropertyPlant()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "assignees"
+     */
+    public function testPropertyAssignees()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "assignments"
+     */
+    public function testPropertyAssignments()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

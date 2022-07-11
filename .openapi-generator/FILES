@@ -6,11 +6,14 @@ docs/Api/ChildCompaniesApi.md
 docs/Api/CompaniesApi.md
 docs/Api/ContactsApi.md
 docs/Api/CustomFieldsApi.md
+docs/Api/InternalApi.md
 docs/Api/MetersApi.md
 docs/Api/PlantsApi.md
 docs/Api/SatelliteApi.md
 docs/Api/TicketsApi.md
 docs/Api/UtilitiesApi.md
+docs/Model/ActiveMeter.md
+docs/Model/ActiveMeterAllOf.md
 docs/Model/Address.md
 docs/Model/AddressAllOf.md
 docs/Model/AddressBasic.md
@@ -59,6 +62,7 @@ lib/Api/ChildCompaniesApi.php
 lib/Api/CompaniesApi.php
 lib/Api/ContactsApi.php
 lib/Api/CustomFieldsApi.php
+lib/Api/InternalApi.php
 lib/Api/MetersApi.php
 lib/Api/PlantsApi.php
 lib/Api/SatelliteApi.php
@@ -67,6 +71,8 @@ lib/Api/UtilitiesApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/ActiveMeter.php
+lib/Model/ActiveMeterAllOf.php
 lib/Model/Address.php
 lib/Model/AddressAllOf.php
 lib/Model/AddressBasic.php
@@ -118,11 +124,14 @@ test/Api/ChildCompaniesApiTest.php
 test/Api/CompaniesApiTest.php
 test/Api/ContactsApiTest.php
 test/Api/CustomFieldsApiTest.php
+test/Api/InternalApiTest.php
 test/Api/MetersApiTest.php
 test/Api/PlantsApiTest.php
 test/Api/SatelliteApiTest.php
 test/Api/TicketsApiTest.php
 test/Api/UtilitiesApiTest.php
+test/Model/ActiveMeterAllOfTest.php
+test/Model/ActiveMeterTest.php
 test/Model/AddressAllOfTest.php
 test/Model/AddressBasicTest.php
 test/Model/AddressTest.php

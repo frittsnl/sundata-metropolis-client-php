@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 *CustomFieldsApi* | [**getPlantCustomFields**](docs/Api/CustomFieldsApi.md#getplantcustomfields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
 *CustomFieldsApi* | [**updatePlantCustomField**](docs/Api/CustomFieldsApi.md#updateplantcustomfield) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update plant custom field
 *InternalApi* | [**activeMetersGet**](docs/Api/InternalApi.md#activemetersget) | **GET** /active-meters | Get all active meters in period (Internal only)
+*InternalApi* | [**metersMeterIdGet**](docs/Api/InternalApi.md#metersmeteridget) | **GET** /meters/{meter_id} | Get a single meter (Internal only)
 *MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
 *MetersApi* | [**getMeterById**](docs/Api/MetersApi.md#getmeterbyid) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
 *MetersApi* | [**updateMeter**](docs/Api/MetersApi.md#updatemeter) | **PUT** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Update Meter

@@ -83,4 +83,16 @@ class InternalApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for metersMeterIdGet
+     *
+     * Get a single meter (Internal only).
+     *
+     */
+    public function testMetersMeterIdGet()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

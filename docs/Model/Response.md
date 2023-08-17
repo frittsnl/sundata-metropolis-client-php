@@ -1,10 +1,9 @@
-# # InlineResponse2001Data
+# # Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total_q** | **int** |  | [optional]
-**months** | [**array<string,\SunDataMetropolisClient\Model\WeatherMonth>**](WeatherMonth.md) |  | [optional]
+**access_token** | **string** | The bearer token | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

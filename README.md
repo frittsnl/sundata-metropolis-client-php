@@ -1,6 +1,23 @@
 # OpenAPIClient-php
 
-SunData API OpenAPI Specification.
+### Requirements
+* an account with the credentials;
+  * e-mail address
+  * password
+### Getting Started
+1. Use the Sign-In endpoint to obtain a bearer token.
+  * open the 'authorize' of the swagger and paste the bearer-token here
+  * note: the authorization is persisted in the swagger but eventually the token will expire
+2. Use the user/me/companies endpoint to find out which company_ids are associated with the account
+3. Validate by using, for example, the Companies endpoint (GET)
+  * fill the company-id
+### Upgrade guide
+* v1.6.0
+  * Adds the plant-tags endpoints, for attaching and detaching tags
+* v2.0.0 (Coming soon)
+  * Deprecates the use of attaching tags and companies during creation and updating of a plant.
+    This should be done using the plant-tags and plant-companies endpoints.
+
 
 For more information, please visit [https://www.sundata.nl](https://www.sundata.nl).
 
@@ -100,21 +117,20 @@ Class | Method | HTTP request | Description
 *CustomFieldsApi* | [**getPlantCustomField**](docs/Api/CustomFieldsApi.md#getplantcustomfield) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Get a plant custom field
 *CustomFieldsApi* | [**getPlantCustomFields**](docs/Api/CustomFieldsApi.md#getplantcustomfields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
 *CustomFieldsApi* | [**updatePlantCustomField**](docs/Api/CustomFieldsApi.md#updateplantcustomfield) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update plant custom field
-*InternalApi* | [**activeMetersGet**](docs/Api/InternalApi.md#activemetersget) | **GET** /active-meters | Get all active meters in period (Internal only)
-*InternalApi* | [**metersMeterIdGet**](docs/Api/InternalApi.md#metersmeteridget) | **GET** /meters/{meter_id} | Get a single meter (Internal only)
 *MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
 *MetersApi* | [**getMeterById**](docs/Api/MetersApi.md#getmeterbyid) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
 *MetersApi* | [**updateMeter**](docs/Api/MetersApi.md#updatemeter) | **PUT** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Update Meter
 *PlantsApi* | [**attachChildCompany**](docs/Api/PlantsApi.md#attachchildcompany) | **PUT** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Attach a child company to the plant
+*PlantsApi* | [**attachTag**](docs/Api/PlantsApi.md#attachtag) | **PUT** /companies/{company_id}/plants/{plant_id}/tags/{tag_id} | Attach a tag to the plant
 *PlantsApi* | [**createPlant**](docs/Api/PlantsApi.md#createplant) | **POST** /companies/{company_id}/plants | Create Plant
 *PlantsApi* | [**detachChildCompany**](docs/Api/PlantsApi.md#detachchildcompany) | **DELETE** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Detach a child company from the plant
+*PlantsApi* | [**detachTag**](docs/Api/PlantsApi.md#detachtag) | **DELETE** /companies/{company_id}/plants/{plant_id}/tags/{tag_id} | Detach a tag from the plant
 *PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
 *PlantsApi* | [**getPlantCompanies**](docs/Api/PlantsApi.md#getplantcompanies) | **GET** /companies/{company_id}/plants/{plant_id}/companies | Get all companies attached to the plant
+*PlantsApi* | [**getPlantTags**](docs/Api/PlantsApi.md#getplanttags) | **GET** /companies/{company_id}/plants/{plant_id}/tags | Get all tags attached to the plant
 *PlantsApi* | [**getPlants**](docs/Api/PlantsApi.md#getplants) | **GET** /companies/{company_id}/plants | Plants
 *PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
-*SatelliteApi* | [**getPlantDetails**](docs/Api/SatelliteApi.md#getplantdetails) | **GET** /satellite-app/plant-details | Get plant details
-*SatelliteApi* | [**getPlantMeterDetails**](docs/Api/SatelliteApi.md#getplantmeterdetails) | **GET** /satellite-app/meter-plant-details | Get the meter and plant details
-*SatelliteApi* | [**getWeatherInPeriod**](docs/Api/SatelliteApi.md#getweatherinperiod) | **GET** /satellite-app/weather-in-period | Get the weather from a station in a specified period
+*SignInApi* | [**signIn**](docs/Api/SignInApi.md#signin) | **POST** /sign-in | Obtain a bearer token and sign-in
 *TicketsApi* | [**closeTicket**](docs/Api/TicketsApi.md#closeticket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/close | Close a ticket
 *TicketsApi* | [**createTicket**](docs/Api/TicketsApi.md#createticket) | **POST** /companies/{company_id}/plants/{plant_id}/tickets | Create a new ticket
 *TicketsApi* | [**deleteTicket**](docs/Api/TicketsApi.md#deleteticket) | **DELETE** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Delete a ticket
@@ -122,12 +138,11 @@ Class | Method | HTTP request | Description
 *TicketsApi* | [**getTickets**](docs/Api/TicketsApi.md#gettickets) | **GET** /companies/{company_id}/plants/{plant_id}/tickets | Get all tickets for a plant
 *TicketsApi* | [**openTicket**](docs/Api/TicketsApi.md#openticket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/open | Open a ticket
 *TicketsApi* | [**updateTicket**](docs/Api/TicketsApi.md#updateticket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Update a ticket
-*UtilitiesApi* | [**validateMeterExistence**](docs/Api/UtilitiesApi.md#validatemeterexistence) | **GET** /utilities/validate/meter-existence | Validate whether a reference_identifier is valid.
+*UserApi* | [**getUserMe**](docs/Api/UserApi.md#getuserme) | **GET** /users/me | Information about the current account
+*UserApi* | [**getUserMeCompanies**](docs/Api/UserApi.md#getusermecompanies) | **GET** /users/me/companies | List the companies associated with your account
 
 ## Models
 
-- [ActiveMeter](docs/Model/ActiveMeter.md)
-- [ActiveMeterAllOf](docs/Model/ActiveMeterAllOf.md)
 - [Address](docs/Model/Address.md)
 - [AddressAllOf](docs/Model/AddressAllOf.md)
 - [AddressBasic](docs/Model/AddressBasic.md)
@@ -148,14 +163,7 @@ Class | Method | HTTP request | Description
 - [GetPlantResponse](docs/Model/GetPlantResponse.md)
 - [InboundDriver](docs/Model/InboundDriver.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
-- [InlineResponse2001](docs/Model/InlineResponse2001.md)
-- [InlineResponse2001Data](docs/Model/InlineResponse2001Data.md)
 - [Meter](docs/Model/Meter.md)
-- [MeterDetail](docs/Model/MeterDetail.md)
-- [MeterExistenceResponse](docs/Model/MeterExistenceResponse.md)
-- [MeterPerformance](docs/Model/MeterPerformance.md)
-- [MeterPlantDetails](docs/Model/MeterPlantDetails.md)
-- [MeterPlantDetailsPlant](docs/Model/MeterPlantDetailsPlant.md)
 - [MeterUpdatePayload](docs/Model/MeterUpdatePayload.md)
 - [Note](docs/Model/Note.md)
 - [Plant](docs/Model/Plant.md)
@@ -165,13 +173,13 @@ Class | Method | HTTP request | Description
 - [PlantPayload](docs/Model/PlantPayload.md)
 - [PlantPayloadCompanyIds](docs/Model/PlantPayloadCompanyIds.md)
 - [PlantUpdateResponse](docs/Model/PlantUpdateResponse.md)
-- [Station](docs/Model/Station.md)
+- [Request](docs/Model/Request.md)
+- [Response](docs/Model/Response.md)
 - [Tag](docs/Model/Tag.md)
 - [Ticket](docs/Model/Ticket.md)
 - [TicketAssignee](docs/Model/TicketAssignee.md)
 - [TicketBasic](docs/Model/TicketBasic.md)
 - [User](docs/Model/User.md)
-- [WeatherMonth](docs/Model/WeatherMonth.md)
 
 ## Authorization
 
@@ -196,5 +204,5 @@ admin@sundata.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `0.0.1`
+- API version: `1.6.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

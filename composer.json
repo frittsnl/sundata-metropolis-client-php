@@ -1,6 +1,6 @@
 {
     "name": "frittsnl/sundata-metropolis-client-php",
-    "description": "SunData API OpenAPI Specification.",
+    "description": "### Requirements * an account with the credentials;   * e-mail address   * password ### Getting Started 1. Use the Sign-In endpoint to obtain a bearer token.   * open the 'authorize' of the swagger and paste the bearer-token here   * note: the authorization is persisted in the swagger but eventually the token will expire 2. Use the user/me/companies endpoint to find out which company_ids are associated with the account 3. Validate by using, for example, the Companies endpoint (GET)   * fill the company-id ### Upgrade guide * v1.6.0   * Adds the plant-tags endpoints, for attaching and detaching tags * v2.0.0 (Coming soon)   * Deprecates the use of attaching tags and companies during creation and updating of a plant.     This should be done using the plant-tags and plant-companies endpoints.",
     "keywords": [
         "openapitools",
         "openapi-generator",

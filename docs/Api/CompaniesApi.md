@@ -222,7 +222,7 @@ $apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
 );
 $company_id = 56; // int | The id of the company
 $ticket_id = 56; // int | The id of the ticket
-$with = plant,assignees,assignments; // string | May containg all or some of the following values\\: `plant`, `assignees`, `assignments`
+$with = plant,assignees,assignments; // string | May contain all or some of the following values\\: `plant`, `assignees`, `assignments`
 
 try {
     $result = $apiInstance->getCompanyTicket($company_id, $ticket_id, $with);
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **int**| The id of the company |
  **ticket_id** | **int**| The id of the ticket |
- **with** | **string**| May containg all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
+ **with** | **string**| May contain all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
 
 ### Return type
 
@@ -287,7 +287,7 @@ $apiInstance = new SunDataMetropolisClient\Api\CompaniesApi(
 $company_id = 56; // int | The id of the company
 $page = 56; // int
 $ticket_status = 'ticket_status_example'; // string
-$with = plant,assignees,assignments; // string | May containg all or some of the following values\\: `plant`, `assignees`, `assignments`
+$with = plant,assignees,assignments; // string | May contain all or some of the following values\\: `plant`, `assignees`, `assignments`
 
 try {
     $result = $apiInstance->getCompanyTickets($company_id, $page, $ticket_status, $with);
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
  **company_id** | **int**| The id of the company |
  **page** | **int**|  | [optional]
  **ticket_status** | **string**|  | [optional]
- **with** | **string**| May containg all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
+ **with** | **string**| May contain all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
 
 ### Return type
 

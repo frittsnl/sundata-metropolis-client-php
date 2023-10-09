@@ -1,10 +1,10 @@
 # SunDataMetropolisClient\SignInApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**signIn()**](SignInApi.md#signIn) | **POST** /sign-in | Obtain a bearer token and sign-in
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**signIn()**](SignInApi.md#signIn) | **POST** /sign-in | Obtain a bearer token and sign-in |
 
 
 ## `signIn()`
@@ -46,9 +46,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request** | [**\SunDataMetropolisClient\Model\Request**](../Model/Request.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **request** | [**\SunDataMetropolisClient\Model\Request**](../Model/Request.md)|  | [optional] |
 
 ### Return type
 

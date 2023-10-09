@@ -1,14 +1,14 @@
 # SunDataMetropolisClient\CustomFieldsApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createPlantCustomFields()**](CustomFieldsApi.md#createPlantCustomFields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
-[**deletePlantCustomField()**](CustomFieldsApi.md#deletePlantCustomField) | **DELETE** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Delete plant custom field
-[**getPlantCustomField()**](CustomFieldsApi.md#getPlantCustomField) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Get a plant custom field
-[**getPlantCustomFields()**](CustomFieldsApi.md#getPlantCustomFields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields
-[**updatePlantCustomField()**](CustomFieldsApi.md#updatePlantCustomField) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update plant custom field
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createPlantCustomFields()**](CustomFieldsApi.md#createPlantCustomFields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields |
+| [**deletePlantCustomField()**](CustomFieldsApi.md#deletePlantCustomField) | **DELETE** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Delete plant custom field |
+| [**getPlantCustomField()**](CustomFieldsApi.md#getPlantCustomField) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Get a plant custom field |
+| [**getPlantCustomFields()**](CustomFieldsApi.md#getPlantCustomFields) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields | Get Plant Custom Fields |
+| [**updatePlantCustomField()**](CustomFieldsApi.md#updatePlantCustomField) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update plant custom field |
 
 
 ## `createPlantCustomFields()`
@@ -40,7 +40,7 @@ $apiInstance = new SunDataMetropolisClient\Api\CustomFieldsApi(
 );
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
-$custom_field_create_payload = new \SunDataMetropolisClient\Model\CustomFieldCreatePayload(); // \SunDataMetropolisClient\Model\CustomFieldCreatePayload
+$custom_field_create_payload = new \SunDataMetropolisClient\Model\CustomFieldCreatePayload(); // \SunDataMetropolisClient\Model\CustomFieldCreatePayload | 
 
 try {
     $result = $apiInstance->createPlantCustomFields($company_id, $plant_id, $custom_field_create_payload);
@@ -52,11 +52,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **custom_field_create_payload** | [**\SunDataMetropolisClient\Model\CustomFieldCreatePayload**](../Model/CustomFieldCreatePayload.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **custom_field_create_payload** | [**\SunDataMetropolisClient\Model\CustomFieldCreatePayload**](../Model/CustomFieldCreatePayload.md)|  | [optional] |
 
 ### Return type
 
@@ -116,11 +116,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **custom_field_id** | **int**| The id of the custom field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **custom_field_id** | **int**| The id of the custom field | |
 
 ### Return type
 
@@ -180,11 +180,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **custom_field_id** | **int**| The id of the custom field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **custom_field_id** | **int**| The id of the custom field | |
 
 ### Return type
 
@@ -243,10 +243,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
 
 ### Return type
 
@@ -295,7 +295,7 @@ $apiInstance = new SunDataMetropolisClient\Api\CustomFieldsApi(
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
 $custom_field_id = 56; // int | The id of the custom field
-$custom_field_update_payload = new \SunDataMetropolisClient\Model\CustomFieldUpdatePayload(); // \SunDataMetropolisClient\Model\CustomFieldUpdatePayload
+$custom_field_update_payload = new \SunDataMetropolisClient\Model\CustomFieldUpdatePayload(); // \SunDataMetropolisClient\Model\CustomFieldUpdatePayload | 
 
 try {
     $result = $apiInstance->updatePlantCustomField($company_id, $plant_id, $custom_field_id, $custom_field_update_payload);
@@ -307,12 +307,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **custom_field_id** | **int**| The id of the custom field |
- **custom_field_update_payload** | [**\SunDataMetropolisClient\Model\CustomFieldUpdatePayload**](../Model/CustomFieldUpdatePayload.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **custom_field_id** | **int**| The id of the custom field | |
+| **custom_field_update_payload** | [**\SunDataMetropolisClient\Model\CustomFieldUpdatePayload**](../Model/CustomFieldUpdatePayload.md)|  | [optional] |
 
 ### Return type
 

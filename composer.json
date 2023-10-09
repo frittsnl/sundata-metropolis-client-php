@@ -1,6 +1,6 @@
 {
     "name": "frittsnl/sundata-metropolis-client-php",
-    "description": "### Requirements * an account with the credentials;   * e-mail address   * password ### Getting Started 1. Use the Sign-In endpoint to obtain a bearer token.   * open the 'authorize' of the swagger and paste the bearer-token here   * note: the authorization is persisted in the swagger but eventually the token will expire 2. Use the user/me/companies endpoint to find out which company_ids are associated with the account 3. Validate by using, for example, the Companies endpoint (GET)   * fill the company-id ### Upgrade guide * v1.6.0   * Adds the plant-tags endpoints, for attaching and detaching tags * v2.0.0 (Coming soon)   * Deprecates the use of attaching tags and companies during creation and updating of a plant.     This should be done using the plant-tags and plant-companies endpoints.",
+    "description": "### Requirements * an account with the credentials;   * e-mail address   * password ### Getting Started 1. Use the Sign-In endpoint to obtain a bearer token.   * open the 'authorize' of the swagger and paste the bearer-token here   * note: the authorization is persisted in the swagger but eventually the token will expire 2. Use the user/me/companies endpoint to find out which company_ids are associated with the account 3. Validate by using, for example, the Companies endpoint (GET)   * fill the company-id ### Upgrade guide * v1.6.0   * Adds the plant-tags endpoints, for attaching and detaching tags * v2.0.0   * Attaching tags and companies during plant creation or updating is no longer supported.     These should now be attached using the plant-tags and plant-companies endpoints.",
     "keywords": [
         "openapitools",
         "openapi-generator",
@@ -14,12 +14,12 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "OpenAPI-Generator contributors",
+            "name": "OpenAPI",
             "homepage": "https://openapi-generator.tech"
         }
     ],
     "require": {
-        "php": "^7.3 || ^8.0",
+        "php": "^7.4 || ^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
@@ -28,7 +28,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
-        "friendsofphp/php-cs-fixer": "^2.12"
+        "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
         "psr-4": { "SunDataMetropolisClient\\" : "lib/" }

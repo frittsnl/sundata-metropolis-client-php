@@ -1,16 +1,16 @@
 # SunDataMetropolisClient\TicketsApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**closeTicket()**](TicketsApi.md#closeTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/close | Close a ticket
-[**createTicket()**](TicketsApi.md#createTicket) | **POST** /companies/{company_id}/plants/{plant_id}/tickets | Create a new ticket
-[**deleteTicket()**](TicketsApi.md#deleteTicket) | **DELETE** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Delete a ticket
-[**getTicket()**](TicketsApi.md#getTicket) | **GET** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Get a ticket
-[**getTickets()**](TicketsApi.md#getTickets) | **GET** /companies/{company_id}/plants/{plant_id}/tickets | Get all tickets for a plant
-[**openTicket()**](TicketsApi.md#openTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/open | Open a ticket
-[**updateTicket()**](TicketsApi.md#updateTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Update a ticket
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**closeTicket()**](TicketsApi.md#closeTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/close | Close a ticket |
+| [**createTicket()**](TicketsApi.md#createTicket) | **POST** /companies/{company_id}/plants/{plant_id}/tickets | Create a new ticket |
+| [**deleteTicket()**](TicketsApi.md#deleteTicket) | **DELETE** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Delete a ticket |
+| [**getTicket()**](TicketsApi.md#getTicket) | **GET** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Get a ticket |
+| [**getTickets()**](TicketsApi.md#getTickets) | **GET** /companies/{company_id}/plants/{plant_id}/tickets | Get all tickets for a plant |
+| [**openTicket()**](TicketsApi.md#openTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id}/open | Open a ticket |
+| [**updateTicket()**](TicketsApi.md#updateTicket) | **PUT** /companies/{company_id}/plants/{plant_id}/tickets/{ticket_id} | Update a ticket |
 
 
 ## `closeTicket()`
@@ -54,11 +54,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **ticket_id** | **int**| The id of the ticket |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **ticket_id** | **int**| The id of the ticket | |
 
 ### Return type
 
@@ -106,7 +106,7 @@ $apiInstance = new SunDataMetropolisClient\Api\TicketsApi(
 );
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
-$ticket_basic = new \SunDataMetropolisClient\Model\TicketBasic(); // \SunDataMetropolisClient\Model\TicketBasic
+$ticket_basic = new \SunDataMetropolisClient\Model\TicketBasic(); // \SunDataMetropolisClient\Model\TicketBasic | 
 
 try {
     $result = $apiInstance->createTicket($company_id, $plant_id, $ticket_basic);
@@ -118,11 +118,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **ticket_basic** | [**\SunDataMetropolisClient\Model\TicketBasic**](../Model/TicketBasic.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **ticket_basic** | [**\SunDataMetropolisClient\Model\TicketBasic**](../Model/TicketBasic.md)|  | [optional] |
 
 ### Return type
 
@@ -182,11 +182,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **ticket_id** | **int**| The id of the ticket |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **ticket_id** | **int**| The id of the ticket | |
 
 ### Return type
 
@@ -246,11 +246,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **ticket_id** | **int**| The id of the ticket |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **ticket_id** | **int**| The id of the ticket | |
 
 ### Return type
 
@@ -309,10 +309,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
 
 ### Return type
 
@@ -372,11 +372,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **ticket_id** | **int**| The id of the ticket |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **ticket_id** | **int**| The id of the ticket | |
 
 ### Return type
 
@@ -437,12 +437,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **ticket_id** | **int**| The id of the ticket |
- **ticket** | [**\SunDataMetropolisClient\Model\Ticket**](../Model/Ticket.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **ticket_id** | **int**| The id of the ticket | |
+| **ticket** | [**\SunDataMetropolisClient\Model\Ticket**](../Model/Ticket.md)|  | [optional] |
 
 ### Return type
 

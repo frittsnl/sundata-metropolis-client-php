@@ -1,11 +1,11 @@
 # SunDataMetropolisClient\UserApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getUserMe()**](UserApi.md#getUserMe) | **GET** /users/me | Information about the current account
-[**getUserMeCompanies()**](UserApi.md#getUserMeCompanies) | **GET** /users/me/companies | List the companies associated with your account
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getUserMe()**](UserApi.md#getUserMe) | **GET** /users/me | Information about the current account |
+| [**getUserMeCompanies()**](UserApi.md#getUserMeCompanies) | **GET** /users/me/companies | List the companies associated with your account |
 
 
 ## `getUserMe()`

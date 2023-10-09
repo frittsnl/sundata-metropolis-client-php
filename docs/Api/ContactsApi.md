@@ -1,14 +1,14 @@
 # SunDataMetropolisClient\ContactsApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createPlantContact()**](ContactsApi.md#createPlantContact) | **POST** /companies/{company_id}/plants/{plant_id}/contacts | Create a new plant contact
-[**deletePlantContact()**](ContactsApi.md#deletePlantContact) | **DELETE** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Delete a plant contact
-[**getPlantContact()**](ContactsApi.md#getPlantContact) | **GET** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Get a single plant contact
-[**getPlantContacts()**](ContactsApi.md#getPlantContacts) | **GET** /companies/{company_id}/plants/{plant_id}/contacts | Get all contacts for a plant
-[**updatePlantContact()**](ContactsApi.md#updatePlantContact) | **PUT** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Update a plant contact
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createPlantContact()**](ContactsApi.md#createPlantContact) | **POST** /companies/{company_id}/plants/{plant_id}/contacts | Create a new plant contact |
+| [**deletePlantContact()**](ContactsApi.md#deletePlantContact) | **DELETE** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Delete a plant contact |
+| [**getPlantContact()**](ContactsApi.md#getPlantContact) | **GET** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Get a single plant contact |
+| [**getPlantContacts()**](ContactsApi.md#getPlantContacts) | **GET** /companies/{company_id}/plants/{plant_id}/contacts | Get all contacts for a plant |
+| [**updatePlantContact()**](ContactsApi.md#updatePlantContact) | **PUT** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Update a plant contact |
 
 
 ## `createPlantContact()`
@@ -40,7 +40,7 @@ $apiInstance = new SunDataMetropolisClient\Api\ContactsApi(
 );
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
-$contact_basic = new \SunDataMetropolisClient\Model\ContactBasic(); // \SunDataMetropolisClient\Model\ContactBasic
+$contact_basic = new \SunDataMetropolisClient\Model\ContactBasic(); // \SunDataMetropolisClient\Model\ContactBasic | 
 
 try {
     $result = $apiInstance->createPlantContact($company_id, $plant_id, $contact_basic);
@@ -52,11 +52,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **contact_basic** | [**\SunDataMetropolisClient\Model\ContactBasic**](../Model/ContactBasic.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **contact_basic** | [**\SunDataMetropolisClient\Model\ContactBasic**](../Model/ContactBasic.md)|  | [optional] |
 
 ### Return type
 
@@ -116,11 +116,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **contact_id** | **int**| The id of the contact |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **contact_id** | **int**| The id of the contact | |
 
 ### Return type
 
@@ -180,11 +180,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **contact_id** | **int**| The id of the contact |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **contact_id** | **int**| The id of the contact | |
 
 ### Return type
 
@@ -243,10 +243,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
 
 ### Return type
 
@@ -307,12 +307,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **contact_id** | **int**| The id of the contact |
- **contact** | [**\SunDataMetropolisClient\Model\Contact**](../Model/Contact.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **contact_id** | **int**| The id of the contact | |
+| **contact** | [**\SunDataMetropolisClient\Model\Contact**](../Model/Contact.md)|  | [optional] |
 
 ### Return type
 

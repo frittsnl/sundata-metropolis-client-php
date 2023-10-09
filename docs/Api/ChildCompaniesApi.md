@@ -1,14 +1,14 @@
 # SunDataMetropolisClient\ChildCompaniesApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAllCustomFieldTypesOfChildCompany()**](ChildCompaniesApi.md#getAllCustomFieldTypesOfChildCompany) | **GET** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types | Get all custom field types linked to the child company
-[**getChildCompaniesTags()**](ChildCompaniesApi.md#getChildCompaniesTags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags
-[**getCompanyChildCompanies()**](ChildCompaniesApi.md#getCompanyChildCompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies
-[**linkChildToCustomFieldType()**](ChildCompaniesApi.md#linkChildToCustomFieldType) | **PUT** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Link a child company to a plant custom field type
-[**unlinkChildFromCustomFieldType()**](ChildCompaniesApi.md#unlinkChildFromCustomFieldType) | **DELETE** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Unlink a child company from a plant custom field type
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getAllCustomFieldTypesOfChildCompany()**](ChildCompaniesApi.md#getAllCustomFieldTypesOfChildCompany) | **GET** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types | Get all custom field types linked to the child company |
+| [**getChildCompaniesTags()**](ChildCompaniesApi.md#getChildCompaniesTags) | **GET** /companies/{company_id}/children/tags | Get Child Companies Tags |
+| [**getCompanyChildCompanies()**](ChildCompaniesApi.md#getCompanyChildCompanies) | **GET** /companies/{company_id}/children | Get Company Child Companies |
+| [**linkChildToCustomFieldType()**](ChildCompaniesApi.md#linkChildToCustomFieldType) | **PUT** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Link a child company to a plant custom field type |
+| [**unlinkChildFromCustomFieldType()**](ChildCompaniesApi.md#unlinkChildFromCustomFieldType) | **DELETE** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Unlink a child company from a plant custom field type |
 
 
 ## `getAllCustomFieldTypesOfChildCompany()`
@@ -51,10 +51,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **child_company_id** | **int**| The id of the child company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **child_company_id** | **int**| The id of the child company | |
 
 ### Return type
 
@@ -112,9 +112,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
 
 ### Return type
 
@@ -172,9 +172,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
 
 ### Return type
 
@@ -234,11 +234,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **child_company_id** | **int**| The id of the child company |
- **custom_field_id** | **int**| The id of the custom field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **child_company_id** | **int**| The id of the child company | |
+| **custom_field_id** | **int**| The id of the custom field | |
 
 ### Return type
 
@@ -298,11 +298,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **child_company_id** | **int**| The id of the child company |
- **custom_field_id** | **int**| The id of the custom field |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **child_company_id** | **int**| The id of the child company | |
+| **custom_field_id** | **int**| The id of the custom field | |
 
 ### Return type
 

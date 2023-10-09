@@ -1,12 +1,12 @@
 # SunDataMetropolisClient\MetersApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createMeter()**](MetersApi.md#createMeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
-[**getMeterById()**](MetersApi.md#getMeterById) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
-[**updateMeter()**](MetersApi.md#updateMeter) | **PUT** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Update Meter
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createMeter()**](MetersApi.md#createMeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter |
+| [**getMeterById()**](MetersApi.md#getMeterById) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID |
+| [**updateMeter()**](MetersApi.md#updateMeter) | **PUT** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Update Meter |
 
 
 ## `createMeter()`
@@ -38,7 +38,7 @@ $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
 );
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
-$create_meter_payload = new \SunDataMetropolisClient\Model\CreateMeterPayload(); // \SunDataMetropolisClient\Model\CreateMeterPayload
+$create_meter_payload = new \SunDataMetropolisClient\Model\CreateMeterPayload(); // \SunDataMetropolisClient\Model\CreateMeterPayload | 
 
 try {
     $result = $apiInstance->createMeter($company_id, $plant_id, $create_meter_payload);
@@ -50,11 +50,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **create_meter_payload** | [**\SunDataMetropolisClient\Model\CreateMeterPayload**](../Model/CreateMeterPayload.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **create_meter_payload** | [**\SunDataMetropolisClient\Model\CreateMeterPayload**](../Model/CreateMeterPayload.md)|  | [optional] |
 
 ### Return type
 
@@ -114,11 +114,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **meter_id** | **int**| The id of the meter |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **meter_id** | **int**| The id of the meter | |
 
 ### Return type
 
@@ -167,7 +167,7 @@ $apiInstance = new SunDataMetropolisClient\Api\MetersApi(
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
 $meter_id = 56; // int | The id of the meter
-$meter_update_payload = new \SunDataMetropolisClient\Model\MeterUpdatePayload(); // \SunDataMetropolisClient\Model\MeterUpdatePayload
+$meter_update_payload = new \SunDataMetropolisClient\Model\MeterUpdatePayload(); // \SunDataMetropolisClient\Model\MeterUpdatePayload | 
 
 try {
     $result = $apiInstance->updateMeter($company_id, $plant_id, $meter_id, $meter_update_payload);
@@ -179,12 +179,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **meter_id** | **int**| The id of the meter |
- **meter_update_payload** | [**\SunDataMetropolisClient\Model\MeterUpdatePayload**](../Model/MeterUpdatePayload.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **meter_id** | **int**| The id of the meter | |
+| **meter_update_payload** | [**\SunDataMetropolisClient\Model\MeterUpdatePayload**](../Model/MeterUpdatePayload.md)|  | [optional] |
 
 ### Return type
 

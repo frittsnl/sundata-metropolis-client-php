@@ -1,19 +1,19 @@
 # SunDataMetropolisClient\PlantsApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**attachChildCompany()**](PlantsApi.md#attachChildCompany) | **PUT** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Attach a child company to the plant
-[**attachTag()**](PlantsApi.md#attachTag) | **PUT** /companies/{company_id}/plants/{plant_id}/tags/{tag_id} | Attach a tag to the plant
-[**createPlant()**](PlantsApi.md#createPlant) | **POST** /companies/{company_id}/plants | Create Plant
-[**detachChildCompany()**](PlantsApi.md#detachChildCompany) | **DELETE** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Detach a child company from the plant
-[**detachTag()**](PlantsApi.md#detachTag) | **DELETE** /companies/{company_id}/plants/{plant_id}/tags/{tag_id} | Detach a tag from the plant
-[**getPlantById()**](PlantsApi.md#getPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
-[**getPlantCompanies()**](PlantsApi.md#getPlantCompanies) | **GET** /companies/{company_id}/plants/{plant_id}/companies | Get all companies attached to the plant
-[**getPlantTags()**](PlantsApi.md#getPlantTags) | **GET** /companies/{company_id}/plants/{plant_id}/tags | Get all tags attached to the plant
-[**getPlants()**](PlantsApi.md#getPlants) | **GET** /companies/{company_id}/plants | Plants
-[**updatePlant()**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**attachChildCompany()**](PlantsApi.md#attachChildCompany) | **PUT** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Attach a child company to the plant |
+| [**attachTag()**](PlantsApi.md#attachTag) | **PUT** /companies/{company_id}/plants/{plant_id}/tags/{tag_id} | Attach a tag to the plant |
+| [**createPlant()**](PlantsApi.md#createPlant) | **POST** /companies/{company_id}/plants | Create Plant |
+| [**detachChildCompany()**](PlantsApi.md#detachChildCompany) | **DELETE** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Detach a child company from the plant |
+| [**detachTag()**](PlantsApi.md#detachTag) | **DELETE** /companies/{company_id}/plants/{plant_id}/tags/{tag_id} | Detach a tag from the plant |
+| [**getPlantById()**](PlantsApi.md#getPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details |
+| [**getPlantCompanies()**](PlantsApi.md#getPlantCompanies) | **GET** /companies/{company_id}/plants/{plant_id}/companies | Get all companies attached to the plant |
+| [**getPlantTags()**](PlantsApi.md#getPlantTags) | **GET** /companies/{company_id}/plants/{plant_id}/tags | Get all tags attached to the plant |
+| [**getPlants()**](PlantsApi.md#getPlants) | **GET** /companies/{company_id}/plants | Plants |
+| [**updatePlant()**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant |
 
 
 ## `attachChildCompany()`
@@ -57,11 +57,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **child_company_id** | **int**| The id of the child company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **child_company_id** | **int**| The id of the child company | |
 
 ### Return type
 
@@ -121,11 +121,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **tag_id** | **int**| The id of the tag |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **tag_id** | **int**| The id of the tag | |
 
 ### Return type
 
@@ -173,7 +173,7 @@ $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
 );
 $company_id = 56; // int | The id of the company
 $with = tags,custom_fields,companies,meters,notes; // string | May contain all or some of the following values\\: `tags`, `custom_fields`, `companies`, `meters`, `notes`
-$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload
+$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload | 
 
 try {
     $result = $apiInstance->createPlant($company_id, $with, $plant_payload);
@@ -185,11 +185,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional]
- **plant_payload** | [**\SunDataMetropolisClient\Model\PlantPayload**](../Model/PlantPayload.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional] |
+| **plant_payload** | [**\SunDataMetropolisClient\Model\PlantPayload**](../Model/PlantPayload.md)|  | [optional] |
 
 ### Return type
 
@@ -249,11 +249,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **child_company_id** | **int**| The id of the child company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **child_company_id** | **int**| The id of the child company | |
 
 ### Return type
 
@@ -313,11 +313,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **tag_id** | **int**| The id of the tag |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **tag_id** | **int**| The id of the tag | |
 
 ### Return type
 
@@ -377,11 +377,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional] |
 
 ### Return type
 
@@ -440,10 +440,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
 
 ### Return type
 
@@ -502,10 +502,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
 
 ### Return type
 
@@ -570,16 +570,16 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional]
- **query** | **string**|  | [optional]
- **street** | **string**|  | [optional]
- **postal_code** | **string**|  | [optional]
- **city** | **string**|  | [optional]
- **reference_identifier** | **string**|  | [optional]
- **page** | **int**| Page of the search results | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional] |
+| **query** | **string**|  | [optional] |
+| **street** | **string**|  | [optional] |
+| **postal_code** | **string**|  | [optional] |
+| **city** | **string**|  | [optional] |
+| **reference_identifier** | **string**|  | [optional] |
+| **page** | **int**| Page of the search results | [optional] |
 
 ### Return type
 
@@ -628,7 +628,7 @@ $apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
 $company_id = 56; // int | The id of the company
 $plant_id = 56; // int | The id of the plant
 $with = tags,custom_fields,companies,meters,notes; // string | May contain all or some of the following values\\: `tags`, `custom_fields`, `companies`, `meters`, `notes`
-$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload
+$plant_payload = new \SunDataMetropolisClient\Model\PlantPayload(); // \SunDataMetropolisClient\Model\PlantPayload | 
 
 try {
     $result = $apiInstance->updatePlant($company_id, $plant_id, $with, $plant_payload);
@@ -640,12 +640,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **plant_id** | **int**| The id of the plant |
- **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional]
- **plant_payload** | [**\SunDataMetropolisClient\Model\PlantPayload**](../Model/PlantPayload.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **with** | **string**| May contain all or some of the following values\\: &#x60;tags&#x60;, &#x60;custom_fields&#x60;, &#x60;companies&#x60;, &#x60;meters&#x60;, &#x60;notes&#x60; | [optional] |
+| **plant_payload** | [**\SunDataMetropolisClient\Model\PlantPayload**](../Model/PlantPayload.md)|  | [optional] |
 
 ### Return type
 

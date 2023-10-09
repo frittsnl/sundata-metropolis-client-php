@@ -1,16 +1,16 @@
 # SunDataMetropolisClient\CompaniesApi
 
-All URIs are relative to /api/v0.
+All URIs are relative to /api/v0, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCompany()**](CompaniesApi.md#getCompany) | **GET** /companies/{company_id} | Get a company
-[**getCompanyInboundDrivers()**](CompaniesApi.md#getCompanyInboundDrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Inbound Drivers attached to company
-[**getCompanyTags()**](CompaniesApi.md#getCompanyTags) | **GET** /companies/{company_id}/tags | Get Company Tags
-[**getCompanyTicket()**](CompaniesApi.md#getCompanyTicket) | **GET** /companies/{company_id}/tickets/{ticket_id} | Get a ticket of a company
-[**getCompanyTickets()**](CompaniesApi.md#getCompanyTickets) | **GET** /companies/{company_id}/tickets | Get all tickets of a company
-[**getCompanyVisibleInboundDrivers()**](CompaniesApi.md#getCompanyVisibleInboundDrivers) | **GET** /companies/{company_id}/visible-inbound-drivers | Get Inbound Drivers visible to the company
-[**getCustomFieldTypes()**](CompaniesApi.md#getCustomFieldTypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getCompany()**](CompaniesApi.md#getCompany) | **GET** /companies/{company_id} | Get a company |
+| [**getCompanyInboundDrivers()**](CompaniesApi.md#getCompanyInboundDrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Inbound Drivers attached to company |
+| [**getCompanyTags()**](CompaniesApi.md#getCompanyTags) | **GET** /companies/{company_id}/tags | Get Company Tags |
+| [**getCompanyTicket()**](CompaniesApi.md#getCompanyTicket) | **GET** /companies/{company_id}/tickets/{ticket_id} | Get a ticket of a company |
+| [**getCompanyTickets()**](CompaniesApi.md#getCompanyTickets) | **GET** /companies/{company_id}/tickets | Get all tickets of a company |
+| [**getCompanyVisibleInboundDrivers()**](CompaniesApi.md#getCompanyVisibleInboundDrivers) | **GET** /companies/{company_id}/visible-inbound-drivers | Get Inbound Drivers visible to the company |
+| [**getCustomFieldTypes()**](CompaniesApi.md#getCustomFieldTypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types |
 
 
 ## `getCompany()`
@@ -52,9 +52,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
 
 ### Return type
 
@@ -112,9 +112,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
 
 ### Return type
 
@@ -172,9 +172,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
 
 ### Return type
 
@@ -234,11 +234,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **ticket_id** | **int**| The id of the ticket |
- **with** | **string**| May contain all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **ticket_id** | **int**| The id of the ticket | |
+| **with** | **string**| May contain all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional] |
 
 ### Return type
 
@@ -299,12 +299,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
- **page** | **int**|  | [optional]
- **ticket_status** | **string**|  | [optional]
- **with** | **string**| May contain all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **page** | **int**|  | [optional] |
+| **ticket_status** | **string**|  | [optional] |
+| **with** | **string**| May contain all or some of the following values\\: &#x60;plant&#x60;, &#x60;assignees&#x60;, &#x60;assignments&#x60; | [optional] |
 
 ### Return type
 
@@ -362,9 +362,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
 
 ### Return type
 
@@ -422,9 +422,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| The id of the company |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
 
 ### Return type
 

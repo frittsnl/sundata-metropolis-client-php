@@ -102,7 +102,7 @@ $apiInstance = new SunDataMetropolisClient\Api\CreatingAMeterApi(
     $config
 );
 $company_id = 56; // int | The id of the company
-$account_name = sundata; // string | The name of the account. It can be found using the driver-accounts endpoint.
+$account_name = sundata_enphase; // string | The name of the account. It can be found using the driver-accounts endpoint.
 
 try {
     $result = $apiInstance->getCredentialCompositions($company_id, $account_name);

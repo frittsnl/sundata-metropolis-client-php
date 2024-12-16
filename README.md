@@ -1,22 +1,65 @@
 # OpenAPIClient-php
 
-### Requirements
+### Getting Started
+#### Requirements
 * an account with the credentials;
   * e-mail address
   * password
-### Getting Started
+#### Signing In
 1. Use the Sign-In endpoint to obtain a bearer token.
   * open the 'authorize' of the swagger and paste the bearer-token here
   * note: the authorization is persisted in the swagger but eventually the token will expire
 2. Use the user/me/companies endpoint to find out which company_ids are associated with the account
 3. Validate by using, for example, the Companies endpoint (GET)
   * fill the company-id
-### Upgrade guide
+#### Resources
+Check out [support.sundata.nl](https://support.sundata.nl) to access our knowledge base.
+This contains 
+[articles about the credentials](https://support.sundata.nl/nl/collections/2594438-instructies-per-omvormer-merk)
+that are needed for creating a meter.
+
+### Changelog
+This API uses semantic versioning.
+In short; with any breaking change we'll increase the first number of the version.
 * v1.6.0
   * Adds the plant-tags endpoints, for attaching and detaching tags
 * v2.0.0
   * Attaching tags and companies during plant creation or updating is no longer supported.
-    These should now be attached using the plant-tags and plant-companies endpoints.
+    These must now be attached using the plant-tags and plant-companies endpoints.
+* v2.1.0
+  * Added yield endpoints for company, plant and meter.
+* v2.2.0
+  * Added driver-account- and credentials-composition endpoints.
+You can find these under the tag: Creating a meter (also new).
+  * Added the option the create a meter using credential-fields instead of reference_identifier.
+Using the reference_identifier is still supported for now.
+* v2.3.0
+  * Added Plant time_zone property
+* v3.0.0
+  * BREAKING Removed `/companies/{company_id}/inbound-drivers` and `/companies/{company_id}/visible-inbound-drivers`.
+  * Added `/companies/{company_id}/visible-driver-accounts`. Note; `/companies/{company_id}/driver-accounts` was already available.
+  * Fixed typo in documentation and rephrased documentation regarding driver_accounts.
+  * Update docs on updating a meter.
+* v3.0.1
+  * Added links in this documentation to `support.sundata.nl`, specifically for create meters.
+* v3.1.0
+  * Added `/utilities/validate/credentials`. This can be useful when creating meters.
+  * All fields are now optional when updating a meter.
+  * These fields are now completely ignored when updating a meter (instead of returning 4XX); reference_identifier, inbound_driver, inbound_driver_id.
+* v4.0.0
+  * Removed reference_identifier from responses (e.g. update meter and index meters)
+  * Removed inbound_driver_id from responses
+* v5.0.0 **Scheduled** January 2025 (move up from v4.0.0)
+  *  P90 will no longer be supported anywhere in this API. This affects creating, updating, and retrieving a meter. 
+Any P90 fields will be removed from the response, and any P90 fields in requests will be ignored.
+  * All weather_station_id fields will be removed from the responses.
+
+### Upcoming Changes
+#### January 2025: P90 removal
+P90 will no longer be supported anywhere in this API. This affects creating, updating, and retrieving a meter. 
+Any P90 fields will be removed from the response, and any P90 fields in requests will be ignored.
+#### January 2025: weather_station_id removal
+All weather_station_id fields will be removed from the responses.
 
 
 For more information, please visit [https://www.sundata.nl](https://www.sundata.nl).
@@ -101,17 +144,22 @@ Class | Method | HTTP request | Description
 *ChildCompaniesApi* | [**linkChildToCustomFieldType**](docs/Api/ChildCompaniesApi.md#linkchildtocustomfieldtype) | **PUT** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Link a child company to a plant custom field type
 *ChildCompaniesApi* | [**unlinkChildFromCustomFieldType**](docs/Api/ChildCompaniesApi.md#unlinkchildfromcustomfieldtype) | **DELETE** /companies/{company_id}/children/{child_company_id}/plant-custom-field-types/{custom_field_id} | Unlink a child company from a plant custom field type
 *CompaniesApi* | [**getCompany**](docs/Api/CompaniesApi.md#getcompany) | **GET** /companies/{company_id} | Get a company
-*CompaniesApi* | [**getCompanyInboundDrivers**](docs/Api/CompaniesApi.md#getcompanyinbounddrivers) | **GET** /companies/{company_id}/inbound-drivers | Get Inbound Drivers attached to company
 *CompaniesApi* | [**getCompanyTags**](docs/Api/CompaniesApi.md#getcompanytags) | **GET** /companies/{company_id}/tags | Get Company Tags
 *CompaniesApi* | [**getCompanyTicket**](docs/Api/CompaniesApi.md#getcompanyticket) | **GET** /companies/{company_id}/tickets/{ticket_id} | Get a ticket of a company
 *CompaniesApi* | [**getCompanyTickets**](docs/Api/CompaniesApi.md#getcompanytickets) | **GET** /companies/{company_id}/tickets | Get all tickets of a company
-*CompaniesApi* | [**getCompanyVisibleInboundDrivers**](docs/Api/CompaniesApi.md#getcompanyvisibleinbounddrivers) | **GET** /companies/{company_id}/visible-inbound-drivers | Get Inbound Drivers visible to the company
+*CompaniesApi* | [**getCompanyYield**](docs/Api/CompaniesApi.md#getcompanyyield) | **GET** /companies/{company_id}/yield | Get the yield for a company over a period
 *CompaniesApi* | [**getCustomFieldTypes**](docs/Api/CompaniesApi.md#getcustomfieldtypes) | **GET** /companies/{company_id}/plant-custom-field-types | Get Company Custom Field types
+*CompaniesApi* | [**getDriverAccounts_0**](docs/Api/CompaniesApi.md#getdriveraccounts_0) | **GET** /companies/{company_id}/driver-accounts | Get all driver accounts that are available to the company.
+*CompaniesApi* | [**getVisibleDriverAccounts**](docs/Api/CompaniesApi.md#getvisibledriveraccounts) | **GET** /companies/{company_id}/visible-driver-accounts | Get all driver accounts that are VISIBLE to the company.
 *ContactsApi* | [**createPlantContact**](docs/Api/ContactsApi.md#createplantcontact) | **POST** /companies/{company_id}/plants/{plant_id}/contacts | Create a new plant contact
 *ContactsApi* | [**deletePlantContact**](docs/Api/ContactsApi.md#deleteplantcontact) | **DELETE** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Delete a plant contact
 *ContactsApi* | [**getPlantContact**](docs/Api/ContactsApi.md#getplantcontact) | **GET** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Get a single plant contact
 *ContactsApi* | [**getPlantContacts**](docs/Api/ContactsApi.md#getplantcontacts) | **GET** /companies/{company_id}/plants/{plant_id}/contacts | Get all contacts for a plant
 *ContactsApi* | [**updatePlantContact**](docs/Api/ContactsApi.md#updateplantcontact) | **PUT** /companies/{company_id}/plants/{plant_id}/contacts/{contact_id} | Update a plant contact
+*CreatingAMeterApi* | [**createMeter_0**](docs/Api/CreatingAMeterApi.md#createmeter_0) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
+*CreatingAMeterApi* | [**getCredentialCompositions**](docs/Api/CreatingAMeterApi.md#getcredentialcompositions) | **GET** /companies/{company_id}/driver-accounts/{account_name}/credential-compositions | Get the allowed compositions of credentials for a given driver accounts
+*CreatingAMeterApi* | [**getDriverAccounts**](docs/Api/CreatingAMeterApi.md#getdriveraccounts) | **GET** /companies/{company_id}/driver-accounts | Get all driver accounts that are available to the company.
+*CreatingAMeterApi* | [**validateCredentials**](docs/Api/CreatingAMeterApi.md#validatecredentials) | **PUT** /utilities/validate/credentials | Validate whether credentials are valid.
 *CustomFieldsApi* | [**createPlantCustomFields**](docs/Api/CustomFieldsApi.md#createplantcustomfields) | **POST** /companies/{company_id}/plants/{plant_id}/custom-fields | Create Plant Custom Fields
 *CustomFieldsApi* | [**deletePlantCustomField**](docs/Api/CustomFieldsApi.md#deleteplantcustomfield) | **DELETE** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Delete plant custom field
 *CustomFieldsApi* | [**getPlantCustomField**](docs/Api/CustomFieldsApi.md#getplantcustomfield) | **GET** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Get a plant custom field
@@ -119,6 +167,7 @@ Class | Method | HTTP request | Description
 *CustomFieldsApi* | [**updatePlantCustomField**](docs/Api/CustomFieldsApi.md#updateplantcustomfield) | **PUT** /companies/{company_id}/plants/{plant_id}/custom-fields/{custom_field_id} | Update plant custom field
 *MetersApi* | [**createMeter**](docs/Api/MetersApi.md#createmeter) | **POST** /companies/{company_id}/plants/{plant_id}/meters | Create Plant Meter
 *MetersApi* | [**getMeterById**](docs/Api/MetersApi.md#getmeterbyid) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Get Meter by ID
+*MetersApi* | [**getMeterYield**](docs/Api/MetersApi.md#getmeteryield) | **GET** /companies/{company_id}/plants/{plant_id}/meters/{meter_id}/yield | Get the yield for a meter over a period
 *MetersApi* | [**updateMeter**](docs/Api/MetersApi.md#updatemeter) | **PUT** /companies/{company_id}/plants/{plant_id}/meters/{meter_id} | Update Meter
 *PlantsApi* | [**attachChildCompany**](docs/Api/PlantsApi.md#attachchildcompany) | **PUT** /companies/{company_id}/plants/{plant_id}/companies/{child_company_id} | Attach a child company to the plant
 *PlantsApi* | [**attachTag**](docs/Api/PlantsApi.md#attachtag) | **PUT** /companies/{company_id}/plants/{plant_id}/tags/{tag_id} | Attach a tag to the plant
@@ -128,6 +177,7 @@ Class | Method | HTTP request | Description
 *PlantsApi* | [**getPlantById**](docs/Api/PlantsApi.md#getplantbyid) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details
 *PlantsApi* | [**getPlantCompanies**](docs/Api/PlantsApi.md#getplantcompanies) | **GET** /companies/{company_id}/plants/{plant_id}/companies | Get all companies attached to the plant
 *PlantsApi* | [**getPlantTags**](docs/Api/PlantsApi.md#getplanttags) | **GET** /companies/{company_id}/plants/{plant_id}/tags | Get all tags attached to the plant
+*PlantsApi* | [**getPlantYield**](docs/Api/PlantsApi.md#getplantyield) | **GET** /companies/{company_id}/plants/{plant_id}/yield | Get the yield for a plant over a period
 *PlantsApi* | [**getPlants**](docs/Api/PlantsApi.md#getplants) | **GET** /companies/{company_id}/plants | Plants
 *PlantsApi* | [**updatePlant**](docs/Api/PlantsApi.md#updateplant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant
 *SignInApi* | [**signIn**](docs/Api/SignInApi.md#signin) | **POST** /sign-in | Obtain a bearer token and sign-in
@@ -148,10 +198,12 @@ Class | Method | HTTP request | Description
 - [ChildCompaniesTagsResponse](docs/Model/ChildCompaniesTagsResponse.md)
 - [ChildCompanyCustomFieldTypeResponse](docs/Model/ChildCompanyCustomFieldTypeResponse.md)
 - [ChildCompanyCustomFieldTypeResponsePivot](docs/Model/ChildCompanyCustomFieldTypeResponsePivot.md)
+- [CompaniescompanyIddriveraccountsaccountNamecredentialcompositionsCredentialFields](docs/Model/CompaniescompanyIddriveraccountsaccountNamecredentialcompositionsCredentialFields.md)
 - [Company](docs/Model/Company.md)
 - [Contact](docs/Model/Contact.md)
 - [ContactBasic](docs/Model/ContactBasic.md)
-- [CreateMeterPayload](docs/Model/CreateMeterPayload.md)
+- [CreateMeterPayloadCredentialFields](docs/Model/CreateMeterPayloadCredentialFields.md)
+- [CreateMeterPayloadRefId](docs/Model/CreateMeterPayloadRefId.md)
 - [CustomField](docs/Model/CustomField.md)
 - [CustomFieldCreatePayload](docs/Model/CustomFieldCreatePayload.md)
 - [CustomFieldResponse](docs/Model/CustomFieldResponse.md)
@@ -159,14 +211,16 @@ Class | Method | HTTP request | Description
 - [CustomFieldUpdatePayload](docs/Model/CustomFieldUpdatePayload.md)
 - [GetPaginatedPlantsResponse](docs/Model/GetPaginatedPlantsResponse.md)
 - [GetPlantResponse](docs/Model/GetPlantResponse.md)
-- [InboundDriver](docs/Model/InboundDriver.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
+- [InlineResponse2001](docs/Model/InlineResponse2001.md)
+- [InlineResponse2002](docs/Model/InlineResponse2002.md)
 - [Meter](docs/Model/Meter.md)
 - [MeterUpdatePayload](docs/Model/MeterUpdatePayload.md)
 - [Note](docs/Model/Note.md)
 - [Plant](docs/Model/Plant.md)
 - [PlantBasic](docs/Model/PlantBasic.md)
 - [PlantCreateResponse](docs/Model/PlantCreateResponse.md)
+- [PlantIdMetersBody](docs/Model/PlantIdMetersBody.md)
 - [PlantPayload](docs/Model/PlantPayload.md)
 - [PlantUpdateResponse](docs/Model/PlantUpdateResponse.md)
 - [Request](docs/Model/Request.md)
@@ -176,6 +230,10 @@ Class | Method | HTTP request | Description
 - [TicketAssignee](docs/Model/TicketAssignee.md)
 - [TicketBasic](docs/Model/TicketBasic.md)
 - [User](docs/Model/User.md)
+- [ValidateCredentials](docs/Model/ValidateCredentials.md)
+- [ValidateCredentialsResponse](docs/Model/ValidateCredentialsResponse.md)
+- [Yields](docs/Model/Yields.md)
+- [YieldsData](docs/Model/YieldsData.md)
 
 ## Authorization
 
@@ -201,5 +259,6 @@ admin@sundata.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0`
+- API version: `4.0.0`
+    - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

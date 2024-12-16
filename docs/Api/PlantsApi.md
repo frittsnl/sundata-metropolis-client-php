@@ -12,6 +12,7 @@ All URIs are relative to /api/v0, except if the operation defines another base p
 | [**getPlantById()**](PlantsApi.md#getPlantById) | **GET** /companies/{company_id}/plants/{plant_id} | Plant details |
 | [**getPlantCompanies()**](PlantsApi.md#getPlantCompanies) | **GET** /companies/{company_id}/plants/{plant_id}/companies | Get all companies attached to the plant |
 | [**getPlantTags()**](PlantsApi.md#getPlantTags) | **GET** /companies/{company_id}/plants/{plant_id}/tags | Get all tags attached to the plant |
+| [**getPlantYield()**](PlantsApi.md#getPlantYield) | **GET** /companies/{company_id}/plants/{plant_id}/yield | Get the yield for a plant over a period |
 | [**getPlants()**](PlantsApi.md#getPlants) | **GET** /companies/{company_id}/plants | Plants |
 | [**updatePlant()**](PlantsApi.md#updatePlant) | **PUT** /companies/{company_id}/plants/{plant_id} | Update Plant |
 
@@ -524,10 +525,80 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPlantYield()`
+
+```php
+getPlantYield($company_id, $plant_id, $start_date, $end_date, $period_type, $yield_type): \SunDataMetropolisClient\Model\Yields
+```
+
+Get the yield for a plant over a period
+
+Returns the yield in sub-periods over a larger period of time.  * All the meters that are attached to the plant are considered.   * The timezone of the plant is used, which by default is Europe/Amsterdam.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = SunDataMetropolisClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new SunDataMetropolisClient\Api\PlantsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$company_id = 56; // int | The id of the company
+$plant_id = 56; // int | The id of the plant
+$start_date = 'start_date_example'; // string
+$end_date = 'end_date_example'; // string
+$period_type = 'period_type_example'; // string | note, hour is not available for company-yield
+$yield_type = 'yield_type_example'; // string
+
+try {
+    $result = $apiInstance->getPlantYield($company_id, $plant_id, $start_date, $end_date, $period_type, $yield_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlantsApi->getPlantYield: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| The id of the company | |
+| **plant_id** | **int**| The id of the plant | |
+| **start_date** | **string**|  | |
+| **end_date** | **string**|  | |
+| **period_type** | **string**| note, hour is not available for company-yield | |
+| **yield_type** | **string**|  | |
+
+### Return type
+
+[**\SunDataMetropolisClient\Model\Yields**](../Model/Yields.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getPlants()`
 
 ```php
-getPlants($company_id, $with, $query, $street, $postal_code, $city, $reference_identifier, $page): \SunDataMetropolisClient\Model\GetPaginatedPlantsResponse
+getPlants($company_id, $with, $query, $street, $postal_code, $city, $page): \SunDataMetropolisClient\Model\GetPaginatedPlantsResponse
 ```
 
 Plants
@@ -557,11 +628,10 @@ $query = Familie de Vries; // string
 $street = Maliesingel; // string
 $postal_code = 3581BK; // string
 $city = Utrecht; // string
-$reference_identifier = 'reference_identifier_example'; // string
 $page = 2; // int | Page of the search results
 
 try {
-    $result = $apiInstance->getPlants($company_id, $with, $query, $street, $postal_code, $city, $reference_identifier, $page);
+    $result = $apiInstance->getPlants($company_id, $with, $query, $street, $postal_code, $city, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlantsApi->getPlants: ', $e->getMessage(), PHP_EOL;
@@ -578,7 +648,6 @@ try {
 | **street** | **string**|  | [optional] |
 | **postal_code** | **string**|  | [optional] |
 | **city** | **string**|  | [optional] |
-| **reference_identifier** | **string**|  | [optional] |
 | **page** | **int**| Page of the search results | [optional] |
 
 ### Return type

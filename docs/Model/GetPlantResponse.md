@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **owning_company_id** | **int** |  | [optional]
 **weather_station_id** | **int** |  | [optional]
 **monitored_since** | **\DateTime** |  | [optional]
+**time_zone** | **string** |  | [optional]
 **address** | [**\SunDataMetropolisClient\Model\Address**](Address.md) |  | [optional]
 **tags** | [**\SunDataMetropolisClient\Model\Tag[]**](Tag.md) |  | [optional]
 **custom_fields** | [**\SunDataMetropolisClient\Model\CustomField[]**](CustomField.md) |  | [optional]
